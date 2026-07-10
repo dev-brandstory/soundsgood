@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Sounds Good — Responsive Overrides
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card--experience,
+  .stat-card--audiologists {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 991px) {
+  .social-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-banner,
+  .hero-banner__slider {
+    min-height: 520px;
+  }
+
+  .hero-banner__content {
+    padding: var(--space-10) 0 var(--space-11);
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: auto;
+  }
+
+  .stat-card__bubble {
+    position: static;
+    margin-top: var(--space-4);
+    max-width: 100%;
+  }
+
+  .stat-card__badge {
+    position: static;
+    margin-top: var(--space-6);
+    width: auto;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .moments-tabs__nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--space-2);
+  }
+
+  .moments-tabs__btn {
+    flex-shrink: 0;
+  }
+
+  .moments-tabs__panel {
+    padding: var(--space-5);
+  }
+
+  .hero-banner,
+  .hero-banner__slider {
+    min-height: 480px;
+  }
+
+  .hero-banner__content {
+    max-width: 100%;
+    padding: var(--space-8) 0 var(--space-10);
+  }
+
+  .section {
+    padding-block: var(--space-10);
+  }
+
+  .site-footer__cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 575px) {
+  .social-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
