@@ -238,20 +238,6 @@
 	</div>
 </section>
 
-<!-- ===== Location CTA ===== -->
-<section class="location-cta section-none" aria-labelledby="location-cta-heading">
-	<div class="location-cta__inner">
-		<div class="container">
-			<div class="location-cta__content" data-aos="fade-up">
-				<span class="location-cta__tag">Madurai</span>
-				<h2 id="location-cta-heading">We Are Closer To You Than You Think!</h2>
-				<p>Find your nearest Sounds Good centre and speak with our audiologists today.</p>
-				<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Find a Centre</a>
-			</div>
-		</div>
-	</div>
-</section>
-
 <!-- ===== Home Visit CTA ===== -->
 <section class="home-visit section bg-secondary-pale" aria-labelledby="home-visit-heading">
 	<div class="container">

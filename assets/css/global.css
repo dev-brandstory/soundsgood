@@ -763,8 +763,9 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: transparent;
+  background-color: var(--color-white);
   color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .btn-secondary {
