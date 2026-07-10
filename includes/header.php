@@ -77,7 +77,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
-					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'about.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
 				</ul>
 				<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-outline-accent btn-pill">Book appointment</a>
 			</div>

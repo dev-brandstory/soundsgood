@@ -26,6 +26,80 @@
   .hero-banner__content {
     padding: var(--space-10) 0 var(--space-11);
   }
+
+  /* About — tablet */
+  .page-banner {
+    min-height: 600px;
+  }
+
+  .page-banner__pin--left {
+    left: 55%;
+    top: 8%;
+    width: 60px;
+  }
+
+  .page-banner__pin--right {
+    right: 8%;
+    width: 52px;
+  }
+
+  .about-carousel__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-carousel__grid .about-carousel__item:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+
+  .about-feature__pin--right {
+    width: 90px;
+    left: 40%;
+  }
+
+  .about-touch__gallery {
+    gap: var(--space-4);
+  }
+
+  /* Footer location — tablet / stacked curve layout */
+  .footer-location__card {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    min-height: auto;
+    background: #e5ebfa;
+    border: 3px solid var(--color-white);
+    border-radius: 20px;
+  }
+
+  .footer-location__map-glow {
+    display: none;
+  }
+
+  .footer-location__content {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    padding: var(--space-8) var(--space-7) var(--space-10);
+    margin-bottom: -36px;
+    background: var(--color-secondary);
+    border-radius: 17px 17px 50% 50% / 17px 17px 72px 72px;
+  }
+
+  .footer-location__map {
+    position: relative;
+    z-index: 1;
+    min-height: 300px;
+    padding: var(--space-10) var(--space-5) var(--space-8);
+    background: transparent;
+  }
+
+  .footer-location__pin img {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -83,6 +157,141 @@
   .site-footer__cta-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* About — mobile */
+  .page-banner {
+    min-height: 600px;
+    align-items: flex-start;
+  }
+
+  .page-banner__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.15) 45%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
+  }
+
+  .page-banner__content {
+    max-width: 100%;
+    padding: var(--space-10) 0 var(--space-8);
+  }
+
+  .page-banner__content h1 {
+    font-size: 32px;
+  }
+
+  .page-banner__pin {
+    display: none;
+  }
+
+  .about-bringing__intro p {
+    font-size: var(--font-size-base);
+  }
+
+  .about-carousel__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-carousel__grid .about-carousel__item:last-child {
+    max-width: 100%;
+  }
+
+  .about-feature__pin {
+    display: none;
+  }
+
+  .about-story__title {
+    margin-bottom: var(--space-3);
+  }
+
+  .about-story__text {
+    font-size: var(--font-size-base);
+  }
+
+  .about-story__divider {
+    margin: var(--space-7) 0;
+  }
+
+  .about-touch__gallery {
+    grid-template-columns: 1fr;
+    max-width: 364px;
+  }
+
+  .about-touch__item--side {
+    display: none;
+  }
+
+  .about-touch__item--center {
+    aspect-ratio: 364 / 401;
+  }
+
+  .about-touch__footer-text {
+    font-size: var(--font-size-base);
+    text-align: start;
+  }
+
+  .about-contact__submit {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  /* Footer location — mobile (Figma stacked curve card) */
+  .footer-location {
+    padding-top: var(--space-7);
+  }
+
+  .footer-location__card {
+    border-radius: 20px;
+  }
+
+  .footer-location__content {
+    padding: 32px 32px 88px;
+    margin-bottom: -48px;
+    border-radius: 17px 17px 50% 50% / 17px 17px 90px 90px;
+  }
+
+  .footer-location__content h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    letter-spacing: -1px;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-location__content p {
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+  }
+
+  .footer-location__map {
+    min-height: 280px;
+    padding: var(--space-10) var(--space-4) var(--space-8);
+  }
+
+  .footer-location__map-stage {
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .footer-location__pin img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-location__tab {
+    font-size: 12px;
+    padding: var(--space-1) var(--space-3);
+  }
+
+  .site-footer__main {
+    padding-top: var(--space-12);
+  }
+
+  .site-footer__logo {
+    margin-top: 0;
   }
 }
 
