@@ -14,7 +14,7 @@
 					<span class="brand-pill">Oticon</span>
 					<span class="brand-pill">Widex</span>
 					<span class="brand-pill">ReSound</span>
-				</div>
+				</div>w
 			</div>
 		</div>
 	</div>

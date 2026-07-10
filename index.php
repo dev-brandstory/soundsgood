@@ -7,49 +7,51 @@
 
 <!-- ===== Hero Banner ===== -->
 <section class="hero-banner section-none" aria-label="Hero banner">
-	<div class="hero-banner__slider" id="heroSlider">
-		<article class="hero-banner__slide is-active" data-slide="0">
-			<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-1.jpg" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
-			<div class="hero-banner__overlay"></div>
-			<div class="container">
-				<div class="hero-banner__content" data-aos="fade-up">
-					<div class="hero-banner__badge">
-						<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
-						<span>Trusted by 5k+ people</span>
+	<div class="hero-banner__viewport">
+		<div class="hero-banner__slider" id="heroSlider">
+			<article class="hero-banner__slide is-active" data-slide="0">
+				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img1.webp" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
+				<div class="hero-banner__overlay"></div>
+				<div class="container">
+					<div class="hero-banner__content" data-aos="fade-up">
+						<div class="hero-banner__badge">
+							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<span>Trusted by 5k+ people</span>
+						</div>
+						<h1>Get Your Life Back</h1>
+						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
 					</div>
-					<h1>Get Your Life Back</h1>
-					<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
 				</div>
-			</div>
-		</article>
-		<article class="hero-banner__slide" data-slide="1">
-			<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-2.jpg" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
-			<div class="hero-banner__overlay"></div>
-			<div class="container">
-				<div class="hero-banner__content" data-aos="fade-up">
-					<div class="hero-banner__badge">
-						<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
-						<span>Trusted by 5k+ people</span>
+			</article>
+			<article class="hero-banner__slide" data-slide="1">
+				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
+				<div class="hero-banner__overlay"></div>
+				<div class="container">
+					<div class="hero-banner__content" data-aos="fade-up">
+						<div class="hero-banner__badge">
+							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<span>Trusted by 5k+ people</span>
+						</div>
+						<h1>Decades of Care. Moments Made Clear.</h1>
+						<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-primary btn-pill">Trust Our Experience</a>
 					</div>
-					<h1>Decades of Care. Moments Made Clear.</h1>
-					<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-primary btn-pill">Trust Our Experience</a>
 				</div>
-			</div>
-		</article>
-		<article class="hero-banner__slide" data-slide="2">
-			<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-3.jpg" alt="Person receiving personalized hearing care" width="1440" height="759" loading="lazy">
-			<div class="hero-banner__overlay"></div>
-			<div class="container">
-				<div class="hero-banner__content" data-aos="fade-up">
-					<div class="hero-banner__badge">
-						<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
-						<span>Trusted by 5k+ people</span>
+			</article>
+			<article class="hero-banner__slide" data-slide="2">
+				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
+				<div class="hero-banner__overlay"></div>
+				<div class="container">
+					<div class="hero-banner__content" data-aos="fade-up">
+						<div class="hero-banner__badge">
+							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<span>Trusted by 5k+ people</span>
+						</div>
+						<h1>Decades of Care. Moments Made Clear.</h1>
+						<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-primary btn-pill">Trust Our Experience</a>
 					</div>
-					<h1>Thoughtful Solutions, Just for You</h1>
-					<a href="<?php echo BASE_URL; ?>hearing-aid.php" class="btn btn-primary btn-pill">Find Your Solution</a>
 				</div>
-			</div>
-		</article>
+			</article>
+		</div>
 	</div>
 	<div class="hero-banner__dots" role="tablist" aria-label="Hero slides">
 		<button type="button" class="hero-banner__dot is-active" data-slide="0" aria-label="Slide 1" aria-selected="true"></button>
@@ -68,7 +70,7 @@
 		</div>
 		<div class="about-intro__media" data-aos="fade-up" data-aos-delay="100">
 			<div class="about-intro__video rounded-xl overflow-hidden">
-				<img src="<?php echo BASE_URL; ?>assets/images/home/about-video.jpg" alt="Audiologist consulting with a patient at Sounds Good Hearing Care" width="1240" height="520" loading="lazy">
+				<img src="<?php echo BASE_URL; ?>assets/images/home/home-intro-img.webp" alt="Audiologist consulting with a patient at Sounds Good Hearing Care" width="100%" height="100%" loading="lazy">
 			</div>
 		</div>
 	</div>
@@ -80,40 +82,43 @@
 		<h2 id="stats-heading" class="sr-only">Our achievements</h2>
 		<div class="stats-grid">
 			<article class="stat-card stat-card--customers" data-aos="fade-up">
-				<p class="stat-card__number">3 Lakh+</p>
-				<p class="stat-card__label">Happy Customers</p>
-				<div class="stat-card__bubble stat-card__bubble--left">Hearing better now. Thank you!</div>
-				<div class="stat-card__bubble stat-card__bubble--right">Happy to support you.</div>
+				<div class="stat-card__content">
+					<p class="stat-card__number">3 Lakh+</p>
+					<p class="stat-card__label">Happy Customers</p>
+				</div>
 			</article>
 			<article class="stat-card stat-card--trusted" data-aos="fade-up" data-aos-delay="50">
-				<p class="stat-card__number">1996</p>
-				<p class="stat-card__label">Trusted Since</p>
-				<div class="stat-card__badge">Trusted since 1996</div>
+				<div class="stat-card__content">
+					<p class="stat-card__number">1996</p>
+					<p class="stat-card__label">Trusted Since</p>
+				</div>
 			</article>
-			<article class="stat-card stat-card--experience" data-aos="fade-up" data-aos-delay="100">
-				<p class="stat-card__number">30+</p>
-				<p class="stat-card__label">Years of Experience</p>
-			</article>
-			<article class="stat-card stat-card--audiologists" data-aos="fade-up" data-aos-delay="150">
-				<p class="stat-card__title">Well-Trained Audiologists</p>
-				<p class="stat-card__sub">10+ Experienced in this field</p>
-			</article>
+
+			<!-- Stacked pair: 30+ Years + Audiologists -->
+			<div class="stats-stack" data-aos="fade-up" data-aos-delay="100">
+				<article class="stat-card stat-card--experience">
+					<div class="stat-card__content">
+						<p class="stat-card__number">30+</p>
+						<p class="stat-card__label">Years of Experience</p>
+					</div>
+				</article>
+				<article class="stat-card stat-card--audiologists">
+					<div class="stat-card__content">
+						<p class="stat-card__title">Well-Trained Audiologists</p>
+					</div>
+				</article>
+			</div>
+
 			<article class="stat-card stat-card--branches" data-aos="fade-up" data-aos-delay="200">
-				<p class="stat-card__number">12+</p>
-				<p class="stat-card__label">Branches</p>
-				<div class="stat-card__map">
-					<p class="stat-card__map-title">Sounds Good Branches</p>
-					<p class="stat-card__map-sub">Open Mon to Sat</p>
-					<a href="<?php echo BASE_URL; ?>contact.php" class="stat-card__map-link">View All Location</a>
+				<div class="stat-card__content">
+					<p class="stat-card__number">12+</p>
+					<p class="stat-card__label">Branches</p>
 				</div>
 			</article>
 			<article class="stat-card stat-card--cities" data-aos="fade-up" data-aos-delay="250">
-				<p class="stat-card__number">9+</p>
-				<p class="stat-card__label">Cities</p>
-				<div class="stat-card__tags">
-					<span>Chennai</span><span>Madurai</span><span>Coimbatore</span>
-					<span>Trichy</span><span>Salem</span><span>Tirunelveli</span>
-					<span>Erode</span><span>Vellore</span><span>Thanjavur</span>
+				<div class="stat-card__content">
+					<p class="stat-card__number">9+</p>
+					<p class="stat-card__label">Cities</p>
 				</div>
 			</article>
 		</div>
@@ -121,61 +126,91 @@
 </section>
 
 <!-- ===== Why Choose Us — Tabs ===== -->
-<section class="moments-section section bg-pale" aria-labelledby="moments-heading">
+<section class="moments-section section" aria-labelledby="moments-heading">
 	<div class="container">
 		<div class="section-header text-center" data-aos="fade-up">
 			<span class="section-label">Why Choose us</span>
 			<h2 id="moments-heading" class="section-title">Your Moments Matter</h2>
 		</div>
-		<div class="moments-tabs" data-aos="fade-up" data-aos-delay="100">
-			<div class="moments-tabs__nav" role="tablist" aria-label="Hearing care services">
-				<button type="button" class="moments-tabs__btn is-active" role="tab" aria-selected="true" aria-controls="tab-panel-1" id="tab-1" data-tab="1">Family Gatherings</button>
-				<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-panel-2" id="tab-2" data-tab="2">Work &amp; Meetings</button>
-				<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-panel-3" id="tab-3" data-tab="3">Outdoor Life</button>
-				<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-panel-4" id="tab-4" data-tab="4">Daily Conversations</button>
-			</div>
-			<div class="moments-tabs__panels">
-				<div class="moments-tabs__panel is-active" role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1">
-					<div class="row align-items-center g-4">
-						<div class="col-lg-6">
-							<h3>Stay Connected With Loved Ones</h3>
-							<p>Hearing clearly during family meals, celebrations, and everyday conversations helps you stay emotionally connected. Our solutions are tuned for real-life listening environments.</p>
-						</div>
-						<div class="col-lg-6">
-							<img class="rounded-xl w-full" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-1.jpg" alt="Family gathering with clear conversation" width="600" height="400" loading="lazy">
-						</div>
-					</div>
+
+		<div class="moments-tabs" id="momentsTabs" data-aos="fade-up" data-aos-delay="100">
+			<div class="moments-tabs__shell">
+				<div class="moments-tabs__nav" role="tablist" aria-label="Hearing care services">
+					<button type="button" class="moments-tabs__btn is-active" role="tab" aria-selected="true" aria-controls="moments-panel" id="tab-1" data-tab="0">Testing</button>
+					<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="moments-panel" id="tab-2" data-tab="1">Servicing</button>
+					<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="moments-panel" id="tab-3" data-tab="2">Speech Therapy</button>
+					<button type="button" class="moments-tabs__btn" role="tab" aria-selected="false" aria-controls="moments-panel" id="tab-4" data-tab="3">Maintenance and Follow-Up Care</button>
 				</div>
-				<div class="moments-tabs__panel" role="tabpanel" id="tab-panel-2" aria-labelledby="tab-2" hidden>
-					<div class="row align-items-center g-4">
-						<div class="col-lg-6">
-							<h3>Confidence in Every Meeting</h3>
-							<p>From video calls to in-person discussions, we help you hear speech clearly so you can participate fully in professional and social settings.</p>
-						</div>
-						<div class="col-lg-6">
-							<img class="rounded-xl w-full" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-2.jpg" alt="Professional conversation with confidence" width="600" height="400" loading="lazy">
-						</div>
-					</div>
-				</div>
-				<div class="moments-tabs__panel" role="tabpanel" id="tab-panel-3" aria-labelledby="tab-3" hidden>
-					<div class="row align-items-center g-4">
-						<div class="col-lg-6">
-							<h3>Enjoy Life Outdoors</h3>
-							<p>Whether at a park, event, or travel, modern hearing technology adapts to changing environments so you never miss the sounds that matter.</p>
-						</div>
-						<div class="col-lg-6">
-							<img class="rounded-xl w-full" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-3.jpg" alt="Enjoying outdoor activities with better hearing" width="600" height="400" loading="lazy">
-						</div>
-					</div>
-				</div>
-				<div class="moments-tabs__panel" role="tabpanel" id="tab-panel-4" aria-labelledby="tab-4" hidden>
-					<div class="row align-items-center g-4">
-						<div class="col-lg-6">
-							<h3>Everyday Clarity</h3>
-							<p>Phone calls, TV, and one-on-one chats become easier with professionally fitted hearing aids and ongoing audiologist support.</p>
-						</div>
-						<div class="col-lg-6">
-							<img class="rounded-xl w-full" src="<?php echo BASE_URL; ?>assets/images/home/journey.jpg" alt="Daily conversations made clearer" width="600" height="400" loading="lazy">
+
+				<div class="moments-tabs__stage" id="moments-panel" role="tabpanel" aria-labelledby="tab-1">
+					<div class="moments-tabs__card">
+						<div class="moments-tabs__pattern" aria-hidden="true"></div>
+
+						<div class="moments-tabs__layout">
+							<div class="moments-tabs__copy-window">
+								<div class="moments-tabs__copy-reel" id="momentsCopyReel">
+									<article class="moments-tabs__slide">
+										<div class="moments-tabs__heading">
+											<span class="moments-tabs__icon" aria-hidden="true">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5.5 3.5h9A1.5 1.5 0 0 1 16 5v11.5a.5.5 0 0 1-.8.4L12.5 14H5.5A1.5 1.5 0 0 1 4 12.5v-7A1.5 1.5 0 0 1 5.5 3.5Z" stroke="#009C43" stroke-width="1.5"/><path d="M7 7.5h6M7 10.5h4" stroke="#009C43" stroke-width="1.5" stroke-linecap="round"/></svg>
+											</span>
+											<h3>Testing</h3>
+										</div>
+										<p>Comprehensive hearing and balance tests by expert audiologists using advanced diagnostic equipment and modern facilities. Our testing services include Pure tone audiometry, Impedance Audiometry, BERA, ASSR, OAE, VEMP.</p>
+										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+									</article>
+
+									<article class="moments-tabs__slide">
+										<div class="moments-tabs__heading">
+											<span class="moments-tabs__icon" aria-hidden="true">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14.5 14.5 4M8 4h6.5V10.5" stroke="#009C43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 8v6.5H11" stroke="#009C43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+											</span>
+											<h3>Servicing</h3>
+										</div>
+										<p>The hearing aid service lab is in-house and is completely state-of-the-art to guarantee quicker turnaround time, proper diagnosis, and good support whenever you require it.</p>
+										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+									</article>
+
+									<article class="moments-tabs__slide">
+										<div class="moments-tabs__heading">
+											<span class="moments-tabs__icon" aria-hidden="true">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.5 13.5c2.2-1.8 4.3-2.7 6.5-2.7s4.3.9 6.5 2.7" stroke="#009C43" stroke-width="1.5" stroke-linecap="round"/><path d="M5.5 10.2c1.5-1.1 2.9-1.7 4.5-1.7s3 .6 4.5 1.7M7.8 6.8c.7-.5 1.4-.8 2.2-.8s1.5.3 2.2.8" stroke="#009C43" stroke-width="1.5" stroke-linecap="round"/></svg>
+											</span>
+											<h3>Speech Therapy</h3>
+										</div>
+										<p>We offer compassionate speech therapy for children and adults, supporting speech clarity, confidence, and communication at every age.</p>
+										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+									</article>
+
+									<article class="moments-tabs__slide">
+										<div class="moments-tabs__heading">
+											<span class="moments-tabs__icon" aria-hidden="true">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#009C43" stroke-width="1.5"/><circle cx="10" cy="10" r="3.5" stroke="#009C43" stroke-width="1.5"/><circle cx="10" cy="10" r="1.2" fill="#009C43"/></svg>
+											</span>
+											<h3>Maintenance and Follow-Up Care</h3>
+										</div>
+										<p>Regular check-ups, professional cleaning, and ongoing guidance are always available for you and your family, because long-term care matters.</p>
+										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+									</article>
+								</div>
+							</div>
+
+							<div class="moments-tabs__media-window">
+								<div class="moments-tabs__media-reel" id="momentsMediaReel">
+									<figure class="moments-tabs__media-slide">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/journey.jpg" alt="Audiologist performing a hearing test" width="580" height="376" loading="lazy">
+									</figure>
+									<figure class="moments-tabs__media-slide">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/about-video.jpg" alt="Hearing aid servicing in our lab" width="580" height="376" loading="lazy">
+									</figure>
+									<figure class="moments-tabs__media-slide">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Speech therapy session" width="580" height="376" loading="lazy">
+									</figure>
+									<figure class="moments-tabs__media-slide">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Follow-up hearing care appointment" width="580" height="376" loading="lazy">
+									</figure>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

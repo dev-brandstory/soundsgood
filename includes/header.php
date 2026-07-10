@@ -43,7 +43,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <header class="site-header">
 	<!-- Top utility bar -->
 	<div class="header-top d-none d-lg-block">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="header-top__inner flex justify-end items-center gap-4">
 				<div class="header-top__item flex items-center gap-2">
 					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -61,17 +61,17 @@ $current_page = basename($_SERVER['PHP_SELF']);
 	<div class="header-brand">
 		<div class="header-brand__stripe header-brand__stripe--green"></div>
 		<div class="header-brand__stripe header-brand__stripe--navy"></div>
-		<div class="container-fluid">
+		<div class="container">
 			<a class="header-brand__logo" href="<?php echo BASE_URL; ?>" aria-label="Sounds Good Hearing Care — Home">
-				<img src="<?php echo BASE_URL; ?>assets/images/header/logo.svg" alt="Sounds Good Hearing Care" width="178" height="104" loading="eager">
+				<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="Sounds Good Hearing Care" width="178" height="104" loading="eager">
 			</a>
 		</div>
 	</div>
 
 	<!-- Desktop navigation -->
 	<nav class="header-nav d-none d-lg-block" aria-label="Main navigation">
-		<div class="container-fluid">
-			<div class="header-nav__inner flex items-center justify-between">
+		<div class="container">
+			<div class="header-nav__inner flex items-center justify-end gap-5">
 				<ul class="header-nav__list flex items-center gap-2">
 					<li><a class="header-nav__link <?php echo ($current_page == 'index.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>">Home</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
