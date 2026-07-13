@@ -81,6 +81,42 @@
     gap: var(--space-4);
   }
 
+  /* Contact page — tablet */
+  .contact-booking__body {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-booking__aside {
+    min-height: 360px;
+  }
+
+  .contact-booking__doctor {
+    max-width: 220px;
+    margin-inline: auto;
+  }
+
+  .contact-booking__form-wrap {
+    padding: var(--space-7);
+  }
+
+  .contact-booking__foot {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .contact-booking__home-btn {
+    justify-self: start;
+  }
+
+  .contact-branches__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-branches__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* Footer location — tablet / stacked curve layout */
   .footer-location__card {
     display: flex;
@@ -279,6 +315,63 @@
   .about-contact__submit {
     min-width: 100%;
     width: 100%;
+  }
+
+  /* Contact page — mobile */
+  .contact-booking {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+
+  .contact-booking__intro {
+    margin-bottom: var(--space-7);
+  }
+
+  .contact-booking__title {
+    font-size: 28px;
+  }
+
+  .contact-booking__lead {
+    font-size: var(--font-size-base);
+  }
+
+  .contact-booking__aside {
+    padding: var(--space-6) var(--space-5);
+    min-height: 0;
+  }
+
+  .contact-booking__aside-headline {
+    font-size: 22px;
+  }
+
+  .contact-booking__form-wrap {
+    padding: var(--space-5);
+  }
+
+  .contact-booking__foot {
+    padding: var(--space-5);
+  }
+
+  .contact-booking__home-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-branches__list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-branches__detail {
+    padding: var(--space-5);
+  }
+
+  .contact-branches__meta {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .contact-branches__map iframe {
+    min-height: 240px;
   }
 
   /* Footer location — mobile (Figma stacked curve card) */

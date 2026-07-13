@@ -134,7 +134,7 @@
 	</div>
 </section>
 
-<!-- ===== Contact Us ===== -->
+<!-- ===== Contact Us CTA ===== -->
 <section class="about-contact section" aria-labelledby="about-contact-heading">
 	<div class="container">
 		<div class="about-contact__inner" data-aos="fade-up">
@@ -189,5 +189,7 @@
 		</div>
 	</div>
 </section>
+
+<?php include "includes/footer-location-cta.php"; ?>
 
 <?php include "includes/footer.php"; ?>

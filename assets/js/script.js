@@ -290,4 +290,48 @@
       });
     });
   }
+
+  /* Contact page — branch locator tabs */
+  var branchButtons = document.querySelectorAll('.contact-branches__item');
+  var branchTitle = document.getElementById('branchDetailTitle');
+  var branchAddress = document.getElementById('branchDetailAddress');
+  var branchPhones = document.getElementById('branchDetailPhones');
+  var branchMap = document.getElementById('branchMapFrame');
+  var branchPanel = document.getElementById('branch-panel');
+
+  if (branchButtons.length && branchTitle && branchAddress && branchPhones && branchMap) {
+    branchButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        branchButtons.forEach(function (b) {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+
+        var label = btn.getAttribute('data-label') || '';
+        var address = btn.getAttribute('data-address') || '';
+        var phones = (btn.getAttribute('data-phones') || '').split('|').filter(Boolean);
+        var mapSrc = btn.getAttribute('data-map') || '';
+
+        branchTitle.textContent = label;
+        branchAddress.textContent = address;
+        branchMap.src = mapSrc;
+        branchMap.title = 'Map of ' + label;
+
+        if (branchPanel) {
+          branchPanel.setAttribute('aria-labelledby', btn.id);
+        }
+
+        branchPhones.innerHTML = '';
+        phones.forEach(function (phone) {
+          var link = document.createElement('a');
+          link.href = 'tel:' + phone.replace(/\s+/g, '');
+          link.textContent = phone;
+          branchPhones.appendChild(link);
+        });
+      });
+    });
+  }
 })();
