@@ -1,7 +1,7 @@
 <!-- ===== Footer Location CTA ===== -->
 <section class="footer-location" aria-labelledby="footer-location-heading">
 	<div class="container">
-		<div class="footer-location__card" data-aos="fade-up" style="margin-bottom: 40px;">
+		<div class="footer-location__card" data-aos="fade-up">
 			<span class="footer-location__map-glow" aria-hidden="true"></span>
 			<div class="footer-location__content">
 				<h2 id="footer-location-heading">We Are Closer To You Than You Think!</h2>

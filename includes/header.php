@@ -34,8 +34,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/global.css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/media-queries.css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/media-queries.css">
 </head>
 
 <body class="<?php echo $pageclass; ?>">

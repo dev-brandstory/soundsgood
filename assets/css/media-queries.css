@@ -2,6 +2,13 @@
    Sounds Good — Responsive Overrides
    ========================================================================== */
 
+.aboutPage,
+.hearingLossPage,
+.testimonialsPage,
+.contactPage {
+  overflow-x: clip;
+}
+
 @media (max-width: 1199px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -13,6 +20,120 @@
   .stat-card--branches,
   .stat-card--cities {
     grid-column: span 1;
+  }
+
+  /* About — large tablet */
+  .about-carousel__grid {
+    gap: var(--space-4);
+  }
+
+  .about-touch__gallery {
+    gap: var(--space-4);
+  }
+
+  /* Contact — large tablet */
+  .contact-booking__card {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .contact-booking__hero {
+    min-height: 360px;
+    background-color: #3B3CB4;
+  }
+
+  .contact-booking__clinic-copy strong,
+  .contact-booking__home-copy strong {
+    font-size: 22px;
+  }
+
+  .contact-booking__clinic-copy p,
+  .contact-booking__home-copy p {
+    font-size: 16px;
+  }
+
+  .contact-branches__list-wrap {
+    width: 300px;
+    min-height: 0;
+  }
+
+  .contact-branches__heading {
+    font-size: 26px;
+  }
+
+  .contact-branches__item {
+    font-size: 16px;
+  }
+
+  .contact-branches__detail-title {
+    font-size: 24px;
+  }
+
+  /* Hearing Loss — large tablet */
+  .hl-banner__layout {
+    grid-template-columns: minmax(240px, 1fr) minmax(280px, 0.9fr);
+    gap: var(--space-6);
+    min-height: 520px;
+  }
+
+  .hl-banner__aside {
+    --hl-cluster-w: 380px;
+    --hl-cluster-h: 324px;
+  }
+
+  .hl-banner__card--untreated {
+    left: 134px;
+    width: 246px;
+    height: 170px;
+  }
+
+  .hl-banner__card--aids {
+    width: 192px;
+    height: 202px;
+    top: 122px;
+  }
+
+  .hl-banner__card--prevalence {
+    left: 206px;
+    top: 184px;
+    width: 174px;
+    height: 140px;
+  }
+
+  .hl-banner__card-title {
+    font-size: 18px;
+  }
+
+  .hl-understanding__title,
+  .hl-check__header h2,
+  .hl-challenges__header h2,
+  .hl-journey__header h2,
+  .hl-connect__copy h2 {
+    font-size: clamp(30px, 3vw, 36px);
+  }
+
+  .hl-check__grid {
+    gap: 16px;
+  }
+
+  .hl-check__card > p {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .hl-journey__grid {
+    gap: 16px;
+  }
+
+  .hl-challenges__card h3 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  .hl-challenges__card p,
+  .hl-challenges__note {
+    font-size: 18px;
+    line-height: 1.45;
   }
 }
 
@@ -48,7 +169,12 @@
 
   /* About — tablet */
   .page-banner {
-    min-height: 600px;
+    min-height: 520px;
+  }
+
+  .page-banner.hl-banner {
+    min-height: 0;
+    align-items: stretch;
   }
 
   .page-banner__pin--left {
@@ -62,8 +188,13 @@
     width: 52px;
   }
 
+  .about-bringing__intro {
+    margin-bottom: var(--space-8);
+  }
+
   .about-carousel__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
   }
 
   .about-carousel__grid .about-carousel__item:last-child {
@@ -81,40 +212,451 @@
     gap: var(--space-4);
   }
 
+  .about-story__block .row {
+    --bs-gutter-y: 0.75rem;
+  }
+
+  .about-contact__inner {
+    padding-inline: 0;
+  }
+
   /* Contact page — tablet */
-  .contact-booking__body {
-    grid-template-columns: 1fr;
+  .contact-booking {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-8);
   }
 
-  .contact-booking__aside {
-    min-height: 360px;
+  .contact-booking__intro {
+    margin-bottom: var(--space-8);
+    padding-inline: 4px;
   }
 
-  .contact-booking__doctor {
-    max-width: 220px;
-    margin-inline: auto;
+  .contact-booking__title {
+    font-size: clamp(26px, 4vw, 34px);
+  }
+
+  .contact-booking__lead {
+    font-size: var(--font-size-base);
+  }
+
+  .contact-booking__card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .contact-booking__left,
+  .contact-booking__form-wrap {
+    flex: 1 1 auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .contact-booking__hero {
+    min-height: 340px;
+    background-color: #3B3CB4;
+  }
+
+  .contact-booking__hero::before {
+    background-size: auto 95%;
+    background-position: right -10px bottom;
+    opacity: 0.85;
+  }
+
+  .contact-booking__branches {
+    max-width: min(100%, 360px);
+  }
+
+  .contact-booking__chips li {
+    white-space: normal;
   }
 
   .contact-booking__form-wrap {
-    padding: var(--space-7);
+    filter: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
   }
 
-  .contact-booking__foot {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
+  .contact-booking__home {
+    flex: 0 0 auto;
+    min-height: 0;
   }
 
-  .contact-booking__home-btn {
-    justify-self: start;
+  .contact-booking__home-btn,
+  .contact-booking__submit {
+    font-size: 18px;
   }
 
-  .contact-branches__layout {
-    grid-template-columns: 1fr;
+  .contact-branches {
+    padding-block: var(--space-8) var(--space-10);
+  }
+
+  .contact-branches__panel {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-branches__list-wrap {
+    flex: 1 1 auto;
+    flex-shrink: 1;
+    width: 100%;
+    min-height: 0;
+    padding: 16px 12px 20px;
+  }
+
+  .contact-branches__heading {
+    font-size: 24px;
+    padding: 12px 14px 16px;
   }
 
   .contact-branches__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .contact-branches__item {
+    font-size: 16px;
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+
+  .contact-branches__detail {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .contact-branches__detail-title {
+    font-size: 22px;
+  }
+
+  .contact-branches__map iframe {
+    min-height: 320px;
+  }
+
+  .contact-branches__meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .contact-branches__meta-card {
+    min-height: 0;
+  }
+
+  .contact-branches__meta-label {
+    font-size: 18px;
+  }
+
+  /* Testimonials page — tablet */
+  .testimonials-intro {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-6);
+  }
+
+  .testimonials-cta__panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-6);
+    padding: 40px 32px;
+    min-height: 0;
+  }
+
+  .testimonials-cta__copy {
+    max-width: 100%;
+    gap: 28px;
+  }
+
+  .testimonials-cta__media {
+    width: min(280px, 70%);
+    margin-inline: auto;
+  }
+
+  .testimonials-faq__item {
+    padding: 24px;
+  }
+
+  .testimonials-faq__trigger {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .testimonials-faq__icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hearingLossPage .hl-faq {
+    padding-block: 64px;
+  }
+
+  .hearingLossPage .hl-faq .testimonials-faq__title {
+    font-size: 32px;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__item {
+    gap: 20px;
+    padding: 22px 22px 22px 0;
+  }
+
+  .hearingLossPage #hearingLossFaq .testimonials-faq__question {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .hearingLossPage #hearingLossFaq .testimonials-faq__panel p {
+    font-size: 16px;
+  }
+
+  /* Hearing Loss page — tablet */
+  .hl-banner .page-banner__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(44, 45, 136, 0.7) 0%,
+      rgba(44, 45, 136, 0.4) 45%,
+      rgba(0, 0, 0, 0.28) 100%
+    );
+  }
+
+  .hl-banner__layout {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: var(--space-7);
+    padding-block: var(--space-10) var(--space-8);
+  }
+
+  .hl-banner__content {
+    max-width: 580px;
+  }
+
+  .hl-banner__content h1 {
+    font-size: clamp(30px, 4.5vw, 40px);
+  }
+
+  .hl-banner__aside {
+    width: 100%;
+    height: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    transform: none;
+    margin: 0;
+  }
+
+  .hl-banner__card,
+  .hl-banner__card--untreated,
+  .hl-banner__card--aids,
+  .hl-banner__card--prevalence {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .hl-banner__card--untreated,
+  .hl-banner__card--prevalence {
+    min-height: 168px;
+    padding: 20px;
+  }
+
+  .hl-banner__card--aids {
+    grid-column: 1 / -1;
+    min-height: 200px;
+    padding: 24px 28px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hl-banner__card--aids .hl-banner__card-title,
+  .hl-banner__card--aids .hl-banner__card-text,
+  .hl-banner__card-text--single {
+    max-width: none;
+  }
+
+  .hl-banner__card--aids .hl-banner__aid img {
+    width: 64px;
+  }
+
+  .hl-understanding {
+    padding-block: 72px;
+  }
+
+  .hl-understanding__title {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .hl-understanding__body {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .hl-understanding__media {
+    flex: 0 0 auto;
+    width: min(400px, 100%);
+    height: auto;
+    aspect-ratio: 400 / 272;
+    margin-inline: auto;
+  }
+
+  .hl-understanding__copy {
+    max-width: none;
+    padding-top: 0;
+  }
+
+  .hl-understanding__copy p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .hl-signs__slide .row > [class*="col-"] {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .hl-signs__slide .row > [class*="col-"]:last-child:nth-child(odd) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hl-check {
+    padding-block: 56px;
+  }
+
+  .hl-check__header {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hl-check__header h2 {
+    font-size: 32px;
+  }
+
+  .hl-check__header p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hl-check__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .hl-check__card {
+    min-height: 170px;
+  }
+
+  .hl-check__card > p,
+  .hl-check__card--cta > p {
+    max-width: none;
+  }
+
+  .hl-intervention .row,
+  .hl-causes .row {
+    --bs-gutter-y: 1.5rem;
+  }
+
+  .hl-untreated {
+    padding-block: 64px;
+    background-position: right center;
+  }
+
+  .hl-untreated__copy {
+    gap: 28px 32px;
+  }
+
+  .hl-challenges {
+    padding-block: 64px;
+  }
+
+  .hl-challenges__header {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hl-challenges__header h2 {
+    font-size: 32px;
+  }
+
+  .hl-challenges__header p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hl-challenges__body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hl-challenges__diagram {
+    min-height: 320px;
+  }
+
+  .hl-challenges__aside {
+    gap: 28px;
+  }
+
+  .hl-challenges__card h3 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .hl-challenges__card p,
+  .hl-challenges__note {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .hl-ear__body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hl-ear__media {
+    order: -1;
+  }
+
+  .hl-journey {
+    padding-block: 56px;
+  }
+
+  .hl-journey__header {
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .hl-journey__header h2 {
+    font-size: 32px;
+  }
+
+  .hl-journey__header p {
+    font-size: 18px;
+  }
+
+  .hl-journey__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .hl-connect {
+    min-height: 360px;
+  }
+
+  .hl-connect__copy {
+    max-width: 480px;
+    padding-block: 56px;
+  }
+
+  .hl-connect__copy h2 {
+    font-size: 32px;
+  }
+
+  .hl-connect__copy p {
+    font-size: 18px;
+    line-height: 1.5;
   }
 
   /* Footer location — tablet / stacked curve layout */
@@ -240,8 +782,13 @@
 
   /* About — mobile */
   .page-banner {
-    min-height: 600px;
+    min-height: 420px;
     align-items: flex-start;
+  }
+
+  .page-banner.hl-banner {
+    min-height: 0;
+    align-items: stretch;
   }
 
   .page-banner__overlay {
@@ -259,11 +806,29 @@
   }
 
   .page-banner__content h1 {
-    font-size: 32px;
+    font-size: clamp(26px, 7vw, 32px);
+    margin-bottom: var(--space-5);
+  }
+
+  .page-banner__content .btn {
+    width: auto;
+    max-width: 100%;
   }
 
   .page-banner__pin {
     display: none;
+  }
+
+  .about-bringing {
+    padding-block: var(--space-8);
+  }
+
+  .about-bringing__intro {
+    margin-bottom: var(--space-7);
+  }
+
+  .about-bringing__intro .section-title {
+    font-size: clamp(24px, 6vw, 30px);
   }
 
   .about-bringing__intro p {
@@ -272,18 +837,46 @@
 
   .about-carousel__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 
   .about-carousel__grid .about-carousel__item:last-child {
     max-width: 100%;
   }
 
+  .about-carousel__item {
+    border-radius: var(--radius-lg);
+  }
+
+  .about-carousel__controls {
+    margin-top: var(--space-5);
+  }
+
+  .about-feature {
+    padding-block: var(--space-7);
+  }
+
+  .about-feature .rounded-xl {
+    border-radius: var(--radius-lg);
+  }
+
+  .about-feature img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   .about-feature__pin {
     display: none;
   }
 
+  .about-story {
+    padding-block: var(--space-8);
+  }
+
   .about-story__title {
     margin-bottom: var(--space-3);
+    font-size: clamp(24px, 6vw, 28px);
   }
 
   .about-story__text {
@@ -295,21 +888,46 @@
   }
 
   .about-touch__gallery {
-    grid-template-columns: 1fr;
-    max-width: 364px;
+    display: flex;
+    gap: 12px;
+    max-width: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .about-touch__item--side {
-    display: none;
-  }
-
+  .about-touch__item--side,
   .about-touch__item--center {
-    aspect-ratio: 364 / 401;
+    display: block;
+    flex: 0 0 min(280px, 78vw);
+    aspect-ratio: 364 / 380;
+    scroll-snap-align: start;
+  }
+
+  .about-touch__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-touch__footer-text {
     font-size: var(--font-size-base);
-    text-align: start;
+    text-align: center;
+    padding-inline: 4px;
+  }
+
+  .about-touch .section-desc {
+    font-size: var(--font-size-base);
+  }
+
+  .about-contact {
+    padding-block: var(--space-8);
+  }
+
+  .about-contact__title {
+    font-size: clamp(24px, 6vw, 30px);
+    margin-bottom: var(--space-6);
   }
 
   .about-contact__submit {
@@ -318,65 +936,764 @@
   }
 
   /* Contact page — mobile */
+  .contact-booking,
+  .contact-branches {
+    overflow-x: clip;
+  }
+
   .contact-booking {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-10);
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-6);
   }
 
   .contact-booking__intro {
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-6);
+    padding-inline: 4px;
   }
 
   .contact-booking__title {
-    font-size: 28px;
+    font-size: 24px;
+    letter-spacing: -0.4px;
+    line-height: 1.3;
   }
 
   .contact-booking__lead {
-    font-size: var(--font-size-base);
+    font-size: 14px;
+    line-height: 1.55;
   }
 
-  .contact-booking__aside {
-    padding: var(--space-6) var(--space-5);
+  /* Flatten outer card — nested cards get full width */
+  .contact-booking__card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .contact-booking__left {
+    gap: 16px;
+    width: 100%;
+  }
+
+  .contact-booking__clinic,
+  .contact-booking__home,
+  .contact-booking__form-wrap {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  /* Hero: auto height, full-width chips, readable text */
+  .contact-booking__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
     min-height: 0;
+    height: auto;
+    padding: 18px 16px 20px;
+    background-color: #3B3CB4;
+  }
+
+  .contact-booking__hero::before {
+    background-size: auto 68%;
+    background-position: right -52px bottom;
+    opacity: 0.28;
+  }
+
+  .contact-booking__hero::after {
+    background: linear-gradient(
+      105deg,
+      #3B3CB4 0%,
+      #3B3CB4 58%,
+      rgba(59, 60, 180, 0.5) 82%,
+      rgba(27, 30, 98, 0.7) 100%
+    );
+  }
+
+  .contact-booking__badge {
+    padding: 6px 12px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .contact-booking__branches {
+    max-width: 100%;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .contact-booking__aside-label {
+    font-size: 16px;
+  }
+
+  .contact-booking__chips {
+    gap: 8px;
+  }
+
+  .contact-booking__chips li {
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 1.35;
+    white-space: normal;
+    max-width: 100%;
   }
 
   .contact-booking__aside-headline {
-    font-size: 22px;
+    max-width: 100%;
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .contact-booking__clinic-copy {
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .contact-booking__home {
+    flex: 0 0 auto;
+    min-height: 0;
+    gap: 16px;
+    padding: 18px 16px;
+    justify-content: flex-start;
+  }
+
+  .contact-booking__home-copy {
+    gap: 8px;
+  }
+
+  .contact-booking__clinic-copy strong,
+  .contact-booking__home-copy strong {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .contact-booking__clinic-copy p,
+  .contact-booking__home-copy p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .contact-booking__home-btn,
+  .contact-booking__submit {
+    width: 100%;
+    max-width: none;
+    height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
   }
 
   .contact-booking__form-wrap {
-    padding: var(--space-5);
+    padding: 18px 16px;
+    filter: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
   }
 
-  .contact-booking__foot {
-    padding: var(--space-5);
-  }
-
-  .contact-booking__home-btn {
+  .contact-booking__form {
+    gap: 16px;
     width: 100%;
-    justify-content: center;
+  }
+
+  .contact-booking__field {
+    width: 100%;
+  }
+
+  .contact-booking__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .contact-booking__row > .contact-booking__field {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .contact-booking__label {
+    font-size: 14px;
+  }
+
+  .contact-booking__input {
+    width: 100%;
+    height: 48px;
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .contact-booking__textarea {
+    height: 96px;
+    min-height: 96px;
+  }
+
+  .contact-booking__select {
+    background-position: right 14px center;
+    padding-right: 40px;
+  }
+
+  .contact-booking__field-icon {
+    width: 100%;
+  }
+
+  .contact-booking__field-icon svg {
+    width: 20px;
+    height: 20px;
+    right: 12px;
+  }
+
+  .contact-booking__field-icon .contact-booking__input {
+    padding-right: 42px;
+  }
+
+  .contact-booking__appt {
+    gap: 14px;
+    width: 100%;
+  }
+
+  .contact-booking__appt-title {
+    font-size: 16px;
+  }
+
+  /* Branches locator — mobile */
+  .contact-branches {
+    padding-block: var(--space-7) var(--space-8);
+  }
+
+  .contact-branches__panel {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .contact-branches__list-wrap {
+    flex: 1 1 auto;
+    flex-shrink: 1;
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .contact-branches__heading {
+    font-size: 22px;
+    padding: 4px 8px 12px;
   }
 
   .contact-branches__list {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    gap: 4px;
+  }
+
+  .contact-branches__item {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.35;
+    gap: 10px;
+  }
+
+  .contact-branches__item-label {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .contact-branches__item-icon img {
+    width: 22px;
+    height: 22px;
   }
 
   .contact-branches__detail {
-    padding: var(--space-5);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .contact-branches__detail-title {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    padding-inline: 4px;
+  }
+
+  .contact-branches__map {
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .contact-branches__map iframe {
+    width: 100%;
+    min-height: 220px;
   }
 
   .contact-branches__meta {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: 10px;
   }
 
-  .contact-branches__map iframe {
+  .contact-branches__meta-card {
+    min-height: 0;
+    width: 100%;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .contact-branches__meta-label {
+    font-size: 16px;
+  }
+
+  .contact-branches__meta-body p,
+  #branchDetailAddress,
+  .contact-branches__meta-body a {
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  /* Testimonials page — mobile */
+  .testimonials-intro {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-5);
+  }
+
+  .testimonials-intro__content {
+    gap: 12px;
+    padding-inline: 4px;
+  }
+
+  .testimonials-intro__eyebrow {
+    font-size: 14px;
+  }
+
+  .testimonials-intro__title {
+    font-size: clamp(26px, 7vw, 30px);
+  }
+
+  .testimonials-intro__lead {
+    font-size: 15px;
+  }
+
+  .testimonials-grid {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-8);
+  }
+
+  .testimonials-card {
+    padding: 24px;
+    gap: 32px;
+  }
+
+  .testimonials-card__top {
+    gap: 24px;
+  }
+
+  .testimonials-card__avatar {
+    width: 52px;
+    height: 52px;
+  }
+
+  .testimonials-card__quote p {
+    font-size: 17px;
+  }
+
+  .testimonials-card__footer {
+    gap: 16px;
+  }
+
+  .testimonials-cta {
+    padding-block: var(--space-6) var(--space-8);
+  }
+
+  .testimonials-cta__panel {
+    border-radius: 16px;
+    padding: 28px 20px;
+    background-position: center right;
+  }
+
+  .testimonials-cta__copy {
+    gap: 20px;
+  }
+
+  .testimonials-cta__title {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: 0;
+  }
+
+  .testimonials-cta__text {
+    font-size: 15px;
+  }
+
+  .testimonials-cta__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .testimonials-cta__btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 14px 20px;
+  }
+
+  .testimonials-cta__media {
+    width: min(240px, 80%);
+  }
+
+  .testimonials-faq {
+    padding-top: var(--space-7);
+    padding-bottom: var(--space-10);
+  }
+
+  .testimonials-faq__title {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: var(--space-6);
+  }
+
+  .testimonials-faq__list {
+    gap: 12px;
+  }
+
+  .testimonials-faq__item {
+    padding: 18px 16px;
+  }
+
+  .testimonials-faq__trigger {
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .testimonials-faq__question {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-right: 4px;
+  }
+
+  .testimonials-faq__icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .testimonials-faq__panel {
+    margin-top: 14px;
+  }
+
+  .testimonials-faq__panel p {
+    font-size: 15px;
+  }
+
+  /* Hearing Loss FAQ — keep Figma structure on mobile */
+  .hearingLossPage .hl-faq {
+    padding-block: 56px;
+  }
+
+  .hearingLossPage .hl-faq .testimonials-faq__title {
+    font-size: clamp(26px, 6vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  .hearingLossPage #hearingLossFaq {
+    gap: 14px;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__item {
+    gap: 14px;
+    padding: 18px 16px 18px 0;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__trigger {
+    gap: 12px;
+  }
+
+  .hearingLossPage #hearingLossFaq .testimonials-faq__question {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__icon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hearingLossPage #hearingLossFaq .testimonials-faq__panel {
+    padding-right: 0;
+  }
+
+  .hearingLossPage #hearingLossFaq .testimonials-faq__panel p {
+    font-size: 15px;
+  }
+
+  /* Hearing Loss page — mobile */
+  .hl-banner__layout {
+    padding-block: var(--space-9) var(--space-6);
+    gap: var(--space-5);
+  }
+
+  .hl-banner__content h1 {
+    font-size: clamp(26px, 7vw, 30px);
+    margin-bottom: var(--space-5);
+  }
+
+  .hl-banner__content .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  .hl-banner__aside {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hl-banner__card--aids {
+    grid-column: auto;
+    min-height: 200px;
+    padding: 20px 22px 24px;
+    background-size: 100% 100%;
+  }
+
+  .hl-banner__card--untreated,
+  .hl-banner__card--prevalence {
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .hl-banner__card-title {
+    font-size: 18px;
+  }
+
+  .hl-banner__card-text,
+  .hl-banner__card-text--single {
+    font-size: 14px;
+  }
+
+  .hl-understanding {
+    padding-block: 56px;
+  }
+
+  .hl-understanding__title {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: 24px;
+  }
+
+  .hl-understanding__media {
+    width: 100%;
+  }
+
+  .hl-understanding__copy p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hl-section-title {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: var(--space-4);
+  }
+
+  .hl-intervention p,
+  .hl-ear__content p {
+    font-size: 15px;
+  }
+
+  .hl-signs__slide .row > [class*="col-"],
+  .hl-signs__slide .row > [class*="col-"]:last-child:nth-child(odd) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .hl-signs__card-body {
+    padding: var(--space-5);
+  }
+
+  .hl-signs__card-body h3 {
+    font-size: 17px;
+  }
+
+  .hl-signs__controls {
+    margin-top: 28px;
+  }
+
+  .hl-check {
+    padding-block: 48px;
+  }
+
+  .hl-check__header h2 {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+
+  .hl-check__header p {
+    font-size: 16px;
+  }
+
+  .hl-check__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .hl-check__card {
+    min-height: 0;
+    padding: 20px;
+  }
+
+  .hl-check__card > p {
+    max-width: none;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .hl-check__card--cta > p {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .hl-check__cta {
+    max-width: none;
+  }
+
+  .hl-untreated {
+    padding-block: 56px;
+    background-position: right center;
+    background-size: cover;
+  }
+
+  .hl-untreated h2 {
+    font-size: clamp(22px, 5.5vw, 26px);
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+  }
+
+  .hl-untreated__copy {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .hl-untreated__copy p {
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .hl-causes__media,
+  .hl-intervention__media {
+    border-radius: 16px;
+  }
+
+  .hl-challenges {
+    padding-block: 48px;
+  }
+
+  .hl-challenges__header h2 {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+
+  .hl-challenges__header p {
+    font-size: 16px;
+  }
+
+  .hl-challenges__diagram {
+    min-height: 260px;
+    border-radius: 16px;
+  }
+
+  .hl-challenges__card {
+    padding: 16px;
+  }
+
+  .hl-challenges__card-top {
+    align-items: flex-start;
+  }
+
+  .hl-challenges__card h3 {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .hl-challenges__card p,
+  .hl-challenges__note {
+    font-size: 15px;
+  }
+
+  .hl-causes__list li {
+    font-size: 15px;
+  }
+
+  .hl-journey {
+    padding-block: 48px;
+  }
+
+  .hl-journey__header h2 {
+    font-size: clamp(24px, 6vw, 28px);
+  }
+
+  .hl-journey__header p {
+    font-size: 16px;
+  }
+
+  .hl-journey__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hl-journey__card {
     min-height: 240px;
+    padding: 20px;
+  }
+
+  .hl-journey__card h3 {
+    font-size: 18px;
+    max-width: none;
+  }
+
+  .hl-connect {
+    min-height: 0;
+    padding-block: 48px;
+  }
+
+  .hl-connect__bg img {
+    object-position: 70% center;
+    opacity: 0.55;
+  }
+
+  .hl-connect__copy {
+    max-width: none;
+    padding-block: 0;
+  }
+
+  .hl-connect__copy h2 {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: 16px;
+  }
+
+  .hl-connect__copy p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .hl-connect__cta {
+    min-width: 0;
+    width: 100%;
+    max-width: 256px;
   }
 
   /* Footer location — mobile (Figma stacked curve card) */
   .footer-location {
     padding-top: var(--space-7);
+    padding-bottom: var(--space-8);
   }
 
   .footer-location__card {
@@ -434,5 +1751,186 @@
 @media (max-width: 575px) {
   .social-section__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* About — small phones */
+  .page-banner {
+    min-height: 380px;
+  }
+
+  .page-banner.hl-banner {
+    min-height: 0;
+  }
+
+  .page-banner__content {
+    padding: var(--space-9) 0 var(--space-7);
+  }
+
+  .page-banner__content h1 {
+    font-size: 24px;
+  }
+
+  .about-touch__item--side,
+  .about-touch__item--center {
+    flex-basis: min(260px, 82vw);
+  }
+
+  .about-contact__label {
+    font-size: 14px;
+  }
+
+  .about-contact__input {
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  /* Contact — small phones */
+  .contact-booking__title {
+    font-size: 22px;
+  }
+
+  .contact-booking__lead {
+    font-size: 13px;
+  }
+
+  .contact-booking__card {
+    gap: 12px;
+  }
+
+  .contact-booking__hero {
+    padding: 16px 14px 18px;
+    gap: 12px;
+  }
+
+  .contact-booking__hero::before {
+    display: none;
+  }
+
+  .contact-booking__chips li {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .contact-booking__clinic-copy,
+  .contact-booking__home,
+  .contact-booking__form-wrap {
+    padding: 14px;
+  }
+
+  .contact-booking__clinic-copy strong,
+  .contact-booking__home-copy strong {
+    font-size: 17px;
+  }
+
+  .contact-booking__clinic-copy p,
+  .contact-booking__home-copy p {
+    font-size: 13px;
+  }
+
+  .contact-booking__home-btn,
+  .contact-booking__submit {
+    font-size: 15px;
+  }
+
+  .contact-branches__list-wrap,
+  .contact-branches__detail {
+    padding: 12px 10px;
+  }
+
+  .contact-branches__heading {
+    font-size: 20px;
+  }
+
+  .contact-branches__item {
+    font-size: 13px;
+    padding: 9px 10px;
+  }
+
+  .contact-branches__detail-title {
+    font-size: 15px;
+  }
+
+  .contact-branches__map iframe {
+    min-height: 200px;
+  }
+
+  .contact-branches__meta-card {
+    padding: 14px;
+  }
+
+  /* Testimonials — small phones */
+  .testimonials-intro__title {
+    font-size: 24px;
+  }
+
+  .testimonials-card {
+    padding: 20px;
+    gap: 28px;
+  }
+
+  .testimonials-card__quote p {
+    font-size: 16px;
+  }
+
+  .testimonials-cta__panel {
+    padding: 24px 16px;
+  }
+
+  .testimonials-cta__btn {
+    width: 100%;
+  }
+
+  .testimonials-faq__item {
+    padding: 16px 14px;
+  }
+
+  .testimonials-faq__question {
+    font-size: 15px;
+  }
+
+  .hearingLossPage #hearingLossFaq .hl-faq__item {
+    padding: 16px 14px 16px 0;
+  }
+
+  /* Hearing Loss — small phones */
+  .hl-banner__content h1 {
+    font-size: 24px;
+  }
+
+  .hl-banner__content .btn {
+    max-width: none;
+  }
+
+  .hl-understanding__title,
+  .hl-check__header h2,
+  .hl-challenges__header h2,
+  .hl-journey__header h2,
+  .hl-connect__copy h2,
+  .hl-section-title {
+    font-size: 24px;
+  }
+
+  .hl-untreated h2 {
+    font-size: 22px;
+  }
+
+  .hl-challenges__diagram {
+    min-height: 220px;
+  }
+
+  .hl-journey__card {
+    min-height: 220px;
+  }
+
+  .hl-connect__cta {
+    max-width: none;
+  }
+
+  .footer-location__content {
+    padding: 28px 24px 80px;
+  }
+
+  .footer-location__content h2 {
+    font-size: 22px;
   }
 }

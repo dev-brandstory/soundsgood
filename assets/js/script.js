@@ -334,4 +334,83 @@
       });
     });
   }
+
+  /* FAQ accordion (testimonials + hearing loss) */
+  document.querySelectorAll('#testimonialsFaq, #hearingLossFaq').forEach(function (faqRoot) {
+    var faqItems = Array.prototype.slice.call(faqRoot.querySelectorAll('.testimonials-faq__item'));
+
+    function setFaqItemState(item, isOpen) {
+      var trigger = item.querySelector('.testimonials-faq__trigger');
+      var panel = item.querySelector('.testimonials-faq__panel');
+      var question = item.querySelector('.testimonials-faq__question');
+      if (!trigger || !panel) return;
+
+      item.classList.toggle('is-open', isOpen);
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      panel.hidden = !isOpen;
+
+      if (question) {
+        trigger.setAttribute(
+          'aria-label',
+          (isOpen ? 'Collapse: ' : 'Expand: ') + question.textContent.trim()
+        );
+      }
+    }
+
+    function closeAllFaqItems(exceptItem) {
+      faqItems.forEach(function (item) {
+        if (exceptItem && item === exceptItem) return;
+        setFaqItemState(item, false);
+      });
+    }
+
+    faqItems.forEach(function (item) {
+      var trigger = item.querySelector('.testimonials-faq__trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        var willOpen = !item.classList.contains('is-open');
+        closeAllFaqItems(willOpen ? item : null);
+        setFaqItemState(item, willOpen);
+      });
+
+      trigger.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        trigger.click();
+      });
+    });
+  });
+
+  /* Hearing Loss — early signs carousel */
+  var hlSignsTrack = document.getElementById('hlSignsTrack');
+  var hlSignsPrev = document.getElementById('hlSignsPrev');
+  var hlSignsNext = document.getElementById('hlSignsNext');
+  var hlSignsStatus = document.getElementById('hlSignsStatus');
+
+  if (hlSignsTrack && hlSignsPrev && hlSignsNext && hlSignsStatus) {
+    var hlSlides = Array.prototype.slice.call(hlSignsTrack.querySelectorAll('.hl-signs__slide'));
+    var hlIndex = 0;
+
+    function showHlSlide(index) {
+      hlSlides.forEach(function (slide, i) {
+        var active = i === index;
+        slide.classList.toggle('is-active', active);
+        slide.hidden = !active;
+      });
+      hlIndex = index;
+      hlSignsStatus.textContent = index + 1 + ' of ' + hlSlides.length;
+      hlSignsPrev.disabled = index === 0;
+      hlSignsNext.disabled = index >= hlSlides.length - 1;
+    }
+
+    hlSignsPrev.addEventListener('click', function () {
+      if (hlIndex > 0) showHlSlide(hlIndex - 1);
+    });
+
+    hlSignsNext.addEventListener('click', function () {
+      if (hlIndex < hlSlides.length - 1) showHlSlide(hlIndex + 1);
+    });
+  }
 })();

@@ -10,8 +10,8 @@ $branches = [
 		'id' => 'madurai-east-veli',
 		'label' => 'Madurai - East Veli Street',
 		'slug' => 'madurai',
-		'address' => 'No. 42, East Veli Street, Near Periyar Bus Stand, Madurai, Tamil Nadu 625001',
-		'phones' => ['0452-2345678', '98765 43210'],
+		'address' => 'No:318, New LIC Colony, Near Ulavar Santhai, Anna Nagar, Madurai – 625020.',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=East+Veli+Street+Madurai&output=embed',
 	],
 	[
@@ -19,15 +19,23 @@ $branches = [
 		'label' => 'Madurai - Anna Nagar',
 		'slug' => 'madurai-anna-nagar',
 		'address' => 'Anna Nagar Main Road, Madurai, Tamil Nadu 625020',
-		'phones' => ['0452-2456789', '98765 43211'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=Anna+Nagar+Madurai&output=embed',
+	],
+	[
+		'id' => 'madurai-ponmeni',
+		'label' => 'Madurai - Ponmeni Bypass Road',
+		'slug' => 'madurai-ponmeni',
+		'address' => 'Ponmeni Bypass Road, Madurai, Tamil Nadu 625016',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
+		'map' => 'https://www.google.com/maps?q=Ponmeni+Bypass+Road+Madurai&output=embed',
 	],
 	[
 		'id' => 'theni',
 		'label' => 'Theni',
 		'slug' => 'theni',
 		'address' => 'Near Bus Stand, Theni, Tamil Nadu 625531',
-		'phones' => ['04546-234567', '98765 43212'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=Theni+Tamil+Nadu&output=embed',
 	],
 	[
@@ -35,48 +43,64 @@ $branches = [
 		'label' => 'Coimbatore',
 		'slug' => 'coimbatore',
 		'address' => 'DB Road, R.S. Puram, Coimbatore, Tamil Nadu 641002',
-		'phones' => ['0422-2345678', '98765 43213'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=RS+Puram+Coimbatore&output=embed',
+	],
+	[
+		'id' => 'coimbatore-peelamedu',
+		'label' => 'Coimbatore - Peelamedu',
+		'slug' => 'coimbatore-peelamedu',
+		'address' => 'Peelamedu, Coimbatore, Tamil Nadu 641004',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
+		'map' => 'https://www.google.com/maps?q=Peelamedu+Coimbatore&output=embed',
 	],
 	[
 		'id' => 'tirupur',
 		'label' => 'Tirupur',
 		'slug' => 'tirupur',
 		'address' => 'Avinashi Road, Tirupur, Tamil Nadu 641602',
-		'phones' => ['0421-2345678', '98765 43214'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=Tirupur+Tamil+Nadu&output=embed',
 	],
 	[
-		'id' => 'ramanathapuram',
-		'label' => 'Ramanathapuram',
-		'slug' => 'ramanathapuram',
-		'address' => 'Bharathi Nagar, Ramanathapuram, Tamil Nadu 623501',
-		'phones' => ['04567-234567', '98765 43215'],
-		'map' => 'https://www.google.com/maps?q=Ramanathapuram+Tamil+Nadu&output=embed',
-	],
-	[
-		'id' => 'tuticorin',
-		'label' => 'Tuticorin',
-		'slug' => 'tuticorin',
-		'address' => 'Palayamkottai Road, Tuticorin, Tamil Nadu 628002',
-		'phones' => ['0461-2345678', '98765 43216'],
-		'map' => 'https://www.google.com/maps?q=Tuticorin+Tamil+Nadu&output=embed',
+		'id' => 'thoothukudi',
+		'label' => 'Thoothukudi',
+		'slug' => 'thoothukudi',
+		'address' => 'Palayamkottai Road, Thoothukudi, Tamil Nadu 628002',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
+		'map' => 'https://www.google.com/maps?q=Thoothukudi+Tamil+Nadu&output=embed',
 	],
 	[
 		'id' => 'tirunelveli',
 		'label' => 'Tirunelveli',
 		'slug' => 'tirunelveli',
 		'address' => 'Near Junction, Tirunelveli, Tamil Nadu 627001',
-		'phones' => ['0462-2345678', '98765 43217'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=Tirunelveli+Tamil+Nadu&output=embed',
+	],
+	[
+		'id' => 'tirunelveli-palayamkottai',
+		'label' => 'Tirunelveli - Palayamkottai',
+		'slug' => 'tirunelveli-palayamkottai',
+		'address' => 'Palayamkottai, Tirunelveli, Tamil Nadu 627002',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
+		'map' => 'https://www.google.com/maps?q=Palayamkottai+Tirunelveli&output=embed',
 	],
 	[
 		'id' => 'nagercoil',
 		'label' => 'Nagercoil',
 		'slug' => 'nagercoil',
 		'address' => 'Court Road, Nagercoil, Tamil Nadu 629001',
-		'phones' => ['04652-234567', '98765 43218'],
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
 		'map' => 'https://www.google.com/maps?q=Nagercoil+Tamil+Nadu&output=embed',
+	],
+	[
+		'id' => 'ramanathapuram',
+		'label' => 'Ramanathapuram',
+		'slug' => 'ramanathapuram',
+		'address' => 'Bharathi Nagar, Ramanathapuram, Tamil Nadu 623501',
+		'phones' => ['+91 84899 78679', '+91 84899 78679'],
+		'map' => 'https://www.google.com/maps?q=Ramanathapuram+Tamil+Nadu&output=embed',
 	],
 ];
 
@@ -93,7 +117,19 @@ foreach ($branches as $i => $b) {
 	}
 }
 $active_branch = $branches[$active_index];
-$branch_chips = ['Madurai - Anna Nagar', 'Theni', 'Coimbatore', 'Tirupur', 'Ramanathapuram', 'Tuticorin', 'Tirunelveli', 'Nagercoil'];
+$branch_chips = [
+	'Madurai - Anna Nagar',
+	'Madurai - Ponmeni Bypass Road',
+	'Theni',
+	'Coimbatore',
+	'Tirupur',
+	'Coimbatore - Peelamedu',
+	'Thoothukudi',
+	'Tirunelveli - Palayamkottai',
+	'Tirunelveli',
+	'Ramanathapuram',
+	'Nagercoil',
+];
 ?>
 <?php include "includes/header.php"; ?>
 
@@ -102,108 +138,115 @@ $branch_chips = ['Madurai - Anna Nagar', 'Theni', 'Coimbatore', 'Tirupur', 'Rama
 	<div class="container">
 		<header class="contact-booking__intro text-center" data-aos="fade-up">
 			<h1 id="contact-booking-heading" class="contact-booking__title">Start Your Journey to Better Hearing</h1>
-			<p class="contact-booking__lead">Book an appointment at your nearest branch or schedule a convenient at-home consultation with our experts.</p>
+			<p class="contact-booking__lead">Book an appointment at your nearest branch or let our experts come to you for a comfortable, at-home experience.</p>
 		</header>
 
+		<!-- Frame 2147240466 -->
 		<div class="contact-booking__card" data-aos="fade-up" data-aos-delay="80">
-			<div class="contact-booking__body">
-				<!-- Left: clinic panel -->
-				<aside class="contact-booking__aside" aria-label="In-clinic care">
-					<span class="contact-booking__badge">
-						<span class="contact-booking__badge-dot" aria-hidden="true"></span>
-						In-Clinic Care
-					</span>
+			<!-- Frame 2147240485 — left column -->
+			<div class="contact-booking__left">
+				<!-- Frame 2147240488 — in-clinic panel -->
+				<aside class="contact-booking__clinic" aria-label="In-clinic care">
+					<div class="contact-booking__hero" role="img" aria-label="Sounds Good hearing care specialist">
+						<span class="contact-booking__badge">
+							<span class="contact-booking__badge-dot" aria-hidden="true"></span>
+							In-Clinic Care
+						</span>
 
-					<p class="contact-booking__aside-label">Our Branches</p>
-					<ul class="contact-booking__chips">
-						<?php foreach ($branch_chips as $chip) : ?>
-							<li><?php echo htmlspecialchars($chip); ?></li>
-						<?php endforeach; ?>
-					</ul>
+						<div class="contact-booking__branches">
+							<p class="contact-booking__aside-label">Our Branches</p>
+							<ul class="contact-booking__chips">
+								<?php foreach ($branch_chips as $chip) : ?>
+									<li><?php echo htmlspecialchars($chip); ?></li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
 
-					<p class="contact-booking__aside-headline">We Are Closer To You Than You Think!</p>
+						<p class="contact-booking__aside-headline">We Are Closer To You Than You Think!</p>
+					</div>
 
-					<figure class="contact-booking__doctor">
-						<img src="<?php echo BASE_URL; ?>assets/images/contact/doctor.webp" alt="Sounds Good hearing care specialist" width="360" height="420" loading="eager">
-					</figure>
+					<div class="contact-booking__clinic-copy">
+						<strong>Visit Our Clinic</strong>
+						<p>Expert hearing check-ups and consultations at your nearest branch.</p>
+					</div>
 				</aside>
 
-				<!-- Right: clinic visit form -->
-				<div class="contact-booking__form-wrap">
-					<form class="contact-booking__form" action="<?php echo BASE_URL; ?>contact.php" method="post" novalidate>
-						<div class="row g-3">
-							<div class="col-12">
-								<label class="contact-booking__label" for="contact_name">Name</label>
-								<input class="contact-booking__input" type="text" id="contact_name" name="name" placeholder="Enter your name" required autocomplete="name">
-							</div>
-							<div class="col-12">
-								<label class="contact-booking__label" for="contact_mobile">Mobile Number</label>
-								<input class="contact-booking__input" type="tel" id="contact_mobile" name="mobile" placeholder="Enter mobile number" required autocomplete="tel">
-							</div>
-							<div class="col-12">
-								<label class="contact-booking__label" for="contact_email">Email</label>
-								<input class="contact-booking__input" type="email" id="contact_email" name="email" placeholder="Enter email address" required autocomplete="email">
-							</div>
-							<div class="col-12">
-								<label class="contact-booking__label" for="contact_concerns">Hearing Concerns</label>
-								<textarea class="contact-booking__input contact-booking__textarea" id="contact_concerns" name="hearing_concerns" rows="3" placeholder="Tell us about your hearing concerns"></textarea>
-							</div>
-						</div>
-
-						<div class="contact-booking__details">
-							<h2 class="contact-booking__details-title">Appointment Details</h2>
-							<div class="row g-3">
-								<div class="col-12">
-									<label class="contact-booking__label" for="contact_branch">Select Branch</label>
-									<select class="contact-booking__input contact-booking__select" id="contact_branch" name="branch" required>
-										<option value="" disabled <?php echo $branch_param === '' ? 'selected' : ''; ?>>Select Branch</option>
-										<?php foreach ($branches as $b) : ?>
-											<option value="<?php echo htmlspecialchars($b['slug']); ?>" <?php echo ($active_branch['id'] === $b['id'] && $branch_param !== '') ? 'selected' : ''; ?>><?php echo htmlspecialchars($b['label']); ?></option>
-										<?php endforeach; ?>
-									</select>
-								</div>
-								<div class="col-md-6">
-									<label class="contact-booking__label" for="contact_date">Date</label>
-									<div class="contact-booking__field-icon">
-										<input class="contact-booking__input" type="date" id="contact_date" name="date" required>
-										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<label class="contact-booking__label" for="contact_time">Time</label>
-									<div class="contact-booking__field-icon">
-										<input class="contact-booking__input" type="time" id="contact_time" name="time" required>
-										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<button type="submit" class="btn btn-primary btn-pill contact-booking__submit">Book Clinic Visit</button>
-					</form>
+				<!-- Frame 2147240489 — doorstep panel -->
+				<div class="contact-booking__home">
+					<div class="contact-booking__home-copy">
+						<strong>Doorstep Consultation</strong>
+						<p>Expert hearing care at home with testing, consultation, and guidance.</p>
+					</div>
+					<a href="#contact_name" class="contact-booking__home-btn">Book Home Visit</a>
 				</div>
 			</div>
 
-			<!-- Card footer: visit options -->
-			<div class="contact-booking__foot">
-				<div class="contact-booking__foot-item">
-					<strong>Visit Our Clinic</strong>
-					<p>Walk into any Sounds Good branch for a complete hearing assessment with our audiologists.</p>
-				</div>
-				<div class="contact-booking__foot-item">
-					<strong>Doorstep Consultation</strong>
-					<p>Prefer care at home? Our specialists can visit you for testing and fitting support.</p>
-				</div>
-				<a href="#contact_name" class="btn btn-outline btn-pill contact-booking__home-btn">Book Home Visit</a>
+			<!-- Frame 2147240483 — clinic visit form -->
+			<div class="contact-booking__form-wrap">
+				<form class="contact-booking__form" action="<?php echo BASE_URL; ?>contact.php" method="post" novalidate>
+					<div class="contact-booking__field">
+						<label class="contact-booking__label" for="contact_name">Name</label>
+						<input class="contact-booking__input" type="text" id="contact_name" name="name" placeholder="Enter your full name" required autocomplete="name">
+					</div>
+
+					<div class="contact-booking__row">
+						<div class="contact-booking__field">
+							<label class="contact-booking__label" for="contact_mobile">Mobile Number</label>
+							<input class="contact-booking__input" type="tel" id="contact_mobile" name="mobile" placeholder="Enter your mobile number" required autocomplete="tel">
+						</div>
+						<div class="contact-booking__field">
+							<label class="contact-booking__label" for="contact_email">Email</label>
+							<input class="contact-booking__input" type="email" id="contact_email" name="email" placeholder="Enter your email address" required autocomplete="email">
+						</div>
+					</div>
+
+					<div class="contact-booking__field">
+						<label class="contact-booking__label" for="contact_concerns">Hearing Concerns</label>
+						<textarea class="contact-booking__input contact-booking__textarea" id="contact_concerns" name="hearing_concerns" rows="3" placeholder="Tell us about your hearing concerns (optional)"></textarea>
+					</div>
+
+					<div class="contact-booking__appt">
+						<p class="contact-booking__appt-title">Appointment Details</p>
+
+						<div class="contact-booking__field">
+							<label class="contact-booking__label" for="contact_branch">Select Branch</label>
+							<select class="contact-booking__input contact-booking__select" id="contact_branch" name="branch" required>
+								<option value="" disabled <?php echo $branch_param === '' ? 'selected' : ''; ?>>Choose your nearest branch</option>
+								<?php foreach ($branches as $b) : ?>
+									<option value="<?php echo htmlspecialchars($b['slug']); ?>" <?php echo ($active_branch['id'] === $b['id'] && $branch_param !== '') ? 'selected' : ''; ?>><?php echo htmlspecialchars($b['label']); ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+
+						<div class="contact-booking__row">
+							<div class="contact-booking__field">
+								<label class="contact-booking__label" for="contact_date">Date</label>
+								<div class="contact-booking__field-icon">
+									<input class="contact-booking__input" type="date" id="contact_date" name="date" required>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+								</div>
+							</div>
+							<div class="contact-booking__field">
+								<label class="contact-booking__label" for="contact_time">Time</label>
+								<div class="contact-booking__field-icon">
+									<input class="contact-booking__input" type="time" id="contact_time" name="time" required>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="submit" class="contact-booking__submit">Book Clinic Visit</button>
+				</form>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!-- ===== Our Branches — Locator ===== -->
-<section class="contact-branches section bg-pale" aria-labelledby="contact-branches-heading" id="our-branches">
+<section class="contact-branches section" aria-labelledby="contact-branches-heading" id="our-branches">
 	<div class="container">
-		<div class="contact-branches__layout" data-aos="fade-up">
+		<div class="contact-branches__panel" data-aos="fade-up">
 			<aside class="contact-branches__list-wrap" aria-label="Branch list">
 				<h2 id="contact-branches-heading" class="contact-branches__heading">Our Branches</h2>
 				<ul class="contact-branches__list" id="contactBranchList" role="tablist" aria-orientation="vertical">
@@ -224,7 +267,7 @@ $branch_chips = ['Madurai - Anna Nagar', 'Theni', 'Coimbatore', 'Tirupur', 'Rama
 							>
 								<span class="contact-branches__item-label"><?php echo htmlspecialchars($b['label']); ?></span>
 								<span class="contact-branches__item-icon" aria-hidden="true">
-									<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10.5 8l5 4-5 4" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+									<img src="<?php echo BASE_URL; ?>assets/images/contact/arrow_icon.svg" alt="" width="24" height="24">
 								</span>
 							</button>
 						</li>
@@ -241,7 +284,7 @@ $branch_chips = ['Madurai - Anna Nagar', 'Theni', 'Coimbatore', 'Tirupur', 'Rama
 						title="Map of <?php echo htmlspecialchars($active_branch['label']); ?>"
 						src="<?php echo htmlspecialchars($active_branch['map']); ?>"
 						width="100%"
-						height="360"
+						height="400"
 						loading="lazy"
 						referrerpolicy="no-referrer-when-downgrade"
 						allowfullscreen
@@ -249,21 +292,26 @@ $branch_chips = ['Madurai - Anna Nagar', 'Theni', 'Coimbatore', 'Tirupur', 'Rama
 				</div>
 
 				<div class="contact-branches__meta">
-					<div class="contact-branches__meta-item">
+					<div class="contact-branches__meta-card">
 						<span class="contact-branches__meta-icon" aria-hidden="true">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.75"/></svg>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 21.5C12 21.5 19.5 15.2 19.5 9.5C19.5 5.36 16.14 2 12 2C7.86 2 4.5 5.36 4.5 9.5C4.5 15.2 12 21.5 12 21.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+								<circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+							</svg>
 						</span>
-						<div>
-							<strong>Location</strong>
+						<span class="contact-branches__meta-label">Location</span>
+						<div class="contact-branches__meta-body">
 							<p id="branchDetailAddress"><?php echo htmlspecialchars($active_branch['address']); ?></p>
 						</div>
 					</div>
-					<div class="contact-branches__meta-item">
+					<div class="contact-branches__meta-card">
 						<span class="contact-branches__meta-icon" aria-hidden="true">
-							<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 014 5a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.58 1 1 0 01-.24 1L6.6 10.8z" stroke="currentColor" stroke-width="1.75"/></svg>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
 						</span>
-						<div>
-							<strong>Phone Number</strong>
+						<span class="contact-branches__meta-label">Phone Number</span>
+						<div class="contact-branches__meta-body">
 							<p id="branchDetailPhones">
 								<?php foreach ($active_branch['phones'] as $phone) : ?>
 									<a href="tel:<?php echo preg_replace('/\s+/', '', $phone); ?>"><?php echo htmlspecialchars($phone); ?></a>
