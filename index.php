@@ -10,12 +10,19 @@
 	<div class="hero-banner__viewport">
 		<div class="hero-banner__slider" id="heroSlider">
 			<article class="hero-banner__slide is-active" data-slide="0">
-				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img1.webp" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner1.webp">
+					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img1.webp" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
+				</picture>
 				<div class="hero-banner__overlay"></div>
+				<div class="hero-banner__pins" aria-hidden="true">
+					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="78" height="104">
+					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="49" height="65">
+				</div>
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
-							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/trusted-people.svg" alt="" width="74" height="28" aria-hidden="true">
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Get Your Life Back</h1>
@@ -24,12 +31,19 @@
 				</div>
 			</article>
 			<article class="hero-banner__slide" data-slide="1">
-				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner2.webp">
+					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
+				</picture>
 				<div class="hero-banner__overlay"></div>
+				<div class="hero-banner__pins" aria-hidden="true">
+					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="56" height="75">
+					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="74" height="99">
+				</div>
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
-							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/trusted-people.svg" alt="" width="74" height="28" aria-hidden="true">
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Decades of Care. Moments Made Clear.</h1>
@@ -38,16 +52,23 @@
 				</div>
 			</article>
 			<article class="hero-banner__slide" data-slide="2">
-				<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner3.webp">
+					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Personalized hearing care solutions" width="1440" height="759" loading="lazy">
+				</picture>
 				<div class="hero-banner__overlay"></div>
+				<div class="hero-banner__pins" aria-hidden="true">
+					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="55" height="73">
+					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="79" height="106">
+				</div>
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
-							<img src="<?php echo BASE_URL; ?>assets/images/icons/hero-avatars.svg" alt="" width="74" height="28" aria-hidden="true">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/trusted-people.svg" alt="" width="74" height="28" aria-hidden="true">
 							<span>Trusted by 5k+ people</span>
 						</div>
-						<h1>Decades of Care. Moments Made Clear.</h1>
-						<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-primary btn-pill">Trust Our Experience</a>
+						<h1>Thoughtful Solutions, Just for You</h1>
+						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
 					</div>
 				</div>
 			</article>
@@ -76,8 +97,8 @@
 	</div>
 </section>
 
-<!-- ===== Stats Grid ===== -->
-<section class="stats-section section" aria-labelledby="stats-heading">
+<!-- ===== Stats Grid (desktop) ===== -->
+<section class="stats-section section d-none d-md-block" aria-labelledby="stats-heading">
 	<div class="container">
 		<h2 id="stats-heading" class="sr-only">Our achievements</h2>
 		<div class="stats-grid">
@@ -120,13 +141,26 @@
 					<p class="stat-card__number">9+</p>
 					<p class="stat-card__label">Cities</p>
 				</div>
+				<ol class="stat-card__cities">
+					<li>Madurai</li>
+					<li>Thirunelveli</li>
+					<li>Coimbatore</li>
+					<li>Theni</li>
+					<li>Nagercoil</li>
+					<li>Ramanathapuram</li>
+					<li>Thoothukudi</li>
+					<li>Tirupur</li>
+					<li>Palayamkottai</li>
+				</ol>
 			</article>
 		</div>
 	</div>
 </section>
 
-<!-- ===== Why Choose Us — Tabs ===== -->
-<section class="moments-section section" aria-labelledby="moments-heading">
+<?php include 'includes/home-stats-mobile.php'; ?>
+
+<!-- ===== Why Choose Us — Tabs (desktop) ===== -->
+<section class="moments-section section d-none d-md-block" aria-labelledby="moments-heading">
 	<div class="container">
 		<div class="section-header text-center" data-aos="fade-up">
 			<span class="section-label">Why Choose us</span>
@@ -156,7 +190,8 @@
 											</span>
 											<h3>Testing</h3>
 										</div>
-										<p>Comprehensive hearing and balance tests by expert audiologists using advanced diagnostic equipment and modern facilities. Our testing services include Pure tone audiometry, Impedance Audiometry, BERA, ASSR, OAE, VEMP.</p>
+										<p>Comprehensive hearing and balance tests by expert audiologists using advanced diagnostic equipment and modern facilities. Our testing services include Pure tone audiometry, Impedance Audiometry, BERA, ASSR, OAE, and VEMP.
+										</p>
 										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
 									</article>
 
@@ -178,7 +213,8 @@
 											</span>
 											<h3>Speech Therapy</h3>
 										</div>
-										<p>We offer compassionate speech therapy for children and adults, supporting speech clarity, confidence, and communication at every age.</p>
+										<p>We offer compassionate speech therapy for children and adults, supporting speech clarity, confidence, and communication at every age.
+										</p>
 										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
 									</article>
 
@@ -198,16 +234,16 @@
 							<div class="moments-tabs__media-window">
 								<div class="moments-tabs__media-reel" id="momentsMediaReel">
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/journey.jpg" alt="Audiologist performing a hearing test" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-testing.png" alt="Audiologist performing a hearing test" width="580" height="376" loading="lazy">
 									</figure>
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/about-video.jpg" alt="Hearing aid servicing in our lab" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-servicing.png" alt="Hearing aid servicing in our lab" width="580" height="376" loading="lazy">
 									</figure>
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Speech therapy session" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-speechup.png" alt="Speech therapy session" width="580" height="376" loading="lazy">
 									</figure>
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Follow-up hearing care appointment" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-maintenance.png" alt="Follow-up hearing care appointment" width="580" height="376" loading="lazy">
 									</figure>
 								</div>
 							</div>
@@ -219,18 +255,23 @@
 	</div>
 </section>
 
+<?php include 'includes/home-moments-mobile.php'; ?>
+
 <!-- ===== Journey Section ===== -->
 <section class="journey-section section" aria-labelledby="journey-heading">
 	<div class="container">
 		<div class="row align-items-center g-5">
-			<div class="col-lg-6" data-aos="fade-right">
+			<div class="col-lg-6 d-none d-md-block" data-aos="fade-right">
 				<div class="journey-section__media rounded-xl overflow-hidden">
-					<img src="<?php echo BASE_URL; ?>assets/images/home/journey.jpg" alt="Patient experiencing improved hearing at Sounds Good" width="580" height="465" loading="lazy">
+					<img src="<?php echo BASE_URL; ?>assets/images/home/a-journey-back-img.webp" alt="Patient experiencing improved hearing at Sounds Good" width="580" height="465" loading="lazy">
 				</div>
 			</div>
 			<div class="col-lg-6" data-aos="fade-left">
 				<h2 id="journey-heading" class="section-title">A Journey Back to the Sounds You Love</h2>
-				<hr class="journey-section__divider">
+				<hr class="journey-section__divider d-none d-md-block">
+				<div class="journey-section__media rounded-xl overflow-hidden d-block d-md-none mb-4">
+					<img src="<?php echo BASE_URL; ?>assets/images/home/a-journey-back-img.webp" alt="Patient experiencing improved hearing at Sounds Good" width="580" height="465" loading="lazy">
+				</div>
 				<p>At Sounds Good Hearing Care, we support people of all ages with thoughtful and reliable hearing care. Hearing loss can develop gradually or suddenly, and early attention makes a meaningful difference. Our experienced audiologists help identify the type and level of hearing concern with clarity and care.</p>
 				<p>We offer a wide range of modern hearing aids, selected to match individual needs and comfort. Every solution is professionally fitted and supported with ongoing follow-up care. With centres across Tamil Nadu, quality hearing care is always close to you.</p>
 			</div>
@@ -238,98 +279,316 @@
 	</div>
 </section>
 
-<!-- ===== Home Visit CTA ===== -->
-<section class="home-visit section bg-secondary-pale" aria-labelledby="home-visit-heading">
-	<div class="container">
-		<div class="row align-items-center g-4">
-			<div class="col-lg-6" data-aos="fade-right">
-				<div class="home-visit__media rounded-xl overflow-hidden">
-					<img src="<?php echo BASE_URL; ?>assets/images/home/about-video.jpg" alt="Hearing care professional providing home visit support" width="580" height="400" loading="lazy">
-				</div>
-			</div>
-			<div class="col-lg-6" data-aos="fade-left">
-				<h2 id="home-visit-heading" class="section-title">Hearing Care at Your Doorstep</h2>
-				<p class="home-visit__help">We're Here to Help: <a href="tel:18002701996">1800-270-1996</a></p>
-				<p class="text-muted-secondary">Book for Free Home Visit</p>
-				<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Book Your Free Home Visit</a>
-			</div>
+<!-- ===== Home Visit CTA (desktop) ===== -->
+<section class="home-visit d-none d-md-block" aria-labelledby="home-visit-heading">
+	<div class="home-visit__bg" aria-hidden="true"></div>
+	<div class="container home-visit__container">
+		<div class="home-visit__content" data-aos="fade-up">
+			<h2 id="home-visit-heading">Hearing Care at Your Doorstep</h2>
+			<p>Book for Free Home Visit</p>
+			<a href="tel:18002701996" class="btn btn-primary btn-pill home-visit__cta">
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<path d="M11.5 3.5c2.4.3 4.3 2.2 4.6 4.6M11.5 1c3.8.4 6.8 3.4 7.2 7.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+					<path d="M8.4 10.9c1.7 1.7 3.7 2.8 4.5 2.3l.9-.6c.4-.3 1-.2 1.3.2l1.2 1.6c.3.4.3 1.1-.2 1.4-1.1.8-3.3 1-5.9-.6-3-1.9-5-5.1-4.7-6.5.1-.5.5-.8 1-.7l1.8.4c.5.1.8.6.7 1.1l-.3 1.2c-.1.4.1.8.4 1z" fill="currentColor"/>
+				</svg>
+				<span>1800-270-1996</span>
+			</a>
 		</div>
 	</div>
 </section>
 
-<!-- ===== Testimonials ===== -->
-<section class="testimonials-section section" aria-labelledby="testimonials-heading">
+<?php include 'includes/home-visit-mobile.php'; ?>
+
+<!-- ===== Testimonials (desktop) ===== -->
+<section class="testimonials-section section d-none d-lg-block" aria-labelledby="testimonials-heading">
 	<div class="container">
 		<div class="section-header text-center" data-aos="fade-up">
 			<span class="section-label">Our Testimonials</span>
-			<h2 id="testimonials-heading" class="section-title">What Our Patients Say</h2>
+			<h2 id="testimonials-heading" class="section-title">Voices of Happy Ears</h2>
 		</div>
-		<div class="row g-4">
-			<div class="col-md-4" data-aos="fade-up">
-				<article class="card card-testimonial h-full">
-					<div class="card-body">
-						<p class="text-italic">"After years of struggling to follow conversations, Sounds Good helped me find the right hearing aid. I can finally hear my grandchildren clearly."</p>
-					</div>
-					<footer class="card-heading card_footer mb-0">
-						<div>
-							<p>R. Lakshmi</p>
-							<span>Madurai</span>
+
+		<div class="testimonials" id="testimonialsCarousel" data-aos="fade-up" data-aos-delay="100">
+			<div class="testimonials__viewport">
+				<div class="testimonials__track">
+					<!-- Slide 1 -->
+					<div class="testimonials__slide is-active" data-slide="0">
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“The audiologists took time to understand my lifestyle before suggesting a hearing aid. That personal touch mattered.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+
+						<div class="testimonials__video-wrap">
+							<video class="testimonials__video" muted playsinline loop preload="metadata" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
+								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-1.mp4" type="video/mp4">
+							</video>
 						</div>
-					</footer>
-				</article>
+
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“My father’s hearing improved so much after coming here. The follow-up support made all the difference. Thanks to the team.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+					</div>
+
+					<!-- Slide 2 -->
+					<div class="testimonials__slide" data-slide="1">
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“I can finally hear my grandchildren clearly again. The team was patient, kind, and explained everything so well.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+
+						<div class="testimonials__video-wrap">
+							<video class="testimonials__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
+								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-2.mp4" type="video/mp4">
+							</video>
+						</div>
+
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“Professional, patient, and thorough. The audiologist explained every step and the follow-up care has been excellent.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+					</div>
+
+					<!-- Slide 3 -->
+					<div class="testimonials__slide" data-slide="2">
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“The home visit service was a blessing for my mother. Highly recommend Sounds Good Hearing Care.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+
+						<div class="testimonials__video-wrap">
+							<video class="testimonials__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
+								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-3.mp4" type="video/mp4">
+							</video>
+						</div>
+
+						<article class="testimonials__card">
+							<div class="testimonials__stars" aria-label="5 out of 5 stars">
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+								<svg width="18" height="18" viewBox="0 0 18 18" fill="#FFC107" aria-hidden="true"><path d="M9 1.5l2.1 4.3 4.7.7-3.4 3.3.8 4.7L9 12.2l-4.2 2.3.8-4.7L2.2 6.5l4.7-.7L9 1.5z"/></svg>
+							</div>
+							<p>“After years of struggling to follow conversations, Sounds Good helped me find the right hearing aid.”</p>
+							<footer>
+								<strong>Name</strong>
+								<span>Root Canal</span>
+							</footer>
+						</article>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-				<article class="card card-testimonial h-full">
-					<div class="card-body">
-						<p class="text-italic">"Professional, patient, and thorough. The audiologist explained every step and the follow-up care has been excellent."</p>
-					</div>
-					<footer class="card-heading card_footer mb-0">
-						<div>
-							<p>K. Venkatesh</p>
-							<span>Chennai</span>
-						</div>
-					</footer>
-				</article>
-			</div>
-			<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-				<article class="card card-testimonial h-full">
-					<div class="card-body">
-						<p class="text-italic">"The home visit service was a blessing for my father. Caring team, transparent pricing, and real results."</p>
-					</div>
-					<footer class="card-heading card_footer mb-0">
-						<div>
-							<p>Priya S</p>
-							<span>Coimbatore</span>
-						</div>
-					</footer>
-				</article>
+
+			<div class="testimonials__controls about-carousel__controls" role="group" aria-label="Testimonials navigation">
+				<button type="button" class="about-carousel__btn about-carousel__btn--prev" id="testimonialsPrev" aria-label="Previous testimonials" disabled>
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
+				<span class="about-carousel__status" id="testimonialsStatus" aria-live="polite">1 of 3</span>
+				<button type="button" class="about-carousel__btn about-carousel__btn--next" id="testimonialsNext" aria-label="Next testimonials">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
 			</div>
 		</div>
 	</div>
 </section>
 
+<?php include 'includes/home-testimonials-mobile.php'; ?>
+
 <!-- ===== Social / Instagram ===== -->
-<section class="social-section section bg-pale" aria-labelledby="social-heading">
+<section class="social-section section" aria-labelledby="social-heading" id="socialSection">
 	<div class="container">
-		<div class="section-header text-center" data-aos="fade-up">
-			<span class="section-label">Our Social Space</span>
-			<h2 id="social-heading" class="section-title">Stories That Bring Us Together</h2>
+		<div class="social-section__header text-center" data-aos="fade-up">
+			<span class="social-section__label">Our Social Space</span>
+			<h2 id="social-heading" class="social-section__title">Stories That Bring Us Together</h2>
 		</div>
-		<div class="social-section__profile card" data-aos="fade-up">
-			<div class="flex items-center gap-4">
-				<div class="social-section__avatar" aria-hidden="true">SG</div>
-				<div>
-					<p class="font-semibold">Sounds Good Hearing Care</p>
-					<p class="text-sm text-muted-secondary">Trusted hearing care since 1996</p>
+
+		<div class="social-section__profile" data-aos="fade-up">
+			<div class="social-section__profile-main">
+				<div class="social-section__avatar">
+					<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="" width="68" height="38" loading="lazy">
+				</div>
+				<div class="social-section__profile-copy">
+					<p class="social-section__profile-name">Sounds Good Hearing Care</p>
+					<div class="social-section__profile-meta">
+						<span>3,881 followers</span>
+						<span>639 posts</span>
+					</div>
 				</div>
 			</div>
-			<a href="https://instagram.com" class="btn btn-outline btn-pill btn-sm" target="_blank" rel="noopener noreferrer">View on Instagram</a>
+			<a href="https://www.instagram.com/" class="social-section__ig-btn" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">
+				<span class="social-section__ig-btn-text">View in instagram</span>
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+					<rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+					<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+					<circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+				</svg>
+			</a>
 		</div>
-		<div class="social-section__grid" data-aos="fade-up" data-aos-delay="100">
-			<img class="rounded-lg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-1.jpg" alt="Community moment shared on Instagram" width="271" height="271" loading="lazy">
-			<img class="rounded-lg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-2.jpg" alt="Patient success story on social media" width="271" height="271" loading="lazy">
-			<img class="rounded-lg" src="<?php echo BASE_URL; ?>assets/images/home/journey.jpg" alt="Hearing care awareness post" width="271" height="271" loading="lazy">
-			<img class="rounded-lg" src="<?php echo BASE_URL; ?>assets/images/home/hero-slide-3.jpg" alt="Sounds Good team at community event" width="271" height="271" loading="lazy">
+
+		<div class="social-section__slider">
+			<div class="social-section__viewport" id="socialSliderViewport">
+				<div class="social-section__track" id="socialSliderTrack">
+					<?php
+					$social_posts = [
+						[
+							'img' => 'banner-img1.webp',
+							'alt' => 'Family enjoying outdoor time together',
+							'caption' => 'Hearing well means living fully — every conversation, every laugh.',
+							'date' => 'September 19',
+						],
+						[
+							'img' => 'banner-img2.webp',
+							'alt' => 'Senior couple sharing a joyful moment',
+							'caption' => 'Trusted hearing care across Tamil Nadu since 1996.',
+							'date' => 'September 12',
+						],
+						[
+							'img' => 'journey.jpg',
+							'alt' => 'Audiologist performing a hearing test',
+							'caption' => 'A clear hearing check-up is the first step to better sound.',
+							'date' => 'September 5',
+						],
+						[
+							'img' => 'banner-img3.webp',
+							'alt' => 'Personalized hearing care solutions',
+							'caption' => 'Modern hearing aids. Lifelong support. Closer to you.',
+							'date' => 'August 28',
+						],
+					];
+					foreach ($social_posts as $i => $post) :
+					?>
+					<article class="ig-post social-section__slide">
+						<header class="ig-post__head">
+							<div class="ig-post__user-wrap">
+								<span class="ig-post__avatar">
+									<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="" width="16" height="9" loading="lazy">
+								</span>
+								<div>
+									<p class="ig-post__user">
+										soundsgood
+										<svg width="8" height="8" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#3897F0"/><path d="M3.5 6l1.7 1.7L8.5 4.4" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+									</p>
+									<p class="ig-post__loc">Madurai, India</p>
+								</div>
+							</div>
+							<span class="ig-post__more" aria-hidden="true"></span>
+						</header>
+						<div class="ig-post__media">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/<?php echo $post['img']; ?>" alt="<?php echo htmlspecialchars($post['alt']); ?>" width="271" height="271" loading="lazy">
+							<span class="ig-post__count">1/3</span>
+						</div>
+						<footer class="ig-post__foot">
+							<div class="ig-post__actions">
+								<div class="ig-post__actions-left">
+									<svg width="17" height="15" viewBox="0 0 17 15" fill="none" aria-hidden="true"><path d="M8.5 13.6S1.5 9.2 1.5 5.2A3.7 3.7 0 018.5 3a3.7 3.7 0 017 2.2c0 4-7 8.4-7 8.4z" stroke="#262626" stroke-width="1.2"/></svg>
+									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 7.5a5.5 5.5 0 01-8.3 4.7L2 14l1.6-3.3A5.5 5.5 0 1114 7.5z" stroke="#262626" stroke-width="1.2"/></svg>
+									<svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M14.5 1.5L1.5 6.8l5.2 1.7 1.6 4.5 6.2-11.5z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/></svg>
+								</div>
+								<svg width="15" height="17" viewBox="0 0 15 17" fill="none" aria-hidden="true"><path d="M2 1.5h11v13.5l-5.5-3.2L2 15V1.5z" stroke="#262626" stroke-width="1.2"/></svg>
+							</div>
+							<p class="ig-post__likes">Liked by <strong>craig_love</strong> and <strong>others</strong></p>
+							<p class="ig-post__caption"><strong>soundsgood</strong> <?php echo htmlspecialchars($post['caption']); ?></p>
+							<time class="ig-post__date" datetime="2025-09-19"><?php echo htmlspecialchars($post['date']); ?></time>
+						</footer>
+					</article>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<div class="social-section__dots" role="tablist" aria-label="Social posts pagination" id="socialSliderDots">
+				<button type="button" class="social-section__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 4" data-slide="3"></button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- ===== Trusted Brands ===== -->
+<section class="brands-section section" aria-labelledby="brands-heading">
+	<div class="container">
+		<div class="brands-section__card" data-aos="fade-up">
+			<img class="brands-section__element" src="<?php echo BASE_URL; ?>assets/images/home/brand-element.png" alt="" width="225" height="222" loading="lazy" aria-hidden="true">
+
+			<h2 id="brands-heading" class="brands-section__title">Trusted Brands We Work With</h2>
+
+			<div class="brands-section__logos">
+				<div class="brands-section__row">
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo1.svg" alt="Signia" width="147" height="81" loading="lazy">
+					</div>
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo2.svg" alt="Phonak" width="147" height="81" loading="lazy">
+					</div>
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo3.svg" alt="Oticon" width="147" height="81" loading="lazy">
+					</div>
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo4.svg" alt="Unitron" width="147" height="81" loading="lazy">
+					</div>
+				</div>
+				<div class="brands-section__row brands-section__row--bottom">
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo5.svg" alt="Hansaton" width="147" height="81" loading="lazy">
+					</div>
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo6.svg" alt="ReSound" width="147" height="81" loading="lazy">
+					</div>
+					<div class="brands-section__logo">
+						<img src="<?php echo BASE_URL; ?>assets/images/home/band-logo7.svg" alt="Novax" width="147" height="81" loading="lazy">
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -337,47 +596,65 @@
 <!-- ===== Contact ===== -->
 <section class="contact-section section" id="contact" aria-labelledby="contact-heading">
 	<div class="container">
-		<div class="row g-5">
-			<div class="col-lg-5" data-aos="fade-right">
-				<h2 id="contact-heading" class="section-title">Contact us</h2>
-				<p class="text-muted-secondary">Book your hearing consultation with our expert audiologists.</p>
-				<ul class="contact-section__info">
-					<li><a href="tel:18002701996">1800 270 1996</a></li>
-					<li><a href="tel:8489978689">8489978689</a></li>
-					<li><a href="mailto:hello@soundsgood.in">hello@soundsgood.in</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-7" data-aos="fade-left">
-				<form class="contact-form" action="<?php echo BASE_URL; ?>contact.php" method="post">
-					<div class="row g-3">
-						<div class="col-md-6">
-							<label class="form-label-static" for="first_name">First Name</label>
-							<input class="form-control-bordered" type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
-						</div>
-						<div class="col-md-6">
-							<label class="form-label-static" for="last_name">Last Name</label>
-							<input class="form-control-bordered" type="text" id="last_name" name="last_name" placeholder="Enter your last name" required>
-						</div>
-						<div class="col-12">
-							<label class="form-label-static" for="email">Email</label>
-							<input class="form-control-bordered" type="email" id="email" name="email" placeholder="Enter your email" required>
-						</div>
-						<div class="col-12">
-							<label class="form-label-static" for="phone">Phone</label>
-							<input class="form-control-bordered" type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-						</div>
-						<div class="col-12">
-							<label class="form-label-static" for="message">Message</label>
-							<textarea class="form-control-bordered" id="message" name="message" rows="4" placeholder="Tell us how we can help"></textarea>
-						</div>
-						<div class="col-12">
-							<button type="submit" class="btn btn-primary btn-pill">Book Your Hearing Consultation</button>
-						</div>
+		<div class="contact-section__inner" data-aos="fade-up">
+			<h2 id="contact-heading" class="contact-section__title">Contact us</h2>
+
+			<form class="contact-form" action="<?php echo BASE_URL; ?>contact.php" method="post">
+				<div class="contact-form__grid">
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_name">Name</label>
+						<input class="contact-form__input" type="text" id="contact_name" name="name" placeholder="Enter Name" required>
 					</div>
-				</form>
-			</div>
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_phone">Phone</label>
+						<input class="contact-form__input" type="tel" id="contact_phone" name="phone" placeholder="Enter Phone Number" required>
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_email">Email</label>
+						<input class="contact-form__input" type="email" id="contact_email" name="email" placeholder="Enter Email" required>
+					</div>
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_branch">Our Branches</label>
+						<select class="contact-form__input contact-form__select" id="contact_branch" name="branch" required>
+							<option value="" disabled selected>Select Branch</option>
+							<option value="madurai">Madurai - East Veli Street</option>
+							<option value="madurai-anna-nagar">Madurai - Anna Nagar</option>
+							<option value="theni">Theni</option>
+							<option value="coimbatore">Coimbatore</option>
+							<option value="tirupur">Tirupur</option>
+							<option value="ramanathapuram">Ramanathapuram</option>
+							<option value="tuticorin">Tuticorin</option>
+							<option value="tirunelveli">Tirunelveli</option>
+							<option value="nagercoil">Nagercoil</option>
+						</select>
+					</div>
+
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_location">Patient Location</label>
+						<input class="contact-form__input" type="text" id="contact_location" name="patient_location" placeholder="Enter Patient Location">
+					</div>
+					<div class="contact-form__field">
+						<label class="contact-form__label" for="contact_for_whom">Hearing aids for whom?</label>
+						<input class="contact-form__input" type="text" id="contact_for_whom" name="for_whom" placeholder="Type">
+					</div>
+
+					<div class="contact-form__field contact-form__field--full">
+						<label class="contact-form__label" for="contact_message">Your message</label>
+						<textarea class="contact-form__input contact-form__textarea" id="contact_message" name="message" rows="4" placeholder="Type..."></textarea>
+					</div>
+				</div>
+
+				<div class="contact-form__actions">
+					<button type="submit" class="btn btn-primary btn-pill contact-form__submit">Submit</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </section>
 
+<!-- ----cta-map--- -->
+<?php include "includes/footer-location-cta.php"; ?>
+
 <?php include "includes/footer.php"; ?>
+

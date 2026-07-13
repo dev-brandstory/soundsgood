@@ -18,12 +18,17 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 img,
@@ -254,6 +259,9 @@ body {
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
   background-color: var(--color-bg);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 img {
@@ -343,7 +351,6 @@ h2 {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-medium);
   color: var(--color-secondary);
-  text-transform: uppercase;
   line-height: var(--line-height-tight);
 }
 

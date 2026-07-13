@@ -21,8 +21,8 @@
 	<div class="container">
 		<div class="about-bringing__intro" data-aos="fade-up">
 			<h2 id="bringing-heading" class="section-title">Bringing Life Back to Every Sound</h2>
-			<p>What began as a humble vision has grown into one of Tamil Nadu’s most trusted hearing care networks. From Madurai, Tirunelveli, Tirupur, Coimbatore, Theni, Nagercoil, Tuticorin to Ramanathapuram, we have expanded our reach while maintaining the warmth and familiarity of Indian hospitality.</p>
-			<p>Our goal has always been more than providing hearing aids – it’s about bringing life back to every sound. By integrating cutting-edge hearing technology with personalised care, we ensure no one feels unseen, unheard, or undervalued.</p>
+			<p>What began as a humble vision has grown into one of Tamil Nadu's most trusted hearing care networks. From Madurai, Tirunelveli, Tirupur, Coimbatore, Theni, Nagercoil, Tuticorin to Ramanathapuram, we have expanded our reach while maintaining the warmth and familiarity of Indian hospitality.</p>
+			<p>Our goal has always been more than providing hearing aids - it's about bringing life back to every sound. By integrating cutting-edge hearing technology with personalised care, we ensure no one feels unseen, unheard, or undervalued.</p>
 		</div>
 
 		<div class="about-carousel" data-aos="fade-up" data-aos-delay="100" id="aboutCarousel" data-total="2">

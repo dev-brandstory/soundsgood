@@ -58,7 +58,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 	</div>
 
 	<!-- Logo + brand stripes -->
-	<div class="header-brand">
+	<div class="header-brand d-none d-lg-block">
 		<div class="header-brand__stripe header-brand__stripe--green"></div>
 		<div class="header-brand__stripe header-brand__stripe--navy"></div>
 		<div class="container">
@@ -86,10 +86,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 	<!-- Mobile header -->
 	<div class="header-mobile d-lg-none">
-		<div class="header-brand__stripe header-brand__stripe--green"></div>
-		<div class="header-brand__stripe header-brand__stripe--navy"></div>
-		<div class="header-mobile__inner flex items-center justify-between">
-			<a href="<?php echo BASE_URL; ?>" aria-label="Sounds Good Hearing Care — Home">
+		<div class="header-mobile__stripe header-mobile__stripe--green" aria-hidden="true"></div>
+		<div class="header-mobile__stripe header-mobile__stripe--navy" aria-hidden="true"></div>
+		<div class="header-mobile__inner">
+			<a class="header-mobile__logo" href="<?php echo BASE_URL; ?>" aria-label="Sounds Good Hearing Care — Home">
 				<img src="<?php echo BASE_URL; ?>assets/images/header/logo.svg" alt="Sounds Good Hearing Care" width="95" height="47" loading="eager">
 			</a>
 			<button class="header-mobile__toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Open menu">
