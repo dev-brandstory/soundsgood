@@ -352,7 +352,7 @@
 }
 
 .hero-banner__pins {
-  display: none;
+  display: none!important;
 }
 
 
