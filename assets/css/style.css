@@ -2656,6 +2656,18 @@ filter: grayscale(100%);
   object-fit: cover;
 }
 
+.page-banner > picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+
+.page-banner > picture .page-banner__bg {
+  position: absolute;
+  inset: 0;
+}
+
 .page-banner__overlay {
   position: absolute;
   inset: 0;
