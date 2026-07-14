@@ -1015,38 +1015,100 @@
     margin-top: 28px;
   }
 
+  /* Connect — tablet (Figma 834 × 455) */
   .hl-connect {
-    min-height: 340px;
+    position: relative;
+    display: block;
+    flex-direction: unset;
+    align-items: unset;
+    height: 455px;
+    min-height: 455px;
+    overflow: hidden;
+    background: #2c2d88;
   }
 
   .hl-connect__bg {
-    background-size: auto 105%;
-    background-position: right -24px bottom, 0 0;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: auto;
+    height: auto;
+    flex: unset;
+    background:
+      url("../images/hearing-loss/connect-with-our-specialist-mobile.svg") no-repeat,
+      linear-gradient(270deg, #3738b0 5.58%, #17184a 100%);
+    background-size: 443px 320px, auto;
+    background-position: right -30px bottom -14px, 0 0;
+  }
+
+  .hl-connect__bg::before {
+    display: none;
   }
 
   .hl-connect__container {
-    min-height: 340px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 455px;
+    min-height: 455px;
+    padding-top: 62px;
+    padding-bottom: 0;
   }
 
   .hl-connect__copy {
-    max-width: min(400px, 50%);
-    padding-block: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 484px;
+    padding-block: 0;
+    text-align: left;
   }
 
   .hl-connect__copy h2 {
-    font-size: 30px;
-    margin-bottom: 14px;
+    margin: 0 0 24px;
+    max-width: 391px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #ffffff;
   }
 
   .hl-connect__copy p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 22px;
+    max-width: 484px;
+    margin: 0 0 32px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #ffffff;
   }
 
   .hl-connect__cta {
-    min-width: 200px;
-    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    min-width: 256px;
+    max-width: 256px;
+    height: 55px;
+    min-height: 55px;
+    padding: 16px 30px;
+    gap: 4px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+    background: #3b3cb4;
+    border-radius: 30px;
+  }
+
+  .hl-connect__cta:hover {
+    color: #ffffff;
+    background: #3233a0;
   }
 
   .hearingLossPage .hl-faq {
@@ -2301,47 +2363,89 @@
   .hl-connect {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    height: auto;
     min-height: 0;
-    background: linear-gradient(270deg, #3738b0 5.58%, #17184a 100%);
+    overflow: hidden;
+    background: linear-gradient(180deg, #2f318f 0%, #1b1c62 55%, #17184a 100%);
   }
 
   .hl-connect__bg {
     position: relative;
     inset: auto;
+    z-index: 0;
     width: 100%;
-    height: 220px;
+    height: clamp(220px, 58vw, 280px);
     flex: 0 0 auto;
     background:
-      url("../images/hearing-loss/connect-with-our-specialist.svg") center top / cover no-repeat;
+      url("../images/hearing-loss/connect-with-our-specialist-mobile.svg") center bottom / contain no-repeat;
+      margin-bottom: 20px;
+  }
+
+  .hl-connect__bg::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -18%;
+    width: 70%;
+    height: 90%;
+    border-radius: 50%;
+    border: 48px solid rgba(255, 255, 255, 0.06);
+    pointer-events: none;
   }
 
   .hl-connect__container {
     position: relative;
     z-index: 1;
+    display: block;
+    height: auto;
     min-height: 0;
-    padding-block: 32px 40px;
+    padding: 8px 20px 40px;
   }
 
   .hl-connect__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: none;
     padding-block: 0;
+    text-align: center;
   }
 
   .hl-connect__copy h2 {
-    font-size: clamp(24px, 6vw, 28px);
-    margin-bottom: 16px;
+    font-size: clamp(26px, 7vw, 32px);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin: 0 0 14px;
+    color: #ffffff;
   }
 
   .hl-connect__copy p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 24px;
+    max-width: 22rem;
+    margin: 0 0 24px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #ffffff;
   }
 
   .hl-connect__cta {
-    min-width: 0;
-    width: 100%;
-    max-width: 256px;
+    width: auto;
+    min-width: 188px;
+    max-width: none;
+    min-height: 50px;
+    padding: 14px 36px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2c2d88;
+    background: #ffffff;
+    border-radius: 40px;
+  }
+
+  .hl-connect__cta:hover {
+    color: #2c2d88;
+    background: #f2f2f7;
   }
 
   /* Footer location — mobile (Figma stacked curve card) */
@@ -2793,12 +2897,57 @@
     text-align: center;
   }
 
+  .hearingLossPage .hl-connect {
+    height: 455px;
+    min-height: 455px;
+    background: #2c2d88;
+  }
+
+  .hearingLossPage .hl-connect__container {
+    display: flex;
+    align-items: flex-start;
+    height: 455px;
+    min-height: 455px;
+    padding-top: 62px;
+  }
+
   .hearingLossPage .hl-connect__copy {
-    max-width: min(400px, 48%);
+    max-width: 484px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hearingLossPage .hl-connect__copy h2 {
+    margin: 0 0 24px;
+    font-size: 32px;
+    line-height: 1.4;
+    letter-spacing: -1px;
+  }
+
+  .hearingLossPage .hl-connect__copy p {
+    margin: 0 0 32px;
+    font-size: 18px;
+    line-height: 27px;
   }
 
   .hearingLossPage .hl-connect__bg {
-    background-size: auto 108%;
-    background-position: right -20px bottom, 0 0;
+    position: absolute;
+    inset: 0;
+    background:
+      url("../images/hearing-loss/connect-with-our-specialist-mobile.svg") no-repeat,
+      linear-gradient(270deg, #3738b0 5.58%, #17184a 100%);
+    background-size: 443px 320px, auto;
+    background-position: right -30px bottom -14px, 0 0;
+  }
+
+  .hearingLossPage .hl-connect__cta {
+    width: 256px;
+    min-width: 256px;
+    height: 55px;
+    min-height: 55px;
+    padding: 16px 30px;
+    color: #ffffff;
+    background: #3b3cb4;
+    border-radius: 30px;
   }
 }
