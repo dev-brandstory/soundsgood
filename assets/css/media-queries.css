@@ -858,7 +858,14 @@
   }
 
   .hl-causes__layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "media"
+      "lead"
+      "list";
     gap: 24px;
+    align-items: start;
   }
 
   .hl-causes__layout .hl-section-title {
@@ -870,7 +877,12 @@
     border-radius: 20px;
   }
 
+  .hl-causes__media img {
+    aspect-ratio: 1040 / 520;
+  }
+
   .hl-causes__lead {
+    max-width: none;
     font-size: 18px;
   }
 
@@ -943,22 +955,30 @@
     grid-template-areas:
       "title"
       "media"
-      "copy";
-    gap: 24px;
+      "lead"
+      "outro";
+    gap: 20px;
+    text-align: left;
+    justify-items: stretch;
   }
 
   .hl-ear__body > .hl-section-title {
     font-size: 28px;
     margin: 0;
+    text-align: left;
+    max-width: none;
   }
 
-  .hl-ear__content p {
+  .hl-ear__lead,
+  .hl-ear__outro {
     font-size: 16px;
+    text-align: left;
+    max-width: none;
   }
 
   .hl-ear__media {
-    order: 0;
     width: 100%;
+    border-radius: 20px;
   }
 
   .hl-journey {
@@ -2053,7 +2073,8 @@
   }
 
   .hl-intervention__copy p,
-  .hl-ear__content p {
+  .hl-ear__lead,
+  .hl-ear__outro {
     font-size: 15px;
   }
 
@@ -2141,7 +2162,7 @@
 
   .hl-causes__layout .hl-section-title {
     text-align: left;
-    font-size: clamp(24px, 6vw, 28px);
+    font-size: clamp(22px, 6vw, 28px);
   }
 
   .hl-causes__lead {
@@ -2165,21 +2186,47 @@
     font-size: clamp(24px, 6vw, 28px);
   }
 
+  .hl-ear {
+    background: #f7f7f7;
+    padding-block: 48px;
+  }
+
   .hl-ear__body {
     grid-template-columns: 1fr;
     grid-template-areas:
       "title"
+      "lead"
       "media"
-      "copy";
+      "outro";
     gap: 20px;
+    text-align: center;
+    justify-items: center;
   }
 
   .hl-ear__body > .hl-section-title {
     font-size: clamp(24px, 6vw, 28px);
+    text-align: left;
+  }
+
+  .hl-ear__lead,
+  .hl-ear__outro {
+    max-width: 34rem;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.55;
   }
 
   .hl-ear__media {
     width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    border-radius: 20px;
+  }
+
+  .hl-ear__media picture,
+  .hl-ear__media img {
+    width: 100%;
+    height: auto;
   }
 
   .hl-challenges {
@@ -2704,7 +2751,8 @@
 
   .hearingLossPage .hl-intervention__layout,
   .hearingLossPage .hl-challenges__body,
-  .hearingLossPage .hl-ear__body {
+  .hearingLossPage .hl-ear__body,
+  .hearingLossPage .hl-causes__layout {
     grid-template-columns: 1fr;
   }
 
@@ -2719,7 +2767,16 @@
     grid-template-areas:
       "title"
       "media"
-      "copy";
+      "lead"
+      "outro";
+  }
+
+  .hearingLossPage .hl-causes__layout {
+    grid-template-areas:
+      "title"
+      "media"
+      "lead"
+      "list";
   }
 
   .hearingLossPage .hl-challenges__diagram {

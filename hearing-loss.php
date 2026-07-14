@@ -332,13 +332,14 @@ $faqs = [
 	<div class="container">
 		<div class="hl-ear__body" data-aos="fade-up">
 			<h2 id="hl-ear-heading" class="hl-section-title">Understanding Tinnitus and Its Impact</h2>
+			<p class="hl-ear__lead">Tinnitus, experienced as ringing, buzzing, or clicking in the ears, affects 10–15% of people worldwide. It can be constant or occasional, mild or severe, and may disrupt concentration and everyday interactions.</p>
 			<figure class="hl-ear__media">
-				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/understanding-tinnitus-and-its-impact.svg" alt="Person experiencing tinnitus illustrated with sound waves around the ear" width="560" height="420" loading="lazy">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/hearing-loss/understanding-tinnitus-and-its-impact-mobile.svg">
+					<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/understanding-tinnitus-and-its-impact.svg" alt="Common tinnitus triggers illustrated with a person experiencing ear discomfort" width="560" height="420" loading="lazy">
+				</picture>
 			</figure>
-			<div class="hl-ear__content">
-				<p>Tinnitus, experienced as ringing, buzzing, or clicking in the ears, affects 10–15% of people worldwide. It can be constant or occasional, mild or severe, and may disrupt concentration and everyday interactions.</p>
-				<p>Recognising tinnitus alongside other changes in auditory perception is critical for maintaining communication, social engagement, and overall hearing health.</p>
-			</div>
+			<p class="hl-ear__outro">Recognising tinnitus alongside other changes in auditory perception is critical for maintaining communication, social engagement, and overall hearing health.</p>
 		</div>
 	</div>
 </section>
