@@ -74,8 +74,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 			<div class="header-nav__inner flex items-center justify-end gap-5">
 				<ul class="header-nav__list flex items-center gap-2">
 					<li><a class="header-nav__link <?php echo ($current_page == 'index.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>">Home</a></li>
-					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-loss.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'testimonials.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>testimonials.php">Testimonials</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'about.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
 				</ul>
@@ -109,6 +110,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 				<li><a href="<?php echo BASE_URL; ?>">Home</a></li>
 				<li><a href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
 				<li><a href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
+				<li><a href="<?php echo BASE_URL; ?>testimonials.php">Testimonials</a></li>
 				<li><a href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
 				<li><a href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
 				<li><a href="<?php echo BASE_URL; ?>contact.php">Contact Us</a></li>

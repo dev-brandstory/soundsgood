@@ -63,9 +63,9 @@ $faqs = [
 <?php include "includes/header.php"; ?>
 
 <!-- ===== Testimonials Intro ===== -->
-<section class="testimonials-intro section" aria-labelledby="testimonials-page-heading">
+<section class="testimonials-intro" aria-labelledby="testimonials-page-heading">
 	<div class="container">
-		<div class="testimonials-intro__content text-center" data-aos="fade-up">
+		<div class="testimonials-intro__content" data-aos="fade-up">
 			<p class="testimonials-intro__eyebrow">Trusted by Patients</p>
 			<h1 id="testimonials-page-heading" class="testimonials-intro__title">Life Sounds Better</h1>
 			<p class="testimonials-intro__lead">Discover how better hearing has made everyday moments clearer, more connected, and more meaningful.</p>

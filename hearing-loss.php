@@ -44,12 +44,11 @@ $early_signs = [
 ];
 
 $causes = [
-	'Age-related changes (presbycusis)',
-	'Long-term noise exposure at work or leisure',
-	'Ear infections or untreated ear conditions',
-	'Certain medications that affect hearing',
-	'Family history / genetic factors',
-	'Head injury or sudden loud-noise trauma',
+	'Long-term exposure to loud music or workplace noise',
+	'Age-related changes in the inner ear',
+	'Ear infections or head injuries',
+	'Certain medications or medical conditions',
+	'Genetic factors',
 ];
 
 $protect_steps = [
@@ -105,40 +104,31 @@ $faqs = [
 <?php include "includes/header.php"; ?>
 
 <!-- ===== Hearing Loss Hero Banner ===== -->
-<section class="page-banner hl-banner section-none" aria-label="Hearing loss awareness">
-	<img class="page-banner__bg" src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero.webp" alt="Two people enjoying an outdoor conversation" width="1440" height="650" loading="eager">
-	<div class="page-banner__overlay" aria-hidden="true"></div>
-	<div class="container">
-		<div class="hl-banner__layout">
-			<div class="hl-banner__content" data-aos="fade-up">
-				<h1>Recognising Changes in the Way You Hear</h1>
-				<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Check Your Hearing Today</a>
-			</div>
-
-			<div class="hl-banner__aside" data-aos="fade-up" data-aos-delay="100">
-				<article class="hl-banner__card hl-banner__card--glass hl-banner__card--untreated">
-					<span class="hl-banner__card-icon" aria-hidden="true">
-						<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hl-ear.svg" alt="" width="40" height="40">
-					</span>
-					<h2 class="hl-banner__card-title">Untreated Hearing Loss</h2>
-					<p class="hl-banner__card-text">can affect communication, mental well-being, and overall quality of life.</p>
-				</article>
-
-				<article class="hl-banner__card hl-banner__card--aids">
-					<span class="hl-banner__aid" aria-hidden="true">
-						<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hl-hearing-aid.svg" alt="" width="92" height="84">
-					</span>
-					<p class="hl-banner__card-title hl-banner__card-title--dark">Nearly 80% of hearing loss</p>
-					<p class="hl-banner__card-text hl-banner__card-text--dark">problem can be solved by using Hearing aids</p>
-				</article>
-
-				<article class="hl-banner__card hl-banner__card--glass hl-banner__card--prevalence">
-					<span class="hl-banner__people" aria-hidden="true">
-						<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hl-people.svg" alt="" width="46" height="46">
-					</span>
-					<p class="hl-banner__card-text hl-banner__card-text--single">1 out of 6 people has a hearing loss</p>
-				</article>
-			</div>
+<section class="hero-banner section-none" aria-label="Hearing loss awareness">
+	<div class="hero-banner__viewport">
+		<div class="hero-banner__slider">
+			<article class="hero-banner__slide is-active" data-slide="0">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero-mobile.webp">
+					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero-tab.webp">
+					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero.webp" alt="Two people enjoying an outdoor conversation" width="1440" height="759" loading="eager">
+				</picture>
+				<div class="hero-banner__overlay"></div>
+				<div class="hero-banner__pins" aria-hidden="true">
+					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="78" height="104">
+					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="49" height="65">
+				</div>
+				<div class="container">
+					<div class="hero-banner__content" data-aos="fade-up">
+						<div class="hero-banner__badge">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/trusted-people.svg" alt="" width="74" height="28" aria-hidden="true">
+							<span>Trusted by 5k+ people</span>
+						</div>
+						<h1>Recognising Changes in the Way You Hear</h1>
+						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Check Your Hearing Today</a>
+					</div>
+				</div>
+			</article>
 		</div>
 	</div>
 </section>
@@ -172,36 +162,27 @@ $faqs = [
 
 		<div class="hl-signs__carousel" id="hlSignsCarousel" data-aos="fade-up" data-aos-delay="80">
 			<div class="hl-signs__track" id="hlSignsTrack">
-				<?php
-				$chunks = array_chunk($early_signs, 3);
-				foreach ($chunks as $si => $slide) :
-				?>
-					<div class="hl-signs__slide <?php echo $si === 0 ? 'is-active' : ''; ?>" data-slide="<?php echo $si; ?>" <?php echo $si === 0 ? '' : 'hidden'; ?>>
-						<div class="row g-4">
-							<?php foreach ($slide as $card) : ?>
-								<div class="col-md-4">
-									<article class="hl-signs__card h-full">
-										<div class="hl-signs__card-body">
-											<h3><?php echo htmlspecialchars($card['title']); ?></h3>
-											<p><?php echo htmlspecialchars($card['text']); ?></p>
-										</div>
-										<figure class="hl-signs__card-media">
-											<img src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($card['img']); ?>" alt="<?php echo htmlspecialchars($card['alt']); ?>" width="380" height="220" loading="lazy">
-										</figure>
-									</article>
-								</div>
-							<?php endforeach; ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
+				<div class="hl-signs__grid" id="hlSignsGrid">
+					<?php foreach ($early_signs as $card) : ?>
+						<article class="hl-signs__card hl-signs__item h-full">
+							<div class="hl-signs__card-body">
+								<h3><?php echo htmlspecialchars($card['title']); ?></h3>
+								<p><?php echo htmlspecialchars($card['text']); ?></p>
+							</div>
+							<figure class="hl-signs__card-media">
+								<img src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($card['img']); ?>" alt="<?php echo htmlspecialchars($card['alt']); ?>" width="380" height="220" loading="lazy">
+							</figure>
+						</article>
+					<?php endforeach; ?>
+				</div>
 			</div>
 
 			<div class="hl-signs__controls" role="group" aria-label="Early signs navigation">
 				<button type="button" class="hl-signs__btn hl-signs__btn--prev" id="hlSignsPrev" aria-label="Previous signs" disabled>
 					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15l-5-5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</button>
-				<span class="hl-signs__status" id="hlSignsStatus" aria-live="polite">1 of <?php echo count($chunks); ?></span>
-				<button type="button" class="hl-signs__btn hl-signs__btn--next" id="hlSignsNext" aria-label="Next signs" <?php echo count($chunks) < 2 ? 'disabled' : ''; ?>>
+				<span class="hl-signs__status" id="hlSignsStatus" aria-live="polite">1 of <?php echo (int) ceil(count($early_signs) / 3); ?></span>
+				<button type="button" class="hl-signs__btn hl-signs__btn--next" id="hlSignsNext" aria-label="Next signs" <?php echo count($early_signs) <= 3 ? 'disabled' : ''; ?>>
 					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 15l5-5-5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 				</button>
 			</div>
@@ -250,14 +231,12 @@ $faqs = [
 <!-- ===== Why Early Intervention Matters ===== -->
 <section class="hl-intervention section" aria-labelledby="hl-intervention-heading">
 	<div class="container">
-		<div class="row g-4 g-lg-5 align-items-center">
-			<div class="col-lg-5" data-aos="fade-up">
-				<figure class="hl-intervention__media">
-					<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/early-intervention.webp" alt="Patient consultation with an audiologist" width="520" height="420" loading="lazy">
-				</figure>
-			</div>
-			<div class="col-lg-7" data-aos="fade-up" data-aos-delay="80">
-				<h2 id="hl-intervention-heading" class="hl-section-title">Why Early Intervention Matters</h2>
+		<div class="hl-intervention__layout" data-aos="fade-up">
+			<h2 id="hl-intervention-heading" class="hl-section-title">Why Early Intervention Matters</h2>
+			<figure class="hl-intervention__media">
+				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/early-intervention.webp" alt="Patient consultation with an audiologist" width="520" height="420" loading="lazy">
+			</figure>
+			<div class="hl-intervention__copy">
 				<p>Addressing hearing changes early helps preserve speech understanding, reduces listening fatigue, and supports stronger social connection. The sooner you act, the more options you typically have — from simple strategies to modern hearing technology tailored to your lifestyle.</p>
 				<p>Our audiologists guide you through assessment, counselling, and personalised recommendations so you can make confident decisions about your hearing health.</p>
 			</div>
@@ -281,20 +260,17 @@ $faqs = [
 <!-- ===== Causes of Gradual Hearing Loss ===== -->
 <section class="hl-causes section" aria-labelledby="hl-causes-heading">
 	<div class="container">
-		<div class="row g-4 g-lg-5 align-items-center">
-			<div class="col-lg-6" data-aos="fade-up">
-				<h2 id="hl-causes-heading" class="hl-section-title">Causes of Gradual Hearing Loss</h2>
-				<ul class="hl-causes__list">
-					<?php foreach ($causes as $cause) : ?>
-						<li><?php echo htmlspecialchars($cause); ?></li>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-			<div class="col-lg-6" data-aos="fade-up" data-aos-delay="80">
-				<figure class="hl-causes__media">
-					<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/causes-of-gradual-hearing-loss.webp" alt="Person experiencing ear discomfort" width="560" height="420" loading="lazy">
-				</figure>
-			</div>
+		<div class="hl-causes__layout" data-aos="fade-up">
+			<h2 id="hl-causes-heading" class="hl-section-title">Common Causes of Hearing Loss</h2>
+			<figure class="hl-causes__media">
+				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/causes-of-gradual-hearing-loss.webp" alt="Person experiencing ear discomfort" width="1040" height="520" loading="lazy">
+			</figure>
+			<p class="hl-causes__lead">Hearing changes can affect anyone, young or old. Some common causes include</p>
+			<ul class="hl-causes__list">
+				<?php foreach ($causes as $cause) : ?>
+					<li><?php echo htmlspecialchars($cause); ?></li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	</div>
 </section>
@@ -354,15 +330,15 @@ $faqs = [
 <!-- ===== Understanding Tinnitus ===== -->
 <section class="hl-ear section" aria-labelledby="hl-ear-heading">
 	<div class="container">
-		<div class="hl-ear__body">
-			<div class="hl-ear__content" data-aos="fade-up">
-				<h2 id="hl-ear-heading" class="hl-section-title">Understanding Tinnitus and Its Impact</h2>
+		<div class="hl-ear__body" data-aos="fade-up">
+			<h2 id="hl-ear-heading" class="hl-section-title">Understanding Tinnitus and Its Impact</h2>
+			<figure class="hl-ear__media">
+				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/understanding-tinnitus-and-its-impact.svg" alt="Person experiencing tinnitus illustrated with sound waves around the ear" width="560" height="420" loading="lazy">
+			</figure>
+			<div class="hl-ear__content">
 				<p>Tinnitus, experienced as ringing, buzzing, or clicking in the ears, affects 10–15% of people worldwide. It can be constant or occasional, mild or severe, and may disrupt concentration and everyday interactions.</p>
 				<p>Recognising tinnitus alongside other changes in auditory perception is critical for maintaining communication, social engagement, and overall hearing health.</p>
 			</div>
-			<figure class="hl-ear__media" data-aos="fade-up" data-aos-delay="80">
-				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/understanding-tinnitus-and-its-impact.svg" alt="Person experiencing tinnitus illustrated with sound waves around the ear" width="560" height="420" loading="lazy">
-			</figure>
 		</div>
 	</div>
 </section>
@@ -375,31 +351,43 @@ $faqs = [
 			<p>Simple steps can help protect your hearing over time</p>
 		</header>
 
-		<div class="hl-journey__grid" data-aos="fade-up" data-aos-delay="80">
-			<?php foreach ($protect_steps as $step) : ?>
-				<article class="hl-journey__card">
-					<img class="hl-journey__bg" src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($step['img']); ?>" alt="<?php echo htmlspecialchars($step['alt']); ?>" width="295" height="284" loading="lazy">
-					<span class="hl-journey__overlay" aria-hidden="true">
-						<span class="hl-journey__overlay-layer hl-journey__overlay-layer--1"></span>
-						<span class="hl-journey__overlay-layer hl-journey__overlay-layer--2"></span>
-						<span class="hl-journey__overlay-layer hl-journey__overlay-layer--3"></span>
-					</span>
-					<span class="hl-journey__icon" aria-hidden="true">
-						<img src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($step['icon']); ?>" alt="" width="24" height="24">
-					</span>
-					<h3><?php echo htmlspecialchars($step['title']); ?></h3>
-				</article>
-			<?php endforeach; ?>
+		<div class="hl-journey__carousel" id="hlJourneyCarousel" data-aos="fade-up" data-aos-delay="80">
+			<div class="hl-journey__track" id="hlJourneyTrack">
+				<div class="hl-journey__grid" id="hlJourneyGrid">
+					<?php foreach ($protect_steps as $step) : ?>
+						<article class="hl-journey__card hl-journey__item">
+							<img class="hl-journey__bg" src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($step['img']); ?>" alt="<?php echo htmlspecialchars($step['alt']); ?>" width="295" height="284" loading="lazy">
+							<span class="hl-journey__overlay" aria-hidden="true">
+								<span class="hl-journey__overlay-layer hl-journey__overlay-layer--1"></span>
+								<span class="hl-journey__overlay-layer hl-journey__overlay-layer--2"></span>
+								<span class="hl-journey__overlay-layer hl-journey__overlay-layer--3"></span>
+							</span>
+							<span class="hl-journey__icon" aria-hidden="true">
+								<img src="<?php echo BASE_URL; ?>assets/images/<?php echo htmlspecialchars($step['icon']); ?>" alt="" width="24" height="24">
+							</span>
+							<h3><?php echo htmlspecialchars($step['title']); ?></h3>
+						</article>
+					<?php endforeach; ?>
+				</div>
+			</div>
+
+			<div class="hl-journey__controls" role="group" aria-label="Protecting your hearing navigation">
+				<button type="button" class="hl-journey__btn hl-journey__btn--prev" id="hlJourneyPrev" aria-label="Previous tips" disabled>
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15l-5-5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
+				<span class="hl-journey__status" id="hlJourneyStatus" aria-live="polite">1 of <?php echo max(1, count($protect_steps) - 1); ?></span>
+				<button type="button" class="hl-journey__btn hl-journey__btn--next" id="hlJourneyNext" aria-label="Next tips">
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 15l5-5-5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- ===== Connect With Our Specialists ===== -->
 <section class="hl-connect section-none" aria-labelledby="hl-connect-heading">
-	<div class="hl-connect__bg" aria-hidden="true">
-		<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/connect-with-our-specialist.svg" alt="" width="1440" height="400">
-	</div>
-	<div class="container">
+	<div class="hl-connect__bg" aria-hidden="true"></div>
+	<div class="container hl-connect__container">
 		<div class="hl-connect__copy" data-aos="fade-up">
 			<h2 id="hl-connect-heading">Connect With Our Specialists</h2>
 			<p>Contact us today to schedule a hearing evaluation and take the first step towards clearer hearing.</p>

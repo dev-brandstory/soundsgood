@@ -12,6 +12,7 @@
 			<article class="hero-banner__slide is-active" data-slide="0">
 				<picture>
 					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner1.webp">
+					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner1.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img1.webp" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
 				</picture>
 				<div class="hero-banner__overlay"></div>
@@ -33,6 +34,7 @@
 			<article class="hero-banner__slide" data-slide="1">
 				<picture>
 					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner2.webp">
+					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner2.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
 				</picture>
 				<div class="hero-banner__overlay"></div>
@@ -54,6 +56,7 @@
 			<article class="hero-banner__slide" data-slide="2">
 				<picture>
 					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/home/mobile-hero-banner3.webp">
+					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner3.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Personalized hearing care solutions" width="1440" height="759" loading="lazy">
 				</picture>
 				<div class="hero-banner__overlay"></div>

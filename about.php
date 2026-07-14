@@ -6,12 +6,31 @@
 <?php include "includes/header.php"; ?>
 
 <!-- ===== About Page Banner ===== -->
-<section class="page-banner section-none" aria-label="About Sounds Good">
-	<img class="page-banner__bg" src="<?php echo BASE_URL; ?>assets/images/about/about-hero.webp" alt="Three friends enjoying a conversation outdoors" width="1440" height="650" loading="eager">
-	<div class="container">
-		<div class="page-banner__content" data-aos="fade-up">
-			<h1>About Sounds Good</h1>
-			<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
+<section class="hero-banner section-none" aria-label="About Sounds Good">
+	<div class="hero-banner__viewport">
+		<div class="hero-banner__slider">
+			<article class="hero-banner__slide is-active" data-slide="0">
+				<picture>
+					<source media="(max-width: 767px)" srcset="<?php echo BASE_URL; ?>assets/images/about/about-hero-mobile.webp">
+					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/about/about-hero-tab.webp">
+					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/about/about-hero.webp" alt="Three friends enjoying a conversation outdoors" width="1440" height="759" loading="eager">
+				</picture>
+				<div class="hero-banner__overlay"></div>
+				<div class="hero-banner__pins" aria-hidden="true">
+					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="78" height="104">
+					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="49" height="65">
+				</div>
+				<div class="container">
+					<div class="hero-banner__content" data-aos="fade-up">
+						<div class="hero-banner__badge">
+							<img src="<?php echo BASE_URL; ?>assets/images/home/trusted-people.svg" alt="" width="74" height="28" aria-hidden="true">
+							<span>Trusted by 5k+ people</span>
+						</div>
+						<h1>About Sounds Good</h1>
+						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
+					</div>
+				</div>
+			</article>
 		</div>
 	</div>
 </section>
@@ -25,35 +44,27 @@
 			<p>Our goal has always been more than providing hearing aids - it's about bringing life back to every sound. By integrating cutting-edge hearing technology with personalised care, we ensure no one feels unseen, unheard, or undervalued.</p>
 		</div>
 
-		<div class="about-carousel" data-aos="fade-up" data-aos-delay="100" id="aboutCarousel" data-total="2">
+		<div class="about-carousel" data-aos="fade-up" data-aos-delay="100" id="aboutCarousel">
 			<div class="about-carousel__track" id="aboutCarouselTrack">
-				<!-- Slide set 1 -->
-				<div class="about-carousel__slide is-active" data-slide="0">
-					<div class="about-carousel__grid">
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/clinic-exterior.webp" alt="Sounds Good Hearing Care clinic storefront" width="406" height="290" loading="lazy">
-						</figure>
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-2.webp" alt="Sounds Good clinic waiting and reception area" width="406" height="290" loading="lazy">
-						</figure>
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-6.webp" alt="Hearing test booth at Sounds Good Hearing Care" width="406" height="290" loading="lazy">
-						</figure>
-					</div>
-				</div>
-				<!-- Slide set 2 -->
-				<div class="about-carousel__slide" data-slide="1" hidden>
-					<div class="about-carousel__grid">
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-8.webp" alt="Sounds Good Hearing Care centre interior" width="406" height="290" loading="lazy">
-						</figure>
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-7.webp" alt="Patient consultation at Sounds Good" width="406" height="290" loading="lazy">
-						</figure>
-						<figure class="about-carousel__item">
-							<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-4.webp" alt="Modern hearing care facility at Sounds Good" width="406" height="290" loading="lazy">
-						</figure>
-					</div>
+				<div class="about-carousel__grid" id="aboutCarouselGrid">
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/clinic-exterior.webp" alt="Sounds Good Hearing Care clinic storefront" width="406" height="290" loading="lazy">
+					</figure>
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-2.webp" alt="Sounds Good clinic waiting and reception area" width="406" height="290" loading="lazy">
+					</figure>
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-6.webp" alt="Hearing test booth at Sounds Good Hearing Care" width="406" height="290" loading="lazy">
+					</figure>
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-8.webp" alt="Sounds Good Hearing Care centre interior" width="406" height="290" loading="lazy">
+					</figure>
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-7.webp" alt="Patient consultation at Sounds Good" width="406" height="290" loading="lazy">
+					</figure>
+					<figure class="about-carousel__item">
+						<img src="<?php echo BASE_URL; ?>assets/images/about/gallery-4.webp" alt="Modern hearing care facility at Sounds Good" width="406" height="290" loading="lazy">
+					</figure>
 				</div>
 			</div>
 
