@@ -15,11 +15,6 @@
 					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner1.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img1.webp" alt="Family enjoying outdoor time together" width="1440" height="759" loading="eager">
 				</picture>
-				<div class="hero-banner__overlay"></div>
-				<div class="hero-banner__pins" aria-hidden="true">
-					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="78" height="104">
-					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="49" height="65">
-				</div>
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
@@ -37,11 +32,7 @@
 					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner2.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img2.webp" alt="Senior couple sharing a joyful moment" width="1440" height="759" loading="lazy">
 				</picture>
-				<div class="hero-banner__overlay"></div>
-				<div class="hero-banner__pins" aria-hidden="true">
-					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="56" height="75">
-					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="74" height="99">
-				</div>
+	
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
@@ -59,11 +50,7 @@
 					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/home/tablet-hero-banner3.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/home/banner-img3.webp" alt="Personalized hearing care solutions" width="1440" height="759" loading="lazy">
 				</picture>
-				<div class="hero-banner__overlay"></div>
-				<div class="hero-banner__pins" aria-hidden="true">
-					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="55" height="73">
-					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="79" height="106">
-				</div>
+
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
@@ -331,9 +318,22 @@
 						</article>
 
 						<div class="testimonials__video-wrap">
-							<video class="testimonials__video" muted playsinline loop preload="metadata" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-1.mp4" type="video/mp4">
-							</video>
+							<video
+								class="testimonials__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video1.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
 						</div>
 
 						<article class="testimonials__card">
@@ -370,9 +370,22 @@
 						</article>
 
 						<div class="testimonials__video-wrap">
-							<video class="testimonials__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-2.mp4" type="video/mp4">
-							</video>
+							<video
+								class="testimonials__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video2.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
 						</div>
 
 						<article class="testimonials__card">
@@ -409,9 +422,22 @@
 						</article>
 
 						<div class="testimonials__video-wrap">
-							<video class="testimonials__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-								<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-3.mp4" type="video/mp4">
-							</video>
+							<video
+								class="testimonials__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video3.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
 						</div>
 
 						<article class="testimonials__card">

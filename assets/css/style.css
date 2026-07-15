@@ -281,12 +281,12 @@
   height: 100%;
 }
 
-.hero-banner__overlay {
+/* .hero-banner__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0.1) 100%);
   pointer-events: none;
-}
+} */
 
 .hero-banner__slide .container {
   position: absolute;
@@ -1715,6 +1715,11 @@ filter: grayscale(100%);
   background: #f9f9f9;
 }
 
+.testimonials-section > .container {
+  max-width: min(1400px, calc(100% - 48px));
+  width: 100%;
+}
+
 .testimonials-section .section-label {
   padding: 10px 20px;
   margin-bottom: var(--space-3);
@@ -1754,16 +1759,41 @@ filter: grayscale(100%);
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  grid-template-columns: minmax(220px, 295px) minmax(0, 610px) minmax(220px, 295px);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.05fr) minmax(0, 1fr);
+  grid-template-rows: 340px;
+  gap: clamp(16px, 1.4vw, 24px);
   align-items: stretch;
+}
+
+@media (min-width: 1400px) {
+  .testimonials-section > .container {
+    max-width: min(1520px, calc(100% - 64px));
+  }
+
+  .testimonials__slide {
+    grid-template-rows: 360px;
+    gap: 24px;
+  }
+}
+
+.testimonials__video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111 url("../images/home/video-thumbnail.png") center / cover no-repeat;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .testimonials__card {
   display: flex;
   flex-direction: column;
-  min-height: 360px;
-  padding: 32px 24px;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: 24px 20px;
   background: var(--color-white);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -1772,20 +1802,20 @@ filter: grayscale(100%);
 .testimonials__stars {
   display: flex;
   gap: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .testimonials__card > p {
   flex: 1;
   margin: 0;
-  font-size: 18px;
+  font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.5;
   color: #444444;
 }
 
 .testimonials__card footer {
   margin-top: auto;
-  padding-top: 24px;
+  padding-top: 20px;
 }
 
 .testimonials__card footer strong {
@@ -1805,22 +1835,52 @@ filter: grayscale(100%);
   color: #666666;
 }
 
-.testimonials__video-wrap {
-  position: relative;
-  min-height: 360px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--color-white);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
 .testimonials__video {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 360px;
+  min-height: 0;
   object-fit: cover;
+  object-position: center;
   border-radius: 10px;
+  background: #111;
+}
+
+.testimonials__mute-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.testimonials__mute-btn:hover,
+.testimonials__mute-btn:focus-visible {
+  background: rgba(0, 0, 0, 0.75);
+  outline: none;
+}
+
+.testimonials__mute-btn-icon {
+  display: none;
+  line-height: 0;
+}
+
+.testimonials__mute-btn:not(.is-muted) .testimonials__mute-btn-icon--on,
+.testimonials__mute-btn.is-muted .testimonials__mute-btn-icon--off {
+  display: block;
 }
 
 .testimonials__controls {
@@ -1897,7 +1957,6 @@ filter: grayscale(100%);
   flex: 0 0 100%;
   width: 100%;
   max-width: 362px;
-  height: 400px;
   margin: 0;
   overflow: hidden;
   border-radius: 10px;
@@ -1905,7 +1964,15 @@ filter: grayscale(100%);
 }
 
 .home-testimonials-mobile__slide--video {
+  height: 260px;
   background: #111;
+  padding: 0;
+}
+
+.home-testimonials-mobile__video-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .home-testimonials-mobile__video {
@@ -1913,6 +1980,13 @@ filter: grayscale(100%);
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.home-testimonials-mobile__video-wrap .testimonials__mute-btn {
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
 }
 
 .home-testimonials-mobile__slide--card {
@@ -2009,10 +2083,14 @@ filter: grayscale(100%);
 
   .home-testimonials-mobile__slide {
     max-width: none;
-    height: 440px;
+  }
+
+  .home-testimonials-mobile__slide--video {
+    height: 300px;
   }
 
   .home-testimonials-mobile__slide--card {
+    height: 300px;
     padding: 40px 36px;
   }
 
@@ -4569,7 +4647,7 @@ filter: grayscale(100%);
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 246px;
+  max-width: 100%;
   min-height: 46px;
   padding: 10px 16px;
   font-size: 15px;
@@ -5413,3 +5491,4049 @@ filter: grayscale(100%);
   line-height: 1.5;
   color: #444444;
 }
+
+/* ==========================================
+   Hearing Aids Styles - Start
+========================================== */
+
+.hearingAidsPage .ha-banner {
+  min-height: 650px;
+}
+
+.ha-banner__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(270deg, rgba(29, 33, 13, 0) 0%, rgba(29, 33, 13, 0.9) 100%);
+  pointer-events: none;
+}
+
+.ha-banner__content {
+  max-width: 635px;
+}
+
+.ha-banner__content h1 {
+  margin-bottom: 24px;
+}
+
+.ha-banner__content .btn {
+  padding: 16px 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Mobile-only chrome: hidden on desktop */
+.ha-banner__cta-mobile,
+.ha-types__cta-mobile,
+.ha-generation__mobile-head,
+.ha-generation__lead--mobile,
+.ha-generation__advantages-label,
+.ha-pager,
+.ha-types__tabs,
+.ha-faq__more,
+.ha-steps__mobile-stepper,
+.ha-steps__mobile-intro {
+  display: none !important;
+}
+
+/* Compact: hide desktop-only generation device column */
+@media (max-width: 991.98px) {
+  .hearingAidsPage .ha-generation__device {
+    display: none !important;
+  }
+
+  .hearingAidsPage .ha-generation .row > .col-lg-5 {
+    display: none;
+  }
+}
+
+.ha-banner__cta-desktop,
+.ha-types__cta-desktop {
+  display: inline;
+}
+
+.ha-generation__lead--desktop {
+  display: block;
+}
+
+.ha-pager[hidden],
+.ha-types__tabs[hidden],
+.ha-faq__more[hidden],
+.ha-steps__mobile-stepper[hidden] {
+  display: none !important;
+}
+
+/* Intro */
+.ha-intro {
+  background: #F5F5F5;
+}
+
+.ha-intro__media {
+  position: relative;
+  height: 100%;
+  min-height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #DCDCDC;
+}
+
+.ha-intro__media-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 420px;
+}
+
+.ha-intro__device {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #CFCFCF;
+}
+
+.ha-intro__panel {
+  height: 100%;
+  padding: 32px;
+  border-radius: 30px;
+  background: #FFFFFF;
+}
+
+.ha-intro__panel p {
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #444444;
+}
+
+.ha-intro__panel .btn {
+  margin-top: 8px;
+  padding: 16px 30px;
+  background: #2C2D88;
+  border-color: #2C2D88;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ha-intro__panel .btn:hover {
+  background: transparent;
+  color: #2C2D88;
+}
+
+/* Benefits — scroll-pinned storytelling */
+.ha-benefits {
+  background: #fff;
+  --ha-benefits-header-offset: 0px;
+}
+
+.ha-benefits__pin-track {
+  position: relative;
+  height: var(--ha-benefits-track-height, 500vh);
+}
+
+.ha-benefits__pin-stage {
+  position: sticky;
+  top: var(--ha-benefits-header-offset);
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--ha-benefits-header-offset));
+  padding: 48px 0;
+  box-sizing: border-box;
+}
+
+.ha-benefits__layout {
+  width: 100%;
+}
+
+.ha-benefits__intro .section-title {
+  max-width: 457px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.ha-benefits__intro p {
+  position: relative;
+  max-width: 436px;
+  padding-left: 28px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #444444;
+}
+
+.ha-benefits__intro p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 4px;
+  height: 116px;
+  background: #009C43;
+}
+
+.ha-benefits__scroller {
+  position: relative;
+  max-height: min(600px, calc(100vh - var(--ha-benefits-header-offset) - 96px));
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+
+.ha-benefits__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4px;
+  transform: translate3d(0, var(--ha-benefits-shift, 0px), 0);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.ha-benefits__card {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 88px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #F7F7F7;
+  border: 1px solid transparent;
+  transition:
+    min-height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.ha-benefits__card.is-active {
+  min-height: 266px;
+  background: #DEDEDE;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.ha-benefits__card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.5s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.ha-benefits__card.is-active img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ha-benefits__card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 88px;
+  padding: 22px 24px;
+  background: transparent;
+  transition: background 0.4s ease;
+}
+
+.ha-benefits__card.is-active .ha-benefits__card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  min-height: auto;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+.ha-benefits__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  /* Badge circle + shadow live in the SVG asset — avoid a second CSS circle */
+  background: transparent;
+  border-radius: 0;
+  line-height: 0;
+  align-self: center;
+  position: relative;
+}
+
+.ha-benefits__icon img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.ha-benefits__card h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: #666666;
+  transition: color 0.35s ease;
+}
+
+.ha-benefits__card.is-active h3 {
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.ha-benefits__card p {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  opacity: 0;
+  font-size: 16px;
+  line-height: 27px;
+  color: #fff;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease 0.08s,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    max-height 0.45s ease;
+}
+
+.ha-benefits__card.is-active p {
+  max-height: 60px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ha-benefits__pin-track {
+    height: auto !important;
+  }
+
+  .ha-benefits__pin-stage {
+    position: relative;
+    top: 0;
+    min-height: 0;
+  }
+
+  .ha-benefits__scroller {
+    max-height: none;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ha-benefits__list {
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .ha-benefits__card,
+  .ha-benefits__card.is-active {
+    min-height: 0;
+    background: #F7F7F7;
+    box-shadow: none;
+  }
+
+  .ha-benefits__card img,
+  .ha-benefits__card.is-active img {
+    position: relative;
+    inset: auto;
+    height: 200px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .ha-benefits__card-body,
+  .ha-benefits__card.is-active .ha-benefits__card-body {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    align-items: flex-start;
+    padding: 20px 24px 24px;
+    background: transparent;
+  }
+
+  .ha-benefits__card h3,
+  .ha-benefits__card.is-active h3 {
+    color: #222;
+  }
+
+  .ha-benefits__card p,
+  .ha-benefits__card.is-active p {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    color: #444;
+  }
+
+  .ha-benefits__card,
+  .ha-benefits__card img,
+  .ha-benefits__card p,
+  .ha-benefits__card h3 {
+    transition: none !important;
+  }
+}
+
+/* Generation */
+.ha-generation {
+  position: relative;
+  min-height: 696px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #F2F2F2;
+}
+
+.ha-generation__bg-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  pointer-events: none;
+}
+
+.ha-generation__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ha-generation__overlay {
+  position: absolute;
+  inset: 0;  
+}
+
+.ha-generation .container {
+  position: relative;
+  z-index: 2;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.ha-generation__device {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.ha-generation__content {
+  max-width: 536px;
+  margin-left: auto;
+  color: #fff;
+}
+
+.ha-generation__content h2 {
+  margin-bottom: 24px;
+  font-size: clamp(30px, 3.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  color: #fff;
+  text-transform: none;
+}
+
+.ha-generation__lead {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #fff;
+}
+
+.ha-generation__content .btn {
+  padding: 10px 20px;
+  background: #2C2D88;
+  border-color: #2C2D88;
+  color: #fff;
+}
+
+.ha-generation__divider {
+  margin: 0 0 32px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+.ha-generation__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 16px;
+}
+
+.ha-generation__item {
+  padding: 5px 16px;
+  border-left: 5px solid #fff;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* Features */
+.ha-features {
+  background: #FFFFFF;
+}
+
+.ha-features__header {
+  position: relative;
+  z-index: 2;
+  max-width: 776px;
+  margin-bottom: 24px;
+  padding: 0;
+  border: 0;
+}
+
+.ha-features__header h2 {
+  margin: 0;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -2px;
+  color: #222222;
+  text-transform: none;
+}
+
+.ha-features__lead {
+  position: relative;
+  grid-area: lead;
+  align-self: start;
+  max-width: 656px;
+  margin: 0 0 8px;
+  padding-left: 24px;
+  border-left: 4px solid #009C43;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+  color: #4C4B59;
+}
+
+.ha-features__shapes,
+.ha-features__shape,
+.ha-features__blob {
+  display: none !important;
+}
+
+.ha-features__shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr);
+  grid-template-areas:
+    "lead device"
+    "card device";
+  align-items: center;
+  column-gap: 24px;
+  row-gap: 28px;
+  padding: 56px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  box-shadow: none;
+  border: 1px solid #E8E8E8;
+}
+
+.ha-features__card {
+  grid-area: card;
+  width: 100%;
+  min-width: 0;
+}
+
+.ha-features__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 32px;
+}
+
+.ha-features__item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.ha-features__icon {
+  flex-shrink: 0;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+  line-height: 0;
+}
+
+.ha-features__icon-img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.ha-features__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ha-features__icon svg * {
+  stroke: #444444;
+}
+
+.ha-features__item h3 {
+  margin: 0 0 3px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+  color: #444444;
+  text-transform: none;
+}
+
+.ha-features__item p {
+  margin: 0;
+  max-width: 222px;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  color: #444444;
+}
+
+.ha-features__device-wrap {
+  grid-area: device;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ha-features__device {
+  width: min(100%, 376px);
+  height: auto;
+  margin: -72px 0;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.28));
+}
+
+/* Products */
+.ha-products {
+  background: #009C43;
+}
+
+.ha-products .row {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 20px;
+}
+
+.ha-products__header {
+  margin-bottom: 42px;
+}
+
+.ha-products__header h2 {
+  margin: 0;
+  max-width: 600px;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  color: #fff;
+  text-transform: none;
+}
+
+.ha-product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 31px 23px 24px;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.ha-product-card img {
+  display: block;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 38px;
+  object-fit: contain;
+}
+
+.ha-product-card h3 {
+  min-height: 48px;
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #444;
+  text-transform: none;
+}
+
+.ha-product-card > p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.ha-product-card hr {
+  margin: 0 0 14px;
+  margin-top: auto;
+  border: 0;
+  border-top: 1px solid #C2C2C2;
+  opacity: 1;
+}
+
+.ha-product-card__price {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  color: #444444;
+}
+
+.ha-product-card__price--single {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ha-product-card__price-stack {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.ha-product-card__price-stack small {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ha-product-card__price-stack span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ha-product-card__price strong {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Types */
+.ha-types .section-desc {
+  max-width: 920px;
+}
+
+.ha-type-card {
+  height: 100%;
+  border-radius: 10px;
+  padding: 44px 24px 0;
+  text-align: center;
+  background: linear-gradient(158.11deg, #EAEAEE 29.16%, #FFFFFF 47.66%, #E1E2E5 84.65%);
+}
+
+.ha-type-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.ha-type-card h3 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.97px;
+  color: #2C2D88;
+  text-transform: none;
+}
+
+.ha-type-card p {
+  max-width: 331px;
+  margin: 0 auto 24px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.ha-type-card img {
+  display: block;
+  width: min(100%, 315px);
+  height: auto;
+  margin: 0 auto;
+}
+
+.ha-types__footer {
+  margin-top: 42px;
+}
+
+.ha-types__footer p {
+  max-width: 1063px;
+  margin: 0 auto 24px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #444;
+}
+
+.ha-types__footer .btn {
+  padding: 16px 30px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Steps */
+.ha-steps {
+  background: rgba(247, 247, 247, 0.8);
+}
+
+.ha-steps__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ha-steps__row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ha-steps__marker {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 23px;
+}
+
+.ha-steps__marker span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #DBDBDB;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: #242E39;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Continuous connector — stretches with row height as accordion opens */
+.ha-steps__marker::after {
+  content: "";
+  position: absolute;
+  top: calc(21px + 32px + 2px);
+  bottom: -45px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #DBDBDB;
+  transition: bottom 0.35s ease;
+}
+
+.ha-steps__row:last-child .ha-steps__marker::after {
+  display: none;
+}
+
+.ha-steps__row.is-active .ha-steps__marker span {
+  background: #009C43;
+  border-color: #009C43;
+  color: #fff;
+}
+
+.ha-steps__item {
+  display: block;
+  width: 100%;
+  padding: 26px;
+  text-align: left;
+  border: 1px solid #DBDBDB;
+  border-radius: 16px;
+  background: #F5F5F5;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.ha-steps__title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.ha-steps__text {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s ease,
+    margin-top 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.ha-steps__text-inner {
+  overflow: hidden;
+  min-height: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.ha-steps__item.is-open {
+  background: #009C43;
+  border-color: #009C43;
+}
+
+.ha-steps__item.is-open .ha-steps__title {
+  color: #fff;
+}
+
+.ha-steps__item.is-open .ha-steps__text {
+  grid-template-rows: 1fr;
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.ha-steps__media {
+  --ink-x: 50%;
+  --ink-y: 50%;
+  --ink-r: 0%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #d9d9d9;
+  isolation: isolate;
+  cursor: pointer;
+}
+
+@property --ink-r {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.ha-steps__media-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ha-steps__media-img--base {
+  filter: grayscale(100%) contrast(0.96) brightness(1.02);
+  transform: scale(1.001);
+  transition: transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ha-steps__media-img--ink {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--ink-x) var(--ink-y),
+    #000 0%,
+    #000 max(0%, calc(var(--ink-r) - 4%)),
+    rgba(0, 0, 0, 0.85) calc(var(--ink-r) + 2%),
+    rgba(0, 0, 0, 0.55) calc(var(--ink-r) + 12%),
+    rgba(0, 0, 0, 0.25) calc(var(--ink-r) + 24%),
+    rgba(0, 0, 0, 0.08) calc(var(--ink-r) + 38%),
+    transparent calc(var(--ink-r) + 52%)
+  );
+  mask-image: radial-gradient(
+    circle at var(--ink-x) var(--ink-y),
+    #000 0%,
+    #000 max(0%, calc(var(--ink-r) - 4%)),
+    rgba(0, 0, 0, 0.85) calc(var(--ink-r) + 2%),
+    rgba(0, 0, 0, 0.55) calc(var(--ink-r) + 12%),
+    rgba(0, 0, 0, 0.25) calc(var(--ink-r) + 24%),
+    rgba(0, 0, 0, 0.08) calc(var(--ink-r) + 38%),
+    transparent calc(var(--ink-r) + 52%)
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  transition:
+    --ink-r 2.2s cubic-bezier(0.05, 0.7, 0.1, 1),
+    transform 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: mask-image, -webkit-mask-image;
+}
+
+.ha-steps__media:hover .ha-steps__media-img--base,
+.ha-steps__media:focus-within .ha-steps__media-img--base {
+  transform: scale(1.035);
+}
+
+.ha-steps__media:hover .ha-steps__media-img--ink,
+.ha-steps__media:focus-within .ha-steps__media-img--ink,
+.ha-steps__media.is-ink .ha-steps__media-img--ink {
+  --ink-r: 120%;
+  transform: scale(1.035);
+}
+
+/* Slow retreat when leaving — color drains back into the point */
+.ha-steps__media:not(:hover):not(:focus-within):not(.is-ink) .ha-steps__media-img--ink {
+  transition:
+    --ink-r 1.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ha-steps__media:focus-visible {
+  outline: 2px solid #009C43;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ha-steps__text,
+  .ha-steps__item,
+  .ha-steps__title,
+  .ha-steps__marker span,
+  .ha-steps__media-img--base,
+  .ha-steps__media-img--ink {
+    transition: none;
+  }
+
+  .ha-steps__media-img--ink {
+    -webkit-mask-image: none;
+    mask-image: none;
+    opacity: 0;
+  }
+
+  .ha-steps__media:hover .ha-steps__media-img--ink,
+  .ha-steps__media:focus-within .ha-steps__media-img--ink {
+    opacity: 1;
+  }
+
+  .ha-steps__media:hover .ha-steps__media-img--base,
+  .ha-steps__media:focus-within .ha-steps__media-img--base {
+    transform: none;
+  }
+}
+
+/* Lifestyle */
+.ha-lifestyle {
+  background: #F2F2F2;
+}
+
+.ha-lifestyle .section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 0;
+}
+
+.ha-lifestyle .section-title {
+  margin: 0;
+  width: 100%;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #2C2D88;
+  text-align: center;
+}
+
+.ha-lifestyle .section-desc {
+  max-width: none;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+  color: #444444;
+  text-align: center;
+}
+
+.ha-lifestyle__rule {
+  width: 100%;
+  max-width: 1240px;
+  margin: 42px auto;
+  border: 0;
+  border-top: 1px solid #DDDDDD;
+  opacity: 1;
+}
+
+.ha-lifestyle__grid {
+  --bs-gutter-x: 12px;
+  --bs-gutter-y: 47px;
+}
+
+.ha-lifestyle__item {
+  position: relative;
+  padding-left: 14px;
+}
+
+.ha-lifestyle__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 25px;
+  background: #009C43;
+}
+
+.ha-lifestyle__item h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #222222;
+  text-transform: none;
+}
+
+.ha-lifestyle__item p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #444444;
+}
+
+/* Care */
+.ha-care__card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 505px;
+  padding: 32px;
+  overflow: hidden;
+  border: 1px solid #E0E0E0;
+  border-radius: 18px;
+  background-color: #27B062;
+  background-image: var(--ha-care-bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.ha-care__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 90, 50, 0.55) 0%,
+    rgba(39, 176, 98, 0.28) 38%,
+    rgba(39, 176, 98, 0.08) 62%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.ha-care__icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border: 1px solid #DDD;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ha-care__icon-img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.ha-care__card h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 284px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #fff;
+  text-transform: none;
+}
+
+/* CTA */
+.ha-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0;
+  background: linear-gradient(90deg, #F7F7F7 0%, #E5E5E5 100%);
+}
+
+.ha-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+.ha-cta__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 715px;
+}
+
+.ha-cta__copy h2 {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  color: #2C2D88;
+  text-transform: none;
+}
+
+.ha-cta__copy p {
+  max-width: 707px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #444444;
+}
+
+.ha-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 256px;
+  min-height: 55px;
+  padding: 16px 30px;
+  border: 0;
+  border-radius: 30px;
+  background: #2C2D88;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.ha-cta__btn:hover,
+.ha-cta__btn:focus-visible {
+  background: #24256f;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.ha-cta__media {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  max-width: 442px;
+}
+
+.ha-cta__device {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  border-radius: 45px;
+}
+
+.ha-cta__media::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 18%;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(231, 231, 231, 0) 0%, #E7E7E7 100%);
+  pointer-events: none;
+}
+
+/* FAQ */
+.ha-faq__list {
+  max-width: 1030px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ha-faq__item {
+  border: 1px solid #DBDBDB !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ha-faq__item + .ha-faq__item {
+  margin-top: 0;
+}
+
+.ha-faq__button {
+  position: relative;
+  gap: 26px;
+  padding: 26px 62px 26px 26px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 24px !important;
+  color: #666 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+
+.ha-faq__button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 4px;
+  height: 25px;
+  background: #797979;
+}
+
+.ha-faq__button:not(.collapsed) {
+  color: #009C43 !important;
+}
+
+.ha-faq__button:not(.collapsed)::before {
+  width: 4px;
+  background: #009C43;
+}
+
+.ha-faq__button::after {
+  position: absolute;
+  right: 26px;
+  top: 26px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10 4v12M4 10h12' stroke='%23797979' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #DBDBDB;
+  border-radius: 6px;
+  transform: none;
+}
+
+.ha-faq__button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4 10h12' stroke='%23009C43' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  border-color: #009C43;
+  transform: none;
+}
+
+.ha-faq__body {
+  padding: 0 62px 26px 26px !important;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #444;
+}
+
+@media (max-width: 991.98px) {
+  /* Shared compact safety net (mobile + tablet): kill pin-scroll without
+     fighting later mobile/tablet carousel rules. */
+  .ha-benefits__intro .section-title,
+  .ha-benefits__intro p {
+    max-width: none;
+  }
+
+  .ha-benefits__pin-track {
+    height: auto !important;
+  }
+
+  .ha-benefits__pin-stage {
+    position: relative !important;
+    top: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .ha-benefits__layout {
+    align-items: flex-start !important;
+  }
+
+  .ha-benefits__scroller {
+    max-height: none !important;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ha-benefits__list {
+    transform: none !important;
+  }
+
+  .ha-generation__content {
+    margin: 0 auto;
+  }
+
+  .ha-cta__media {
+    margin: 8px auto 0;
+    justify-content: center;
+  }
+
+  .ha-cta__btn {
+    min-width: 200px;
+  }
+
+  .ha-steps__row {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hearingAidsPage {
+    overflow-x: clip;
+  }
+
+  /* Shared mobile chrome */
+  .hearingAidsPage .ha-banner__cta-desktop,
+  .hearingAidsPage .ha-types__cta-desktop,
+  .hearingAidsPage .ha-generation__overlay,
+  .hearingAidsPage .ha-generation__bg-picture,
+  .hearingAidsPage .ha-generation__lead--desktop,
+  .hearingAidsPage .ha-generation__readmore,
+  .hearingAidsPage .ha-generation__divider,
+  .hearingAidsPage .ha-lifestyle__rule {
+    display: none !important;
+  }
+
+  .hearingAidsPage .ha-banner__cta-mobile:not([hidden]),
+  .hearingAidsPage .ha-types__cta-mobile:not([hidden]),
+  .hearingAidsPage .ha-pager:not([hidden]),
+  .hearingAidsPage .ha-types__tabs:not([hidden]),
+  .hearingAidsPage .ha-faq__more:not([hidden]),
+  .hearingAidsPage .ha-steps__mobile-stepper:not([hidden]),
+  .hearingAidsPage .ha-steps__mobile-intro:not([hidden]) {
+    display: flex !important;
+  }
+
+  .hearingAidsPage .ha-steps__mobile-intro:not([hidden]) {
+    display: block !important;
+  }
+
+  .hearingAidsPage .ha-banner__cta-mobile:not([hidden]),
+  .hearingAidsPage .ha-types__cta-mobile:not([hidden]) {
+    display: inline !important;
+  }
+
+  /* Generation mobile Figma — show stacked white layout pieces */
+  .hearingAidsPage .ha-generation__mobile-head {
+    display: flex !important;
+  }
+
+  .hearingAidsPage .ha-generation__lead--mobile {
+    display: block !important;
+  }
+
+  .hearingAidsPage .ha-generation__advantages-label {
+    display: block !important;
+  }
+
+  /* Pager */
+  .ha-pager {
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 165px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 5px;
+    background: #F2F2F2;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  .ha-pager--light {
+    background: #FFFFFF;
+  }
+
+  .ha-pager__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 30px;
+    background: #2C2D88;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .ha-pager--light .ha-pager__btn--prev {
+    background: #ECECEC;
+    color: #666;
+  }
+
+  .ha-pager--features .ha-pager__btn--prev {
+    background: #fff;
+    color: #666;
+  }
+
+  .ha-pager__btn:disabled {
+    opacity: 0.45;
+  }
+
+  .ha-pager__label {
+    flex: 1;
+    text-align: center;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #666;
+  }
+
+  /* Banner */
+  .hearingAidsPage .ha-banner {
+    min-height: 600px;
+    height: 600px;
+  }
+
+  .hearingAidsPage .ha-banner__overlay {
+    background: linear-gradient(180deg, #010101 20.25%, rgba(1, 1, 1, 0.75) 65.35%, rgba(1, 1, 1, 0.5) 83.68%, rgba(1, 1, 1, 0.25) 92.84%, rgba(1, 1, 1, 0) 100%);
+  }
+
+  .hearingAidsPage .ha-banner__content {
+    max-width: 270px;
+    padding-top: 52px;
+  }
+
+  .hearingAidsPage .ha-banner__content h1 {
+    margin-bottom: 16px;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .hearingAidsPage .ha-banner__content .btn {
+    padding: 10px 20px;
+    background: #3B3CB4;
+    border-color: #3B3CB4;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* Intro */
+  .ha-intro {
+    padding: 52px 0;
+    background: #F5F5F5;
+  }
+
+  .ha-intro .section-title {
+    max-width: 279px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-intro__media {
+    min-height: 372px;
+    border-radius: 10.58px;
+  }
+
+  .ha-intro__media-bg {
+    min-height: 372px;
+  }
+
+  .ha-intro__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff;
+  }
+
+  .ha-intro__panel p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .ha-intro__panel .btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px 20px;
+    background: #2C2D88;
+    border-color: #2C2D88;
+    border-radius: 40px;
+    font-size: 15px;
+  }
+
+  /* Benefits — mobile card carousel (Figma Six Ways) */
+  .ha-benefits {
+    padding: 40px 0 52px;
+    background: #fff;
+  }
+
+  .ha-benefits .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .ha-benefits__pin-track {
+    height: auto !important;
+  }
+
+  .ha-benefits__pin-stage {
+    position: relative !important;
+    top: auto !important;
+    height: auto;
+    min-height: 0 !important;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .ha-benefits__layout {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 24px;
+    align-items: stretch !important;
+  }
+
+  .ha-benefits__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .ha-benefits__intro .section-title {
+    max-width: 320px;
+    margin: 0;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #2C2D88;
+  }
+
+  .ha-benefits__intro p {
+    max-width: 340px;
+    margin: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    color: #333333;
+  }
+
+  .ha-benefits__intro p::before {
+    display: none;
+  }
+
+  .ha-benefits__scroller {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ha-benefits__list {
+    display: flex;
+    flex-direction: row !important;
+    align-items: stretch;
+    gap: 16px;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 0;
+    padding: 0 4px 0 0;
+    width: 100%;
+  }
+
+  .ha-benefits__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-benefits__card,
+  .ha-benefits__card.is-active {
+    position: relative;
+    display: block;
+    flex: 0 0 calc(100% - 28px);
+    width: calc(100% - 28px);
+    max-width: none;
+    height: 220px;
+    min-height: 0 !important;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    opacity: 1;
+    transform: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    filter: none;
+    overflow: hidden;
+    background: #DEDEDE !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .ha-benefits__card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(182.5deg, rgba(0, 0, 0, 0) 50.83%, rgba(0, 0, 0, 0.7) 77.87%);
+    pointer-events: none;
+  }
+
+  /* Photo only — do not target icon <img> inside .ha-benefits__icon */
+  .ha-benefits__card > img,
+  .ha-benefits__card.is-active > img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 1 !important;
+    transform: none !important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    pointer-events: none;
+    transition: none !important;
+  }
+
+  .ha-benefits__card-body,
+  .ha-benefits__card.is-active .ha-benefits__card-body {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 11px;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 20px 18px;
+    background: transparent !important;
+    border-radius: 0;
+    transition: none !important;
+  }
+
+  .ha-benefits__card-body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .ha-benefits__icon {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+
+  .ha-benefits__icon img,
+  .ha-benefits__card .ha-benefits__icon img,
+  .ha-benefits__card.is-active .ha-benefits__icon img {
+    position: relative !important;
+    inset: auto !important;
+    display: block;
+    width: 42px !important;
+    height: 42px !important;
+    max-width: none;
+    opacity: 1 !important;
+    transform: none !important;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0 !important;
+    pointer-events: none;
+  }
+
+  .ha-benefits__card h3,
+  .ha-benefits__card.is-active h3 {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.5;
+    color: #fff !important;
+    transition: none !important;
+  }
+
+  .ha-benefits__card p,
+  .ha-benefits__card.is-active p {
+    max-height: none !important;
+    margin: 0;
+    overflow: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff !important;
+    transition: none !important;
+  }
+
+  .ha-benefits .ha-pager {
+    width: 165px;
+    height: 40px;
+    margin-top: 24px;
+    padding: 5px;
+    background: #F3F3F3;
+  }
+
+  .ha-benefits .ha-pager__btn--prev {
+    background: #fff;
+    color: #666;
+  }
+
+  .ha-benefits .ha-pager__btn--prev:not(:disabled) {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-benefits .ha-pager__btn--next {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-benefits .ha-pager__btn--next:disabled {
+    background: #fff;
+    color: #666;
+  }
+
+  /* Generation — phone Figma (white stacked: title, image, copy, advantages) */
+  .ha-generation {
+    display: block;
+    min-height: 0;
+    padding: 30px 0 52px;
+    background: #FFFFFF;
+    overflow: visible;
+  }
+
+  .ha-generation__bg-picture,
+  .ha-generation__overlay {
+    display: none !important;
+  }
+
+  .ha-generation .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .ha-generation__mobile-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 362px;
+    margin: 0;
+  }
+
+  .ha-generation__mobile-title {
+    width: 100%;
+    max-width: 279px;
+    margin: 0;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #2C2D88;
+  }
+
+  .ha-generation__mobile-media {
+    width: 100%;
+    max-width: 362px;
+    height: 339px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #F2F2F2;
+  }
+
+  .ha-generation__mobile-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scaleX(-1);
+  }
+
+  .ha-generation .row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    width: 100%;
+    max-width: 362px;
+    margin: 0;
+  }
+
+  .ha-generation .col-lg-7,
+  .ha-generation .col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding: 0;
+  }
+
+  .ha-generation__content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: 362px;
+    margin: 0;
+    color: #444444;
+  }
+
+  .ha-generation__content > #ha-generation-heading,
+  .ha-generation__content h2#ha-generation-heading {
+    display: none !important;
+  }
+
+  .ha-generation__lead--desktop,
+  .ha-generation__readmore,
+  .ha-generation__divider {
+    display: none !important;
+  }
+
+  .ha-generation__lead--mobile {
+    display: block !important;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 24px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #444444;
+  }
+
+  .ha-generation__advantages-label {
+    display: block !important;
+    width: 100%;
+    margin: 0;
+    padding: 32px 20px 0;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    color: #2C2D88;
+    background: #F4F5F4;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .ha-generation__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin: 0;
+    padding: 24px 16px 32px;
+    background: #F4F5F4;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .ha-generation__item {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    background: #FFFFFF;
+    border-left: 1px solid #009C43;
+    border-radius: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: #444444;
+  }
+
+  /* Features */
+  .ha-features {
+    padding: 52px 0 40px;
+    background: #FFFFFF;
+  }
+
+  .ha-features__header {
+    max-width: none;
+    margin-bottom: 16px;
+    padding: 0;
+    border: 0;
+  }
+
+  .ha-features__header h2 {
+    max-width: 279px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #222;
+  }
+
+  .ha-features__lead {
+    max-width: 322px;
+    margin: 0 0 16px;
+    padding-left: 20px;
+    border-left: 3px solid #009C43;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .ha-features__shell {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding: 0;
+    background: #FFFFFF;
+    box-shadow: none;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .ha-features__device-wrap {
+    display: flex;
+    justify-content: center;
+    grid-area: unset;
+  }
+
+  .ha-features__device {
+    width: min(288px, 100%);
+    margin: 0 auto;
+  }
+
+  .ha-features__card {
+    grid-area: unset;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .ha-features__list {
+    display: flex;
+    grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .ha-features__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-features__item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+  }
+
+  .ha-features__item h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    color: #444;
+  }
+
+  .ha-features__item p {
+    max-width: none;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #444;
+  }
+
+  .ha-features .ha-pager {
+    margin-top: 24px;
+  }
+
+  /* Products */
+  .ha-products {
+    padding: 62px 0 52px;
+    background: #00A94F;
+  }
+
+  .ha-products__header h2 {
+    max-width: 279px;
+    margin-bottom: 32px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .ha-products__track {
+    overflow: hidden;
+  }
+
+  .ha-products__row {
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .ha-products__row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-products__row > [class*="col-"] {
+    flex: 0 0 295px;
+    max-width: 295px;
+    padding: 0;
+    scroll-snap-align: start;
+  }
+
+  .ha-product-card {
+    height: 100%;
+    min-height: 461px;
+  }
+
+  .ha-products .ha-pager {
+    margin-top: 32px;
+  }
+
+  .ha-products .ha-pager__btn--prev {
+    background: #ECECEC;
+    color: #666;
+  }
+
+  .ha-products .ha-pager__btn--next {
+    background: #009C43;
+    color: #fff;
+  }
+
+  /* Types tabs (phone) — keep tabs; tablet slider pager stays hidden */
+  .ha-types .ha-pager--types {
+    display: none !important;
+  }
+
+  .ha-types {
+    padding: 52px 0;
+  }
+
+  .ha-types .section-title {
+    max-width: 279px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+  }
+
+  .ha-types .section-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .ha-types__tabs {
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 362px;
+    height: 54px;
+    margin: 0 auto 24px;
+    padding: 9px;
+    background: #F2F2F2;
+    border-radius: 30px;
+  }
+
+  .ha-types__tab {
+    flex: 1;
+    height: 36px;
+    padding: 4px 12px;
+    border: 0;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  .ha-types__tab.is-active {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-types__panels > [data-type-panel] {
+    display: none;
+  }
+
+  .ha-types__panels > [data-type-panel].is-active {
+    display: block;
+  }
+
+  .ha-types__panels {
+    margin: 0;
+  }
+
+  .ha-types__panels > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .ha-type-card {
+    min-height: 615px;
+  }
+
+  .ha-type-card h3 {
+    font-size: 24px;
+  }
+
+  .ha-type-card p {
+    font-size: 18px;
+  }
+
+  .ha-types__footer p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .ha-types__footer .btn {
+    width: 100%;
+    padding: 16px 30px;
+    background: #3B3CB4;
+    border-color: #3B3CB4;
+    border-radius: 30px;
+  }
+
+  /* Steps */
+  .ha-steps {
+    padding: 20px 0 52px;
+  }
+
+  .ha-steps .section-title {
+    max-width: 279px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+  }
+
+  .ha-steps .row {
+    flex-direction: column-reverse;
+  }
+
+  .ha-steps__media {
+    margin-bottom: 24px;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 320px;
+  }
+
+  .ha-steps__media-img {
+    height: 320px;
+    object-fit: cover;
+  }
+
+  .ha-steps__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ha-steps__row {
+    display: none;
+    gap: 0;
+  }
+
+  .ha-steps__row.is-active {
+    display: block;
+  }
+
+  .ha-steps__marker {
+    display: none;
+  }
+
+  .ha-steps__item {
+    width: 100%;
+    padding: 26px;
+    background: #009C43;
+    border: 0;
+    border-radius: 16px;
+    text-align: left;
+    color: #fff;
+  }
+
+  .ha-steps__title {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #fff;
+  }
+
+  .ha-steps__text {
+    display: block !important;
+    max-height: none !important;
+    opacity: 1 !important;
+  }
+
+  .ha-steps__text-inner {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+  }
+
+  .hearingAidsPage .ha-steps__mobile-stepper {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 24px;
+  }
+
+  .ha-steps__dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 2px solid #A1AEBE;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #242E39;
+  }
+
+  .ha-steps__dot.is-active {
+    border-color: #009C43;
+    background: #009C43;
+    color: #fff;
+  }
+
+  .ha-steps__trail {
+    flex: 1;
+    max-width: 50px;
+    height: 2px;
+    background: #A1AEBE;
+  }
+
+  .ha-steps__trail.is-active {
+    background: #009C43;
+  }
+
+  .ha-steps .section-header {
+    margin-bottom: 0;
+  }
+
+  .ha-steps__mobile-intro {
+    display: block;
+    margin: 24px 0 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    color: #444;
+  }
+
+  /* Lifestyle */
+  .ha-lifestyle {
+    padding: 52px 0;
+    background: #FAFAFA;
+  }
+
+  .ha-lifestyle .section-header {
+    text-align: left !important;
+  }
+
+  .ha-lifestyle .section-title {
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .ha-lifestyle .section-desc {
+    margin-left: 0 !important;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+ 
+  }
+
+  .ha-lifestyle__item {
+    padding-left: 16px;
+    border-left: 2px solid #009C43;
+  }
+
+  .ha-lifestyle__item h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #222;
+  }
+
+  .ha-lifestyle__item p {
+    font-size: 16px;
+    line-height: 19px;
+    color: #444;
+  }
+
+  /* Care carousel */
+  .ha-care {
+    padding: 52px 0;
+  }
+
+  .ha-care .section-title {
+    max-width: 279px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 28px;
+  }
+
+  .ha-care__track {
+    overflow: hidden;
+  }
+
+  .ha-care__row {
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .ha-care__row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-care__row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    scroll-snap-align: start;
+  }
+
+  .ha-care__card {
+    min-height: 505px;
+    border-radius: 18px;
+  }
+
+  .ha-care .ha-pager {
+    margin-top: 24px;
+  }
+
+  /* CTA */
+  .ha-cta {
+    padding: 0 0 52px;
+    background: #FAFAFA;
+  }
+
+  .ha-cta__row {
+    flex-direction: column-reverse;
+  }
+
+  .ha-cta__media {
+    margin-bottom: 24px;
+  }
+
+  .ha-cta__copy h2 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-cta__copy p {
+    font-size: 16px;
+    line-height: 19px;
+    color: #444;
+  }
+
+  .ha-cta__btn {
+    width: 100%;
+    padding: 16px 30px;
+    background: #2C2D88;
+    border-color: #2C2D88;
+    border-radius: 30px;
+  }
+
+  /* FAQ */
+  .ha-faq {
+    padding: 52px 0;
+  }
+
+  .ha-faq .section-title {
+    font-size: 28px;
+  }
+
+  .ha-faq__item:nth-child(n + 5) {
+    display: none;
+  }
+
+  .ha-faq.is-expanded .ha-faq__item:nth-child(n + 5) {
+    display: block;
+  }
+
+  .ha-faq__more {
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-top: 24px;
+    padding: 15px 30px;
+    background: #2C2D88;
+    border: 1px solid #2C2D88;
+    border-radius: 10px;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .ha-faq__button,
+  .ha-faq__body {
+    padding-right: 56px !important;
+  }
+
+  .ha-faq__item.is-open .ha-faq__button {
+    color: #009C43;
+  }
+  .ha-features__card {
+    flex: 0 0 auto;
+    width: 85%;
+}
+}
+
+
+.hearing_aid_banner .hero-banner__content {
+  max-width: 680px!important;
+}
+
+/* ==========================================================================
+   Hearing Aids — Tablet only (768px–991.98px)
+   Mirrors mobile section behavior (sliders, tabs, steppers) with tablet
+   spacing/proportions. Does not change mobile (≤767.98) or desktop (≥992).
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .hearingAidsPage {
+    overflow-x: clip;
+  }
+
+  .hearing_aid_banner .hero-banner__content {
+    max-width: 380px!important;
+  }
+
+  /* Shared compact chrome (same components as mobile) */
+  .hearingAidsPage .ha-banner__cta-desktop,
+  .hearingAidsPage .ha-generation__lead--mobile,
+  .hearingAidsPage .ha-generation__mobile-head,
+  .hearingAidsPage .ha-generation__advantages-label,
+  .hearingAidsPage .ha-generation__overlay,
+  .hearingAidsPage .ha-lifestyle__rule {
+    display: none !important;
+  }
+
+  .hearingAidsPage .ha-banner__cta-mobile:not([hidden]),
+  .hearingAidsPage .ha-pager:not([hidden]):not(.ha-pager--features),
+  .hearingAidsPage .ha-faq__more:not([hidden]) {
+    display: flex !important;
+  }
+
+  .hearingAidsPage .ha-banner__cta-mobile:not([hidden]) {
+    display: inline !important;
+  }
+
+  /* Steps: tablet uses vertical markers + all accordion rows (not phone stepper) */
+  .hearingAidsPage .ha-steps__mobile-stepper,
+  .hearingAidsPage .ha-steps__mobile-intro {
+    display: none !important;
+  }
+
+  /* Types: tablet uses card slider + pager, not BTE/RIC/CIC tabs */
+  .hearingAidsPage .ha-types__tabs,
+  .hearingAidsPage .ha-types__cta-mobile {
+    display: none !important;
+  }
+
+  .hearingAidsPage .ha-types__cta-desktop {
+    display: inline !important;
+  }
+
+  .hearingAidsPage .ha-features .ha-pager,
+  .hearingAidsPage .ha-features #haFeaturesPager {
+    display: none !important;
+  }
+
+  /* Pager */
+  .ha-pager {
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: 180px;
+    height: 44px;
+    margin: 0 auto;
+    padding: 6px;
+    background: #F2F2F2;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  .ha-pager--light {
+    background: #FFFFFF;
+  }
+
+  .ha-pager__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 30px;
+    background: #2C2D88;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .ha-pager--light .ha-pager__btn--prev {
+    background: #ECECEC;
+    color: #666;
+  }
+
+  .ha-pager--features .ha-pager__btn--prev {
+    background: #fff;
+    color: #666;
+  }
+
+  .ha-pager__btn:disabled {
+    opacity: 0.45;
+  }
+
+  .ha-pager__label {
+    flex: 1;
+    text-align: center;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #666;
+  }
+
+  /* Banner */
+  .hearingAidsPage .ha-banner {
+    min-height: 520px;
+    height: 520px;
+  }
+
+  .hearingAidsPage .ha-banner__overlay {
+    background: linear-gradient(180deg, #010101 20.25%, rgba(1, 1, 1, 0.75) 65.35%, rgba(1, 1, 1, 0.5) 83.68%, rgba(1, 1, 1, 0.25) 92.84%, rgba(1, 1, 1, 0) 100%);
+  }
+
+  .hearingAidsPage .ha-banner__content {
+    max-width: 420px;
+    padding-top: 48px;
+  }
+
+  .hearingAidsPage .ha-banner__content h1 {
+    margin-bottom: 20px;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .hearingAidsPage .ha-banner__content .btn {
+    padding: 12px 24px;
+    background: #3B3CB4;
+    border-color: #3B3CB4;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* Intro */
+  .ha-intro {
+    padding: 56px 0;
+    background: #F5F5F5;
+  }
+
+  .ha-intro .section-title {
+    text-align: left;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-intro__media {
+    min-height: 420px;
+    border-radius: 14px;
+  }
+
+  .ha-intro__media-bg {
+    min-height: 420px;
+  }
+
+  .ha-intro__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px;
+    border-radius: 20px;
+    background: #fff;
+  }
+
+  .ha-intro__panel p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .ha-intro__panel .btn {
+    width: auto;
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 14px 28px;
+    background: #2C2D88;
+    border-color: #2C2D88;
+    border-radius: 40px;
+    font-size: 15px;
+  }
+
+  /* Benefits — tablet carousel (Figma Six Ways TAB) */
+  .ha-benefits {
+    padding: 52px 0 64px;
+    background: #fff;
+  }
+
+  .ha-benefits .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .ha-benefits__pin-track {
+    height: auto !important;
+  }
+
+  .ha-benefits__pin-stage {
+    position: relative !important;
+    top: auto !important;
+    height: auto;
+    min-height: 0 !important;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .ha-benefits__layout {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 32px;
+    align-items: stretch !important;
+  }
+
+  .ha-benefits__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .ha-benefits__intro .section-title {
+    max-width: 632px;
+    margin: 0;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #2C2D88;
+  }
+
+  .ha-benefits__intro p {
+    max-width: 631px;
+    margin: 0;
+    padding-left: 0;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    color: #333333;
+  }
+
+  .ha-benefits__intro p::before {
+    display: none;
+  }
+
+  .ha-benefits__scroller {
+    height: auto;
+    max-height: none !important;
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .ha-benefits__list {
+    display: flex;
+    flex-direction: row !important;
+    align-items: stretch;
+    gap: 20px;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .ha-benefits__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-benefits__card,
+  .ha-benefits__card.is-active {
+    position: relative;
+    display: block;
+    flex: 0 0 min(650px, calc(100% - 40px));
+    width: min(650px, calc(100% - 40px));
+    max-width: none;
+    height: 266px;
+    min-height: 0 !important;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    opacity: 1;
+    transform: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    filter: none;
+    overflow: hidden;
+    background: #DEDEDE !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  .ha-benefits__card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(182.5deg, rgba(0, 0, 0, 0) 50.83%, rgba(0, 0, 0, 0.7) 77.87%);
+    pointer-events: none;
+  }
+
+  .ha-benefits__card > img,
+  .ha-benefits__card.is-active > img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 1 !important;
+    transform: none !important;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    pointer-events: none;
+    transition: none !important;
+  }
+
+  .ha-benefits__card-body,
+  .ha-benefits__card.is-active .ha-benefits__card-body {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 11px;
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 24px;
+    background: transparent !important;
+    border-radius: 0;
+    transition: none !important;
+  }
+
+  .ha-benefits__card-body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .ha-benefits__icon {
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+
+  .ha-benefits__icon img,
+  .ha-benefits__card .ha-benefits__icon img,
+  .ha-benefits__card.is-active .ha-benefits__icon img {
+    position: relative !important;
+    inset: auto !important;
+    display: block;
+    width: 42px !important;
+    height: 42px !important;
+    max-width: none;
+    opacity: 1 !important;
+    transform: none !important;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0 !important;
+    pointer-events: none;
+  }
+
+  .ha-benefits__card h3,
+  .ha-benefits__card.is-active h3 {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.5;
+    color: #fff !important;
+    transition: none !important;
+  }
+
+  .ha-benefits__card p,
+  .ha-benefits__card.is-active p {
+    max-height: none !important;
+    margin: 0;
+    overflow: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #fff !important;
+    transition: none !important;
+  }
+
+  .ha-benefits .ha-pager {
+    width: 165px;
+    height: 40px;
+    margin-top: 32px;
+    padding: 5px;
+    background: #F3F3F3;
+  }
+
+  .ha-benefits .ha-pager__btn--prev {
+    background: #fff;
+    color: #666;
+  }
+
+  .ha-benefits .ha-pager__btn--prev:not(:disabled) {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-benefits .ha-pager__btn--next {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-benefits .ha-pager__btn--next:disabled {
+    background: #fff;
+    color: #666;
+  }
+
+  /* Generation — Figma tablet (834 / olive + bottom photo) */
+  .ha-generation {
+    display: block;
+    min-height: 115vh;
+    background: #433F25;
+    overflow: hidden;
+  }
+
+  .ha-generation__bg-picture {
+    top: auto;
+    bottom: 0;
+    height: calc(783 / 1012 * 100%);
+    min-height: 520px;
+    inset: auto 0 0 0;
+  }
+
+  .ha-generation__bg {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .ha-generation .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 52px;
+    padding-bottom: 420px;
+  }
+
+  .ha-generation .row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ha-generation .col-lg-7,
+  .ha-generation .col-lg-5 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding: 0;
+  }
+
+  .ha-generation__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-width: 754px;
+    margin: 0;
+    color: #fff;
+  }
+
+  .ha-generation__content h2 {
+    display: block !important;
+    width: 100%;
+    max-width: 754px;
+    margin: 0 0 24px;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .ha-generation__lead--desktop {
+    display: block !important;
+    max-width: 415px;
+    margin: 0 0 12px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #fff;
+  }
+
+  .ha-generation__readmore {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    min-width: 118px;
+    height: 43px;
+    margin: 32px 0 32px;
+    padding: 10px 20px;
+    background: #2C2D88 !important;
+    border-color: #2C2D88 !important;
+    border-radius: 40px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff !important;
+  }
+
+  .ha-generation__divider {
+    display: block !important;
+    width: 100%;
+    max-width: 754px;
+    margin: 0 0 32px;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    opacity: 1;
+  }
+
+  .ha-generation__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 260px));
+    column-gap: 72px;
+    row-gap: 60px;
+    width: 100%;
+    max-width: 754px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .ha-generation__item {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 58px;
+    padding: 5px 16px;
+    background: transparent;
+    border-left: 5px solid #fff;
+    border-radius: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+
+  /* Features — tablet: simple white card, no union curves */
+  .ha-features {
+    padding: 52px 0 48px;
+    background: #FFFFFF;
+  }
+
+  .ha-features .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .ha-features__header {
+    display: block;
+    max-width: 536px;
+    margin: 0 0 24px;
+    padding: 0;
+    border: 0;
+  }
+
+  .ha-features__header h2 {
+    max-width: 536px;
+    margin: 0;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -2px;
+    color: #222222;
+  }
+
+  .ha-features__shapes,
+  .ha-features__shape {
+    display: none !important;
+  }
+
+  .ha-features__shell {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+    grid-template-areas:
+      "lead device"
+      "card card";
+    align-items: start;
+    column-gap: 24px;
+    row-gap: 28px;
+    padding: 40px;
+    border-radius: 20px;
+    background: #FFFFFF !important;
+    box-shadow: none;
+    border: 1px solid #E8E8E8;
+    overflow: hidden;
+    filter: none;
+  }
+
+  .ha-features__lead {
+    grid-area: lead;
+    align-self: start;
+    max-width: 340px;
+    margin: 0;
+    padding: 0 0 0 24px;
+    background: transparent;
+    border-left: 4px solid #009C43;
+    border-radius: 0;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    color: #4C4B59;
+    box-shadow: none;
+  }
+
+  .ha-features__lead::before {
+    display: none;
+  }
+
+  .ha-features__device-wrap {
+    grid-area: device;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .ha-features__device {
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    filter: none;
+  }
+
+  .ha-features__card {
+    grid-area: card;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .ha-features__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    row-gap: 32px;
+    overflow: visible;
+    scroll-snap-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .ha-features__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-features__item {
+    flex: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+    width: auto;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    scroll-snap-align: unset;
+  }
+
+  .ha-features__icon {
+    width: 32px;
+    padding-top: 6px;
+  }
+
+  .ha-features__icon-img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ha-features__item h3 {
+    margin: 0 0 3px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: -0.01em;
+    color: #444444;
+  }
+
+  .ha-features__item p {
+    max-width: 222px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    color: #444444;
+  }
+
+  .hearingAidsPage .ha-features .ha-pager,
+  .hearingAidsPage .ha-features #haFeaturesPager,
+  .ha-features .ha-pager,
+  .ha-features #haFeaturesPager {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Products carousel */
+  .ha-products {
+    padding: 64px 0 56px;
+    background: #00A94F;
+  }
+
+  .ha-products__header h2 {
+    max-width: 420px;
+    margin-bottom: 36px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+
+  .ha-products__track {
+    overflow: hidden;
+  }
+
+  .ha-products__row {
+    flex-wrap: nowrap;
+    gap: 24px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ha-products__row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-products__row > [class*="col-"] {
+    flex: 0 0 340px;
+    max-width: 340px;
+    padding: 0;
+    scroll-snap-align: start;
+  }
+
+  .ha-product-card {
+    height: 100%;
+    min-height: 480px;
+  }
+
+  .ha-products .ha-pager {
+    margin-top: 36px;
+  }
+
+  .ha-products .ha-pager__btn--prev {
+    background: #ECECEC;
+    color: #666;
+  }
+
+  .ha-products .ha-pager__btn--next {
+    background: #009C43;
+    color: #fff;
+  }
+
+  /* Types — tablet Figma slider (2 cards visible, pager, no tabs) */
+  .ha-types {
+    padding: 52px 0 64px;
+    background: #FFFFFF;
+  }
+
+  .ha-types .section-header {
+    margin-bottom: 36px;
+  }
+
+  .ha-types .section-title {
+    max-width: 478px;
+    margin: 0 auto;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-types .section-desc {
+    max-width: 598px;
+    margin: 16px auto 0;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    color: #444444;
+  }
+
+  .ha-types__tabs {
+    display: none !important;
+  }
+
+  .ha-types__panels {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ha-types__panels::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-types__panels > [data-type-panel],
+  .ha-types__panels > [class*="col-"] {
+    display: block !important;
+    flex: 0 0 calc((100% - 10px) / 2);
+    width: calc((100% - 10px) / 2);
+    max-width: 407px;
+    padding: 0;
+    scroll-snap-align: start;
+  }
+
+  .ha-type-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 636px;
+    height: 100%;
+    padding: 44px 24px 0;
+    border-radius: 10px;
+    background: linear-gradient(158.11deg, #EAEAEE 29.16%, #FFFFFF 47.66%, #E1E2E5 84.65%);
+  }
+
+  .ha-type-card__icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 22px;
+  }
+
+  .ha-type-card h3 {
+    max-width: 309px;
+    margin: 0 0 16px;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.97px;
+    color: #2C2D88;
+  }
+
+  .ha-type-card p {
+    max-width: 331px;
+    margin: 0 auto 24px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #444444;
+  }
+
+  .ha-type-card > img {
+    width: min(100%, 315px);
+    margin-top: auto;
+  }
+
+  .ha-types .ha-pager--types {
+    display: flex;
+    width: 165px;
+    height: 40px;
+    margin: 32px auto 0;
+    padding: 5px;
+    background: #F3F3F3;
+  }
+
+  .ha-types .ha-pager--types .ha-pager__btn {
+    width: 46px;
+    height: 30px;
+  }
+
+  .ha-types .ha-pager--types .ha-pager__btn--prev {
+    background: #FFFFFF;
+    color: #666666;
+  }
+
+  .ha-types .ha-pager--types .ha-pager__btn--next {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  .ha-types .ha-pager--types .ha-pager__label {
+    font-size: 14px;
+    line-height: 1.3;
+    color: #666666;
+  }
+
+  .ha-types__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    max-width: 637px;
+    margin: 42px auto 0;
+  }
+
+  .ha-types__footer p {
+    max-width: none;
+    margin: 0;
+    font-size: 20px;
+    line-height: 30px;
+    color: #444444;
+  }
+
+  .ha-types__footer .btn {
+    width: auto;
+    min-width: 0;
+    padding: 16px 30px;
+    background: #3B3CB4;
+    border-color: #3B3CB4;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* Steps — tablet Figma: image on top, vertical markers + accordion rows */
+  .ha-steps {
+    padding: 52px 0 64px;
+    background: #F9F9F9;
+  }
+
+  .ha-steps .section-header {
+    margin-bottom: 32px;
+  }
+
+  .ha-steps .section-title {
+    max-width: 461px;
+    margin: 0 auto;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 54px;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-steps__mobile-intro {
+    display: none !important;
+  }
+
+  .ha-steps .row {
+    flex-direction: column-reverse;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    gap: 32px;
+  }
+
+  .ha-steps .row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding: 0;
+  }
+
+  .ha-steps__media {
+    width: 100%;
+    max-width: 754px;
+    margin: 0 auto;
+    min-height: 470px;
+    height: 470px;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .ha-steps__media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: luminosity;
+  }
+
+  .ha-steps__mobile-stepper {
+    display: none !important;
+  }
+
+  .ha-steps__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 754px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .ha-steps__row {
+    display: grid !important;
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: stretch;
+  }
+
+  .ha-steps__marker {
+    display: flex;
+    justify-content: center;
+    padding-top: 22px;
+  }
+
+  .ha-steps__marker span {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #DBDBDB;
+    background: #FFFFFF;
+    color: #242E39;
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .ha-steps__row.is-active .ha-steps__marker span {
+    background: #009C43;
+    border-color: #009C43;
+    color: #FFFFFF;
+  }
+
+  .ha-steps__marker::after {
+    top: calc(22px + 32px + 2px);
+    bottom: -22px;
+    background: #DBDBDB;
+  }
+
+  .ha-steps__item {
+    width: 100%;
+    padding: 26px;
+    text-align: left;
+    background: #F5F5F5;
+    border: 1px solid #DBDBDB;
+    border-radius: 16px;
+    color: #222222;
+  }
+
+  .ha-steps__title {
+    display: block;
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #222222;
+  }
+
+  .ha-steps__text {
+    display: grid;
+    grid-template-rows: 0fr;
+    margin-top: 0;
+    opacity: 0;
+  }
+
+  .ha-steps__text-inner {
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #FFFFFF;
+  }
+
+  .ha-steps__item.is-open {
+    background: #009C43;
+    border-color: #009C43;
+  }
+
+  .ha-steps__item.is-open .ha-steps__title {
+    color: #FFFFFF;
+  }
+
+  .ha-steps__item.is-open .ha-steps__text {
+    grid-template-rows: 1fr;
+    margin-top: 20px;
+    opacity: 1;
+  }
+
+  /* Lifestyle */
+  .ha-lifestyle {
+    padding: 56px 0;
+    background: #FAFAFA;
+  }
+
+  .ha-lifestyle .section-header {
+    text-align: left !important;
+  }
+
+  .ha-lifestyle .section-title {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .ha-lifestyle .section-desc {
+    margin-left: 0 !important;
+    max-width: 560px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .ha-lifestyle__item {
+    padding-left: 18px;
+  }
+
+  .ha-lifestyle__item h3 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #222;
+  }
+
+  .ha-lifestyle__item p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #444;
+  }
+
+  /* Care carousel — tablet: 2 cards visible + peek of next */
+  .ha-care {
+    padding: 56px 0;
+    background: #F9F9F9;
+  }
+
+  .ha-care .section-title {
+    max-width: 478px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-care .section-desc {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #444444;
+  }
+
+  .ha-care__track {
+    overflow: hidden;
+  }
+
+  .ha-care__row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ha-care__row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ha-care__row > [class*="col-"] {
+    flex: 0 0 calc((100% - 20px) / 2.15);
+    max-width: calc((100% - 20px) / 2.15);
+    width: calc((100% - 20px) / 2.15);
+    padding: 0;
+    scroll-snap-align: start;
+  }
+
+  .ha-care__card {
+    min-height: 505px;
+    border-radius: 18px;
+  }
+
+  .ha-care .ha-pager {
+    display: flex;
+    width: 165px;
+    height: 40px;
+    margin: 28px auto 0;
+    padding: 5px;
+    background: #F3F3F3;
+  }
+
+  .ha-care .ha-pager__btn {
+    width: 46px;
+    height: 30px;
+  }
+
+  .ha-care .ha-pager__btn--prev {
+    background: #FFFFFF;
+    color: #666666;
+  }
+
+  .ha-care .ha-pager__btn--next {
+    background: #2C2D88;
+    color: #fff;
+  }
+
+  /* CTA — tablet Figma: text left + device image right (side by side) */
+  .ha-cta {
+    padding: 48px 0;
+    background: #F9F9F9;
+  }
+
+  .ha-cta__row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 0;
+  }
+
+  .ha-cta__row > .col-lg-7 {
+    flex: 0 0 56%;
+    width: 56%;
+    max-width: 56%;
+    padding-right: 12px;
+  }
+
+  .ha-cta__row > .col-lg-5 {
+    flex: 0 0 44%;
+    width: 44%;
+    max-width: 44%;
+    padding-left: 12px;
+  }
+
+  .ha-cta__content {
+    gap: 28px;
+    max-width: none;
+    align-items: flex-start;
+  }
+
+  .ha-cta__copy {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ha-cta__copy h2 {
+    margin: 0 0 16px;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -1px;
+    color: #2C2D88;
+  }
+
+  .ha-cta__copy p {
+    max-width: 420px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #444444;
+  }
+
+  .ha-cta__btn {
+    width: auto;
+    min-width: 148px;
+    min-height: 48px;
+    padding: 14px 28px;
+    background: #2C2D88;
+    border-color: #2C2D88;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .ha-cta__media {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    max-width: none;
+  }
+
+  .ha-cta__media picture {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .ha-cta__device {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 0;
+    object-fit: contain;
+  }
+
+  /* Soft blend for tablet CTA photo into section bg */
+  .ha-cta__media::after {
+    left: 0;
+    right: 0;
+    height: 28%;
+    background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, #F9F9F9 90%);
+  }
+
+  /* FAQ */
+  .ha-faq {
+    padding: 56px 0;
+  }
+
+  .ha-faq .section-title {
+    font-size: 32px;
+  }
+
+  .ha-faq__item:nth-child(n + 5) {
+    display: none;
+  }
+
+  .ha-faq.is-expanded .ha-faq__item:nth-child(n + 5) {
+    display: block;
+  }
+
+  .ha-faq__more {
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: auto;
+    min-width: 220px;
+    margin: 28px auto 0;
+    padding: 15px 30px;
+    background: #2C2D88;
+    border: 1px solid #2C2D88;
+    border-radius: 10px;
+    font-family: "Inter Display", Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .ha-faq__button,
+  .ha-faq__body {
+    padding-right: 56px !important;
+  }
+
+  .ha-faq__item.is-open .ha-faq__button {
+    color: #009C43;
+  }
+}
+
+/* 1440px container */
+@media (min-width: 1500px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* 1500px container */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+}
+
+/* 1600px container */
+@media (min-width: 1700px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* ==========================================
+   Hearing Aids Styles - End
+========================================== */

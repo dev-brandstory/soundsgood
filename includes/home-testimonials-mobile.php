@@ -10,9 +10,24 @@
 			<div class="home-testimonials-mobile__viewport">
 				<div class="home-testimonials-mobile__track" id="homeTestimonialsMobileTrack">
 					<div class="home-testimonials-mobile__slide home-testimonials-mobile__slide--video">
-						<video class="home-testimonials-mobile__video" muted playsinline loop preload="metadata" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-							<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-1.mp4" type="video/mp4">
-						</video>
+						<div class="home-testimonials-mobile__video-wrap">
+							<video
+								class="home-testimonials-mobile__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video1.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
+						</div>
 					</div>
 
 					<article class="home-testimonials-mobile__slide home-testimonials-mobile__slide--card">
@@ -31,9 +46,24 @@
 					</article>
 
 					<div class="home-testimonials-mobile__slide home-testimonials-mobile__slide--video">
-						<video class="home-testimonials-mobile__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-							<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-2.mp4" type="video/mp4">
-						</video>
+						<div class="home-testimonials-mobile__video-wrap">
+							<video
+								class="home-testimonials-mobile__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video2.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
+						</div>
 					</div>
 
 					<article class="home-testimonials-mobile__slide home-testimonials-mobile__slide--card">
@@ -52,9 +82,24 @@
 					</article>
 
 					<div class="home-testimonials-mobile__slide home-testimonials-mobile__slide--video">
-						<video class="home-testimonials-mobile__video" muted playsinline loop preload="none" poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png">
-							<source src="<?php echo BASE_URL; ?>assets/videos/testimonial-3.mp4" type="video/mp4">
-						</video>
+						<div class="home-testimonials-mobile__video-wrap">
+							<video
+								class="home-testimonials-mobile__video"
+								playsinline
+								loop
+								preload="none"
+								poster="<?php echo BASE_URL; ?>assets/images/home/video-thumbnail.png"
+								data-src="<?php echo BASE_URL; ?>assets/videos/testi-video3.mp4"
+							></video>
+							<button type="button" class="testimonials__mute-btn" aria-label="Mute video" aria-pressed="false">
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--on" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+								<span class="testimonials__mute-btn-icon testimonials__mute-btn-icon--off" aria-hidden="true">
+									<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M11 5 6 9H3v6h3l5 4V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m16 9 6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+								</span>
+							</button>
+						</div>
 					</div>
 
 					<article class="home-testimonials-mobile__slide home-testimonials-mobile__slide--card">

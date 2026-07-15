@@ -138,7 +138,112 @@
     });
   }
 
-  /* Home testimonials mobile/tablet — 1 slide phone, 2 slides iPad */
+  /* Testimonial videos — lazy attach + in-view autoplay + mute toggle */
+  var testimonialPreferSound = true;
+
+  function syncMuteButton(btn, muted) {
+    if (!btn) return;
+    btn.classList.toggle('is-muted', muted);
+    btn.setAttribute('aria-pressed', muted ? 'true' : 'false');
+    btn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
+  }
+
+  function syncMuteButtonForVideo(video) {
+    if (!video) return;
+    var wrap = video.closest('.testimonials__video-wrap, .home-testimonials-mobile__video-wrap');
+    if (!wrap) return;
+    syncMuteButton(wrap.querySelector('.testimonials__mute-btn'), video.muted);
+  }
+
+  function bindTestimonialMuteButtons(root) {
+    if (!root) return;
+    root.querySelectorAll('.testimonials__mute-btn').forEach(function (btn) {
+      if (btn.dataset.bound === '1') return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var wrap = btn.closest('.testimonials__video-wrap, .home-testimonials-mobile__video-wrap');
+        var video = wrap && wrap.querySelector('video');
+        if (!video) return;
+
+        video.muted = !video.muted;
+        testimonialPreferSound = !video.muted;
+        syncMuteButton(btn, video.muted);
+
+        if (video.paused) {
+          var playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        }
+      });
+    });
+  }
+
+  function loadLazyVideo(video) {
+    if (!video || video.dataset.loaded === '1') {
+      return Promise.resolve(video);
+    }
+
+    var src = video.getAttribute('data-src');
+    if (!src) return Promise.resolve(video);
+
+    return new Promise(function (resolve) {
+      var settled = false;
+      function done() {
+        if (settled) return;
+        settled = true;
+        video.removeEventListener('loadeddata', done);
+        video.removeEventListener('error', done);
+        resolve(video);
+      }
+
+      video.addEventListener('loadeddata', done);
+      video.addEventListener('error', done);
+      video.src = src;
+      video.dataset.loaded = '1';
+      video.load();
+
+      if (video.readyState >= 2) done();
+    });
+  }
+
+  function pauseVideoEl(video) {
+    if (!video) return;
+    video.pause();
+    try {
+      video.currentTime = 0;
+    } catch (e) {}
+  }
+
+  function playLazyVideo(video, isAllowed) {
+    if (!video || !isAllowed || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    loadLazyVideo(video).then(function () {
+      if (!isAllowed()) return;
+
+      video.muted = !testimonialPreferSound;
+      syncMuteButtonForVideo(video);
+
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {
+          if (!isAllowed()) return;
+          /* Browsers block unmuted autoplay — fall back to muted */
+          if (!video.muted) {
+            video.muted = true;
+            testimonialPreferSound = false;
+            syncMuteButtonForVideo(video);
+            video.play().catch(function () {});
+          }
+        });
+      }
+    });
+  }
+
   var homeTestimonialsMobile = document.getElementById('homeTestimonialsMobile');
   if (homeTestimonialsMobile) {
     var homeTestimonialsTrack = document.getElementById('homeTestimonialsMobileTrack');
@@ -146,6 +251,9 @@
     var homeTestimonialsNext = document.getElementById('homeTestimonialsMobileNext');
     var homeTestimonialsIndex = 0;
     var homeTestimonialsGap = 30;
+    var homeTestimonialsInView = false;
+
+    bindTestimonialMuteButtons(homeTestimonialsMobile);
 
     function getHomeTestimonialsSlides() {
       if (!homeTestimonialsTrack) return [];
@@ -180,20 +288,21 @@
     }
 
     function pauseHomeTestimonialsVideos() {
-      homeTestimonialsMobile.querySelectorAll('.home-testimonials-mobile__video').forEach(function (video) {
-        video.pause();
-      });
+      homeTestimonialsMobile.querySelectorAll('.home-testimonials-mobile__video').forEach(pauseVideoEl);
     }
 
     function playActiveHomeTestimonialVideo() {
       var slides = getHomeTestimonialsSlides();
-      var active = slides[homeTestimonialsIndex];
-      if (!active) return;
-      var video = active.querySelector('.home-testimonials-mobile__video');
-      if (!video) return;
-      var playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(function () {});
+      var perView = getHomeTestimonialsPerView();
+      var end = Math.min(homeTestimonialsIndex + perView, slides.length);
+
+      for (var i = homeTestimonialsIndex; i < end; i++) {
+        var video = slides[i] && slides[i].querySelector('.home-testimonials-mobile__video');
+        if (video) {
+          playLazyVideo(video, function () {
+            return homeTestimonialsInView;
+          });
+        }
       }
     }
 
@@ -238,6 +347,28 @@
     window.addEventListener('resize', function () {
       goToHomeTestimonialsSlide(homeTestimonialsIndex);
     });
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      var homeTestimonialsSection =
+        homeTestimonialsMobile.closest('.home-testimonials-mobile') || homeTestimonialsMobile;
+      var homeTestimonialsObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            homeTestimonialsInView = entry.isIntersecting;
+            if (homeTestimonialsInView) {
+              playActiveHomeTestimonialVideo();
+            } else {
+              pauseHomeTestimonialsVideos();
+            }
+          });
+        },
+        { rootMargin: '120px 0px', threshold: 0.2 }
+      );
+      homeTestimonialsObserver.observe(homeTestimonialsSection);
+    } else {
+      homeTestimonialsInView = true;
+      playActiveHomeTestimonialVideo();
+    }
   }
 
   /* Moments tabs — dialer roll-up */
@@ -579,7 +710,7 @@
     goToAboutPage(0, false);
   }
 
-  /* Testimonials carousel + video autoplay */
+  /* Testimonials carousel — lazy load + in-view autoplay */
   var testimonialsCarousel = document.getElementById('testimonialsCarousel');
   if (testimonialsCarousel) {
     var testimonialsViewport = testimonialsCarousel.querySelector('.testimonials__viewport');
@@ -591,6 +722,9 @@
     var testimonialsIndex = 0;
     var testimonialsTotal = testimonialSlides.length;
     var testimonialsAnimating = false;
+    var testimonialsInView = false;
+
+    bindTestimonialMuteButtons(testimonialsCarousel);
 
     function getTestimonialsSlideWidth() {
       return testimonialsViewport ? testimonialsViewport.offsetWidth : 0;
@@ -605,12 +739,7 @@
     }
 
     function pauseAllTestimonialVideos() {
-      testimonialsCarousel.querySelectorAll('.testimonials__video').forEach(function (video) {
-        video.pause();
-        try {
-          video.currentTime = 0;
-        } catch (e) {}
-      });
+      testimonialsCarousel.querySelectorAll('.testimonials__video').forEach(pauseVideoEl);
     }
 
     function playActiveTestimonialVideo() {
@@ -618,12 +747,9 @@
       if (!activeSlide) return;
 
       var video = activeSlide.querySelector('.testimonials__video');
-      if (!video) return;
-
-      var playPromise = video.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(function () {});
-      }
+      playLazyVideo(video, function () {
+        return testimonialsInView && testimonialSlides[testimonialsIndex] === activeSlide;
+      });
     }
 
     function goToTestimonialSlide(index, animate) {
@@ -691,6 +817,28 @@
     window.addEventListener('resize', function () {
       goToTestimonialSlide(testimonialsIndex, false);
     });
+
+    if (typeof IntersectionObserver !== 'undefined') {
+      var testimonialsSection =
+        testimonialsCarousel.closest('.testimonials-section') || testimonialsCarousel;
+      var testimonialsObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            testimonialsInView = entry.isIntersecting;
+            if (testimonialsInView) {
+              playActiveTestimonialVideo();
+            } else {
+              pauseAllTestimonialVideos();
+            }
+          });
+        },
+        { rootMargin: '120px 0px', threshold: 0.2 }
+      );
+      testimonialsObserver.observe(testimonialsSection);
+    } else {
+      testimonialsInView = true;
+      playActiveTestimonialVideo();
+    }
   }
 
   /* Footer map pins — tap to open popout on touch; hover uses CSS on desktop */
@@ -1202,3 +1350,495 @@
     });
   }
 })();
+
+
+/* ==========================================
+   Hearing Aids Script - Start
+========================================== */
+
+(function () {
+  /* Page-scoped: skip on non–hearing-aids pages */
+  if (!document.body || !document.body.classList.contains('hearingAidsPage')) {
+    return;
+  }
+
+  /* Compact = mobile + tablet (pagers / carousels / stacked chrome).
+     Desktop (≥992px) keeps pin-scroll benefits and multi-column layouts. */
+  var compactQuery = window.matchMedia('(max-width: 991.98px)');
+  var phoneQuery = window.matchMedia('(max-width: 767.98px)');
+  var tabletQuery = window.matchMedia('(min-width: 768px) and (max-width: 991.98px)');
+
+  function isCompact() {
+    return compactQuery.matches;
+  }
+
+  function isPhone() {
+    return phoneQuery.matches;
+  }
+
+  function isTablet() {
+    return tabletQuery.matches;
+  }
+
+  function setHidden(el, shouldHide) {
+    if (!el) return;
+    if (shouldHide) el.setAttribute('hidden', '');
+    else el.removeAttribute('hidden');
+  }
+
+  function initHaPager(scroller, pager, itemSelector) {
+    if (!scroller || !pager) return;
+
+    var items = scroller.querySelectorAll(itemSelector);
+    var total = items.length;
+    if (!total) return;
+
+    var currentEl = pager.querySelector('[data-ha-pager-current]');
+    var totalEl = pager.querySelector('[data-ha-pager-total]');
+    var prevBtn = pager.querySelector('.ha-pager__btn--prev');
+    var nextBtn = pager.querySelector('.ha-pager__btn--next');
+    var index = 0;
+
+    function getPerView() {
+      /* Care tablet shows 2 cards → page count is 2 for 3 items */
+      if (pager.id === 'haCarePager' && isTablet()) return 2;
+      return 1;
+    }
+
+    function getPageCount() {
+      return Math.max(1, total - getPerView() + 1);
+    }
+
+    function sync() {
+      var phoneOnlyPager = pager.classList.contains('ha-pager--features');
+      var tabletOnlyPager = pager.classList.contains('ha-pager--types');
+      var shouldShow = phoneOnlyPager
+        ? isPhone()
+        : tabletOnlyPager
+          ? isTablet()
+          : isCompact();
+      if (!shouldShow) {
+        setHidden(pager, true);
+        return;
+      }
+      setHidden(pager, false);
+      var pages = getPageCount();
+      if (index > pages - 1) index = pages - 1;
+      if (totalEl) totalEl.textContent = String(pages);
+      if (currentEl) currentEl.textContent = String(index + 1);
+      if (prevBtn) prevBtn.disabled = index <= 0;
+      if (nextBtn) nextBtn.disabled = index >= pages - 1;
+    }
+
+    function goTo(nextIndex, smooth) {
+      var pages = getPageCount();
+      if (nextIndex < 0 || nextIndex >= pages) return;
+      index = nextIndex;
+      var target = items[index];
+      if (target) {
+        var scrollerRect = scroller.getBoundingClientRect();
+        var targetRect = target.getBoundingClientRect();
+        var left = scroller.scrollLeft + (targetRect.left - scrollerRect.left);
+        scroller.scrollTo({
+          left: left,
+          behavior: smooth === false ? 'auto' : 'smooth'
+        });
+      }
+      sync();
+    }
+
+    function onScroll() {
+      var tabletOnlyPager = pager.classList.contains('ha-pager--types');
+      var phoneOnlyPager = pager.classList.contains('ha-pager--features');
+      var active = phoneOnlyPager
+        ? isPhone()
+        : tabletOnlyPager
+          ? isTablet()
+          : isCompact();
+      if (!active) return;
+      var pages = getPageCount();
+      var scrollerRect = scroller.getBoundingClientRect();
+      var anchor = scrollerRect.left + Math.min(40, scrollerRect.width * 0.15);
+      var closest = 0;
+      var closestDist = Infinity;
+      for (var i = 0; i < pages; i++) {
+        var rect = items[i].getBoundingClientRect();
+        var dist = Math.abs(rect.left - anchor);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      }
+      if (closest !== index) {
+        index = closest;
+        sync();
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goTo(index - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        goTo(index + 1);
+      });
+    }
+
+    scroller.addEventListener('scroll', onScroll, { passive: true });
+    function onBreakpointChange() {
+      goTo(0, false);
+      sync();
+    }
+    compactQuery.addEventListener('change', onBreakpointChange);
+    phoneQuery.addEventListener('change', onBreakpointChange);
+    sync();
+  }
+
+  function activateStep(index) {
+    var stepsRoot = document.getElementById('haStepsPanels');
+    if (!stepsRoot) return;
+    var stepItems = stepsRoot.querySelectorAll('.ha-steps__item');
+    var stepRows = stepsRoot.querySelectorAll('.ha-steps__row');
+    var dots = document.querySelectorAll('#haStepsStepper [data-step-dot]');
+    var trails = document.querySelectorAll('#haStepsStepper .ha-steps__trail');
+
+    stepItems.forEach(function (el, i) {
+      var open = i === index;
+      el.classList.toggle('is-open', open);
+      el.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    stepRows.forEach(function (row, i) {
+      row.classList.toggle('is-active', i === index);
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('is-active', i <= index);
+    });
+    trails.forEach(function (trail, i) {
+      trail.classList.toggle('is-active', i < index);
+    });
+  }
+
+  var stepsRoot = document.getElementById('haStepsPanels');
+  if (stepsRoot) {
+    var stepItems = stepsRoot.querySelectorAll('.ha-steps__item');
+    stepItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        activateStep(Number(item.getAttribute('data-step') || 0));
+      });
+    });
+    activateStep(0);
+  }
+
+  var stepsStepper = document.getElementById('haStepsStepper');
+  if (stepsStepper) {
+    stepsStepper.querySelectorAll('[data-step-dot]').forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        activateStep(Number(dot.getAttribute('data-step-dot') || 0));
+      });
+    });
+  }
+
+  function syncCompactChrome() {
+    var compact = isCompact();
+    var phoneOnly = isPhone();
+    var tabletOnly = isTablet();
+    setHidden(document.getElementById('haBenefitsPager'), !compact);
+    /* Features pager is phone-only — tablet uses the 2-col grid layout */
+    setHidden(document.getElementById('haFeaturesPager'), !phoneOnly);
+    setHidden(document.getElementById('haProductsPager'), !compact);
+    setHidden(document.getElementById('haCarePager'), !compact);
+    /* Types: tabs on phone, horizontal pager slider on tablet only */
+    setHidden(document.getElementById('haTypesTabs'), !phoneOnly);
+    setHidden(document.getElementById('haTypesPager'), !tabletOnly);
+    setHidden(document.getElementById('haFaqMore'), !compact);
+    /* Steps phone stepper is phone-only — tablet uses vertical accordion markers */
+    setHidden(document.getElementById('haStepsStepper'), !phoneOnly);
+
+    var typePanels = document.querySelectorAll('#haTypesPanels [data-type-panel]');
+    if (phoneOnly) {
+      var activeTab = document.querySelector('#haTypesTabs .ha-types__tab.is-active');
+      var activeIndex = activeTab ? Number(activeTab.getAttribute('data-type-tab') || 0) : 0;
+      typePanels.forEach(function (panel) {
+        panel.style.display = '';
+        panel.classList.toggle('is-active', Number(panel.getAttribute('data-type-panel')) === activeIndex);
+      });
+    } else {
+      typePanels.forEach(function (panel) {
+        panel.style.display = '';
+        panel.classList.add('is-active');
+      });
+    }
+  }
+
+  // Ink-spread hover origin for steps media
+  var stepsMedia = document.getElementById('haStepsMedia');
+  if (stepsMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    function setInkOrigin(event) {
+      var rect = stepsMedia.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var x = ((event.clientX - rect.left) / rect.width) * 100;
+      var y = ((event.clientY - rect.top) / rect.height) * 100;
+      stepsMedia.style.setProperty('--ink-x', Math.max(0, Math.min(100, x)).toFixed(2) + '%');
+      stepsMedia.style.setProperty('--ink-y', Math.max(0, Math.min(100, y)).toFixed(2) + '%');
+    }
+
+    stepsMedia.addEventListener('pointerenter', function (event) {
+      setInkOrigin(event);
+      stepsMedia.classList.remove('is-ink');
+      void stepsMedia.offsetWidth;
+      stepsMedia.classList.add('is-ink');
+    });
+
+    stepsMedia.addEventListener('pointerleave', function () {
+      stepsMedia.classList.remove('is-ink');
+    });
+
+    stepsMedia.setAttribute('tabindex', '0');
+  }
+
+  var benefitSection = document.getElementById('haBenefits');
+  var benefitTrack = document.getElementById('haBenefitsTrack');
+  var benefitStage = document.getElementById('haBenefitsStage');
+  var benefitScroller = document.getElementById('haBenefitsScroller');
+  var benefitList = document.getElementById('haBenefitsList');
+  var benefitCards = benefitSection
+    ? benefitSection.querySelectorAll('.ha-benefits__card')
+    : [];
+
+  if (benefitSection && benefitTrack && benefitStage && benefitScroller && benefitList && benefitCards.length) {
+    var reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var activeBenefitIndex = -1;
+    var benefitTicking = false;
+    var headerEl = document.querySelector('.site-header');
+    var cardCount = benefitCards.length;
+
+    function isReduced() {
+      return reduceMotionQuery.matches;
+    }
+
+    function getHeaderOffset() {
+      if (!headerEl) return 0;
+      return Math.round(headerEl.getBoundingClientRect().height) || 0;
+    }
+
+    function setBenefitMetrics() {
+      var headerOffset = getHeaderOffset();
+      benefitSection.style.setProperty('--ha-benefits-header-offset', headerOffset + 'px');
+
+      if (isCompact() || isReduced()) {
+        benefitTrack.style.height = 'auto';
+        benefitList.style.setProperty('--ha-benefits-shift', '0px');
+        return;
+      }
+
+      var viewport = window.innerHeight || document.documentElement.clientHeight;
+      var perCard = Math.max(viewport * 0.62, 360);
+      var trackHeight = Math.round(viewport + perCard * cardCount);
+      benefitTrack.style.height = trackHeight + 'px';
+    }
+
+    function centerActiveCard(index) {
+      if (isCompact() || isReduced()) {
+        benefitList.style.setProperty('--ha-benefits-shift', '0px');
+        return;
+      }
+
+      var activeCard = benefitCards[index];
+      if (!activeCard) return;
+
+      var viewport = benefitScroller.clientHeight;
+      var cardCenter = activeCard.offsetTop + activeCard.offsetHeight / 2;
+      var shift = viewport / 2 - cardCenter;
+
+      benefitList.style.setProperty('--ha-benefits-shift', Math.round(shift) + 'px');
+    }
+
+    function setActiveBenefit(index) {
+      if (index === activeBenefitIndex) {
+        centerActiveCard(index);
+        return;
+      }
+      activeBenefitIndex = index;
+
+      for (var i = 0; i < cardCount; i++) {
+        var isActive = i === index;
+        benefitCards[i].classList.toggle('is-active', isActive);
+        benefitCards[i].setAttribute('aria-current', isActive ? 'true' : 'false');
+      }
+
+      centerActiveCard(index);
+    }
+
+    function updateBenefitProgress() {
+      benefitTicking = false;
+
+      if (isCompact() || isReduced()) {
+        return;
+      }
+
+      var headerOffset = getHeaderOffset();
+      var trackRect = benefitTrack.getBoundingClientRect();
+      var scrollable = Math.max(1, benefitTrack.offsetHeight - benefitStage.offsetHeight);
+      var progress = (headerOffset - trackRect.top) / scrollable;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+
+      var index = Math.floor(progress * cardCount);
+      if (index >= cardCount) index = cardCount - 1;
+
+      setActiveBenefit(index);
+    }
+
+    function onBenefitScroll() {
+      if (isCompact()) return;
+      if (!benefitTicking) {
+        benefitTicking = true;
+        window.requestAnimationFrame(updateBenefitProgress);
+      }
+    }
+
+    setBenefitMetrics();
+    setActiveBenefit(0);
+    updateBenefitProgress();
+
+    window.addEventListener('scroll', onBenefitScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      setBenefitMetrics();
+      window.requestAnimationFrame(function () {
+        centerActiveCard(activeBenefitIndex < 0 ? 0 : activeBenefitIndex);
+        updateBenefitProgress();
+      });
+    }, { passive: true });
+
+    compactQuery.addEventListener('change', function () {
+      setBenefitMetrics();
+      setActiveBenefit(0);
+    });
+  }
+
+  initHaPager(
+    document.getElementById('haBenefitsList'),
+    document.getElementById('haBenefitsPager'),
+    '.ha-benefits__card'
+  );
+  initHaPager(
+    document.getElementById('haFeaturesList'),
+    document.getElementById('haFeaturesPager'),
+    '.ha-features__item'
+  );
+  initHaPager(
+    document.querySelector('#haProductsTrack .ha-products__row'),
+    document.getElementById('haProductsPager'),
+    '[class*="col-"]'
+  );
+  initHaPager(
+    document.querySelector('#haCareTrack .ha-care__row'),
+    document.getElementById('haCarePager'),
+    '[class*="col-"]'
+  );
+  initHaPager(
+    document.getElementById('haTypesPanels'),
+    document.getElementById('haTypesPager'),
+    '[data-type-panel]'
+  );
+
+  var typesTabs = document.getElementById('haTypesTabs');
+  if (typesTabs) {
+    typesTabs.querySelectorAll('[data-type-tab]').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var index = Number(tab.getAttribute('data-type-tab') || 0);
+        typesTabs.querySelectorAll('[data-type-tab]').forEach(function (el) {
+          var on = el === tab;
+          el.classList.toggle('is-active', on);
+          el.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        document.querySelectorAll('#haTypesPanels [data-type-panel]').forEach(function (panel) {
+          panel.classList.toggle('is-active', Number(panel.getAttribute('data-type-panel')) === index);
+        });
+      });
+    });
+  }
+
+  var faqRoot = document.getElementById('haFaqAccordion');
+  if (faqRoot) {
+    faqRoot.addEventListener('shown.bs.collapse', function (event) {
+      var item = event.target.closest('.ha-faq__item');
+      if (item) item.classList.add('is-open');
+    });
+    faqRoot.addEventListener('hidden.bs.collapse', function (event) {
+      var item = event.target.closest('.ha-faq__item');
+      if (item) item.classList.remove('is-open');
+    });
+  }
+
+  var faqSection = document.querySelector('.ha-faq');
+  var faqMore = document.getElementById('haFaqMore');
+  if (faqSection && faqMore) {
+    faqMore.addEventListener('click', function () {
+      var expanded = faqSection.classList.toggle('is-expanded');
+      faqMore.querySelector('span').textContent = expanded ? 'View Less' : 'View More';
+    });
+  }
+
+  syncCompactChrome();
+  compactQuery.addEventListener('change', syncCompactChrome);
+  phoneQuery.addEventListener('change', syncCompactChrome);
+})();
+
+/* ==========================================
+   Hearing Aids Script - End
+========================================== */
+
+/* ==========================================================================
+     Header top + brand visibility
+     Show .header-top and .header-brand while the first page <h1> is still in
+     view (or not yet scrolled past). Once the user scrolls past that <h1>,
+     add .is-past-banner on .site-header so CSS can fade/slide both away.
+     Scrolling back above the <h1> restores them.
+     ========================================================================== */
+  (function initHeaderBrandOnScroll() {
+    var header = document.querySelector('.site-header');
+    var brand = document.querySelector('.header-brand');
+    var headerTop = document.querySelector('.header-top');
+    var heading = document.querySelector('h1');
+
+    if (!header || !heading) return;
+    if (!brand && !headerTop) return;
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ticking = false;
+
+    function updateHeaderChrome() {
+      ticking = false;
+
+      // Hide top/brand only after the first <h1> has fully left the top of the viewport.
+      // Using viewport top (not header height) avoids flicker when sections collapse.
+      var isPastHeading = heading.getBoundingClientRect().bottom <= 0;
+
+      header.classList.toggle('is-past-banner', isPastHeading);
+
+      if (brand) {
+        brand.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
+      }
+      if (headerTop) {
+        headerTop.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
+      }
+    }
+
+    function onScrollOrResize() {
+      if (reduceMotion) {
+        updateHeaderChrome();
+        return;
+      }
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateHeaderChrome);
+      }
+    }
+
+    updateHeaderChrome();
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
+  })();

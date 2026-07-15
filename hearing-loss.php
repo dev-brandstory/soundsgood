@@ -113,11 +113,6 @@ $faqs = [
 					<source media="(max-width: 1024px)" srcset="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero-tab.webp">
 					<img class="hero-banner__bg" src="<?php echo BASE_URL; ?>assets/images/hearing-loss/hearing-loss-hero.webp" alt="Two people enjoying an outdoor conversation" width="1440" height="759" loading="eager">
 				</picture>
-				<div class="hero-banner__overlay"></div>
-				<div class="hero-banner__pins" aria-hidden="true">
-					<img class="hero-banner__pin hero-banner__pin--left" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="78" height="104">
-					<img class="hero-banner__pin hero-banner__pin--right" src="<?php echo BASE_URL; ?>assets/images/icons/hero-pin.svg" alt="" width="49" height="65">
-				</div>
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<div class="hero-banner__badge">
