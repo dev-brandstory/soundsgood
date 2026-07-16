@@ -81,23 +81,30 @@ $protect_steps = [
 $faqs = [
 	[
 		'q' => 'What are the different types and styles of hearing aids?',
-		'a' => 'Today’s hearing aids are smaller and designed to be discreet. Many are nearly undetectable even close up. One model actually sits completely in the canal of your ear and is practically invisible when worn. Alternately, fashionable, meant-to-be seen hearing aids in fun color combinations are also available.',
+		'a' => 'Contemporary hearing aids are small, non-obtrusive, and very versatile. Others are just practically undetectable, being fit in entirely within the ear canal, whereas others are meant to be noticeable and stylish. They can be customised to individual tastes, lifestyle, and auditory support needs.',
 	],
 	[
-		'q' => 'What are the most common hearing loss causes?',
-		'a' => 'Hearing loss can result from aging, prolonged noise exposure, ear infections, certain medications, genetics, or injury. An audiologist can help identify the cause and recommend the right care plan.',
+		'q' => 'What are the most common causes of hearing loss?',
+		'a' => 'Hearing loss can result from:',
+		'items' => [
+			'Excessive exposure to loud sounds',
+			'Age-related changes',
+			'Head injuries or medical conditions',
+			'Certain medications',
+			'Genetic factors',
+		],
 	],
 	[
 		'q' => 'Wouldn’t I already know if I had hearing loss?',
-		'a' => 'Not always. Hearing loss often develops gradually, so people adapt without noticing. Difficulty following conversations, turning up the TV, or asking others to repeat themselves are common early signs.',
+		'a' => 'Not always. Most people adjust over time to the slightest of changes, like having trouble hearing in a noisy place or needing to increase device volume. Early intervention and detection are provided by professional evaluation.',
 	],
 	[
-		'q' => 'Doesn’t hearing loss only affect older people?',
-		'a' => 'No. While age-related hearing loss is common, people of all ages can experience hearing challenges due to noise exposure, medical conditions, or other factors. Early assessment helps protect long-term hearing health.',
+		'q' => 'Doesn’t hearing loss only affect older adults?',
+		'a' => 'Hearing challenges can occur at any age. While age-related changes are common, younger individuals may experience auditory changes due to noise exposure, medical conditions, or lifestyle factors.',
 	],
 	[
-		'q' => 'How do I know hearing aids will work for me?',
-		'a' => 'A comprehensive hearing evaluation helps match you with the right device and settings. Most people notice clearer speech and greater comfort once aids are fitted and fine-tuned to their lifestyle.',
+		'q' => 'How do I know if a hearing aid will work for me?',
+		'a' => 'Success depends on a thorough assessment by a qualified audiologist. Personalised fitting and programming ensure optimal performance, allowing devices to adapt to your specific needs and listening environments.',
 	],
 ];
 ?>
@@ -432,6 +439,13 @@ $faqs = [
 							<?php echo $is_open ? '' : 'hidden'; ?>
 						>
 							<p><?php echo htmlspecialchars($faq['a']); ?></p>
+							<?php if (!empty($faq['items'])) : ?>
+								<ul class="testimonials-faq__bullets">
+									<?php foreach ($faq['items'] as $item) : ?>
+										<li><?php echo htmlspecialchars($item); ?></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

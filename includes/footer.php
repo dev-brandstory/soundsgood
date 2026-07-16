@@ -24,10 +24,10 @@
 				</div>
 				<div class="col-lg-2 col-md-6">
 					<ul class="site-footer__links">
-						<li><a href="#" rel="noopener noreferrer">Facebook</a></li>
+						<li><a href="https://www.facebook.com/soundsgoodhearingcare/" rel="noopener noreferrer" target="_blank">Facebook</a></li>
 						<li><a href="#" rel="noopener noreferrer">Twitter</a></li>
 						<li><a href="#" rel="noopener noreferrer">Linkedin</a></li>
-						<li><a href="#" rel="noopener noreferrer">Instagram</a></li>
+						<li><a href="https://www.instagram.com/soundsgoodhearingcare/" rel="noopener noreferrer" target="_blank">Instagram</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-4 col-md-6">
@@ -62,6 +62,21 @@
 		</div>
 	</div>
 </footer>
+
+<!-- ===== Floating WhatsApp ===== -->
+<a
+	class="wa-float"
+	href="https://wa.me/919843078635?text=<?php echo rawurlencode('Hi Sounds Good, I would like to know more about your hearing care services.'); ?>"
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label="Chat with us on WhatsApp"
+>
+	<span class="wa-float__pulse" aria-hidden="true"></span>
+	<span class="wa-float__pulse wa-float__pulse--delay" aria-hidden="true"></span>
+	<svg class="wa-float__icon" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+		<path d="M17.5 14.4c-.3-.1-1.6-.8-1.8-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.5-1-.9-1.5-1.9-1.7-2.2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.5.6 2.1.7 2.8.6.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.3-.2-.6-.3zM12.1 2C6.6 2 2.1 6.5 2.1 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.6 2 12.1 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3.1-.2-.3c-.8-1.4-1.3-2.9-1.3-4.5 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.9 8.5-8.6 8.5z"/>
+	</svg>
+</a>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

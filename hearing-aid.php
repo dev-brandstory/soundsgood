@@ -619,84 +619,60 @@
 			<div class="accordion-item ha-faq__item is-open">
 				<h3 class="accordion-header" id="haFaqHeading1">
 					<button class="accordion-button ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq1" aria-expanded="true" aria-controls="haFaq1">
-						How do I know if I need a hearing aid?
+						Which hearing aid is right for me?
 					</button>
 				</h3>
 				<div id="haFaq1" class="accordion-collapse collapse show" aria-labelledby="haFaqHeading1" data-bs-parent="#haFaqAccordion">
 					<div class="accordion-body ha-faq__body">
-						If conversations feel unclear, you raise TV volume often, or busy places tire you out, a professional assessment can confirm whether a hearing aid will help.
+						The right device depends on your lifestyle, type of sound loss, and comfort. Our audiologists assess your needs and daily activities to suggest the best option for you.
 					</div>
 				</div>
 			</div>
 			<div class="accordion-item ha-faq__item">
 				<h3 class="accordion-header" id="haFaqHeading2">
 					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq2" aria-expanded="false" aria-controls="haFaq2">
-						Are modern hearing aids noticeable?
+						Will I need hearing aids for both ears?
 					</button>
 				</h3>
 				<div id="haFaq2" class="accordion-collapse collapse" aria-labelledby="haFaqHeading2" data-bs-parent="#haFaqAccordion">
 					<div class="accordion-body ha-faq__body">
-						Most current devices are small and discreet. Options like RIC and CIC are designed to sit comfortably and remain barely visible in daily use.
+						Often, both ears benefit from amplification to maintain balance and clarity. Your audiologist will assess your situation and recommend the optimal configuration.
 					</div>
 				</div>
 			</div>
 			<div class="accordion-item ha-faq__item">
 				<h3 class="accordion-header" id="haFaqHeading3">
 					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq3" aria-expanded="false" aria-controls="haFaq3">
-						How long does it take to get used to a hearing aid?
+						Are hearing aids expensive?
 					</button>
 				</h3>
 				<div id="haFaq3" class="accordion-collapse collapse" aria-labelledby="haFaqHeading3" data-bs-parent="#haFaqAccordion">
 					<div class="accordion-body ha-faq__body">
-						Many people adapt within a few weeks. Follow-up fine-tuning with your audiologist makes the transition smoother and more comfortable.
+						Prices vary by technology, features, and brand. Essential-level devices cover basic needs, while advanced or premium models offer richer sound, connectivity, and automatic adjustments. We also provide guidance on insurance or assistance programmes.
 					</div>
 				</div>
 			</div>
 			<div class="accordion-item ha-faq__item">
 				<h3 class="accordion-header" id="haFaqHeading4">
 					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq4" aria-expanded="false" aria-controls="haFaq4">
-						Can hearing aids connect to my phone or TV?
+						How long do hearing aids last?
 					</button>
 				</h3>
 				<div id="haFaq4" class="accordion-collapse collapse" aria-labelledby="haFaqHeading4" data-bs-parent="#haFaqAccordion">
 					<div class="accordion-body ha-faq__body">
-						Yes. Many models support Bluetooth streaming for calls, music, and television, so sound reaches your ears clearly and directly.
+						With proper care, hearing aids typically last 3–7 years. Regular follow-ups, battery maintenance, and cleaning ensure consistent performance and longevity.
 					</div>
 				</div>
 			</div>
 			<div class="accordion-item ha-faq__item">
 				<h3 class="accordion-header" id="haFaqHeading5">
 					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq5" aria-expanded="false" aria-controls="haFaq5">
-						What is the difference between BTE, RIC, and CIC?
+						Can hearing aids improve my life?
 					</button>
 				</h3>
 				<div id="haFaq5" class="accordion-collapse collapse" aria-labelledby="haFaqHeading5" data-bs-parent="#haFaqAccordion">
 					<div class="accordion-body ha-faq__body">
-						BTE sits behind the ear and suits a wide range of losses. RIC is slim and comfortable for active lifestyles. CIC sits deeper in the canal for a discreet look.
-					</div>
-				</div>
-			</div>
-			<div class="accordion-item ha-faq__item">
-				<h3 class="accordion-header" id="haFaqHeading6">
-					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq6" aria-expanded="false" aria-controls="haFaq6">
-						Do you provide aftercare and adjustments?
-					</button>
-				</h3>
-				<div id="haFaq6" class="accordion-collapse collapse" aria-labelledby="haFaqHeading6" data-bs-parent="#haFaqAccordion">
-					<div class="accordion-body ha-faq__body">
-						Yes. Sounds Good supports you with cleaning guidance, fine-tuning, and follow-up care so your devices stay comfortable and effective.
-					</div>
-				</div>
-			</div>
-			<div class="accordion-item ha-faq__item">
-				<h3 class="accordion-header" id="haFaqHeading7">
-					<button class="accordion-button collapsed ha-faq__button" type="button" data-bs-toggle="collapse" data-bs-target="#haFaq7" aria-expanded="false" aria-controls="haFaq7">
-						How do I book a hearing consultation?
-					</button>
-				</h3>
-				<div id="haFaq7" class="accordion-collapse collapse" aria-labelledby="haFaqHeading7" data-bs-parent="#haFaqAccordion">
-					<div class="accordion-body ha-faq__body">
-						Call 1800 270 1996 or use our contact page to schedule a visit at your nearest Sounds Good clinic across Tamil Nadu.
+						Yes. Users report clearer conversations, stronger social connections, reduced fatigue, and improved well-being. Early use also supports cognitive health and an active lifestyle.
 					</div>
 				</div>
 			</div>

@@ -72,10 +72,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
 	<nav class="header-nav d-none d-lg-block" aria-label="Main navigation">
 		<div class="container">
 			<div class="header-nav__inner flex items-center justify-end gap-5">
+				<a class="header-nav__logo" href="<?php echo BASE_URL; ?>" aria-label="Sounds Good Hearing Care — Home" aria-hidden="true" tabindex="-1">
+					<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="" width="120" height="70" loading="eager">
+				</a>
 				<ul class="header-nav__list flex items-center gap-2">
 					<li><a class="header-nav__link <?php echo ($current_page == 'index.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>">Home</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-loss.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
-					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-aid.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'testimonials.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>testimonials.php">Testimonials</a></li>
 					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'about.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>

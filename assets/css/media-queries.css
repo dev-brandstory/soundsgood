@@ -171,6 +171,11 @@
     object-fit: cover;
     object-position: center center;
   }
+
+  .footer-location__card {
+    min-height: 300px!important;
+  }
+
 }
 
 @media (max-width: 991px) {
@@ -433,8 +438,8 @@
   }
 
   .contact-booking__hero::before {
-    background-size: auto 95%;
-    background-position: right -10px bottom;
+    background-size: cover;
+    background-position: right bottom;
     opacity: 0.85;
   }
 
@@ -1600,8 +1605,8 @@
   }
 
   .contact-booking__hero::before {
-    background-size: auto 68%;
-    background-position: right -52px bottom;
+    background-size: cover;
+    background-position: right bottom;
     opacity: 0.28;
   }
 

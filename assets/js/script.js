@@ -1,9 +1,114 @@
 /**
- * Sounds Good — Homepage interactions
+ * Sounds Good ? Homepage interactions
  * Vanilla JS only
  */
 (function () {
   'use strict';
+
+  /* Footer location ? defer 5MB map SVG + pause pin spins until visible */
+  (function initFooterLocationPerf() {
+    var sections = document.querySelectorAll('.footer-location, .footer-location-mobile');
+    if (!sections.length) return;
+
+    var compactQuery = window.matchMedia('(max-width: 767.98px)');
+
+    function getActiveSection() {
+      return compactQuery.matches
+        ? document.querySelector('.footer-location-mobile')
+        : document.querySelector('.footer-location');
+    }
+
+    function getHiddenSection() {
+      return compactQuery.matches
+        ? document.querySelector('.footer-location')
+        : document.querySelector('.footer-location-mobile');
+    }
+
+    function deferMapImage(img) {
+      if (!img || img.dataset.mapDeferred === 'true') return;
+      var src = img.getAttribute('src');
+      if (!src) return;
+      img.dataset.mapSrc = src;
+      img.removeAttribute('src');
+      img.dataset.mapDeferred = 'true';
+    }
+
+    function loadMapImage(img) {
+      if (!img || !img.dataset.mapSrc || img.getAttribute('src')) return;
+      img.setAttribute('src', img.dataset.mapSrc);
+      delete img.dataset.mapSrc;
+      delete img.dataset.mapDeferred;
+    }
+
+    function loadMapsForSection(section) {
+      if (!section) return;
+      section.querySelectorAll('.footer-location__map-img').forEach(loadMapImage);
+    }
+
+    function setPinPauseState(isVisible) {
+      var activeSection = getActiveSection();
+      sections.forEach(function (section) {
+        section.classList.toggle('is-pins-paused', !isVisible || section !== activeSection);
+      });
+    }
+
+    sections.forEach(function (section) {
+      section.classList.add('is-pins-paused');
+    });
+
+    var hiddenSection = getHiddenSection();
+    if (hiddenSection) {
+      hiddenSection.querySelectorAll('.footer-location__map-img').forEach(deferMapImage);
+    }
+
+    var activeSection = getActiveSection();
+    if (activeSection) {
+      activeSection.querySelectorAll('.footer-location__map-img').forEach(deferMapImage);
+    }
+
+    var mapLoaded = false;
+
+    if (typeof IntersectionObserver === 'undefined') {
+      loadMapsForSection(activeSection);
+      setPinPauseState(true);
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.target !== getActiveSection()) return;
+
+          if (entry.isIntersecting) {
+            if (!mapLoaded) {
+              mapLoaded = true;
+              loadMapsForSection(entry.target);
+            }
+            setPinPauseState(true);
+          } else {
+            setPinPauseState(false);
+          }
+        });
+      },
+      { rootMargin: '200px 0px', threshold: 0 }
+    );
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+
+    compactQuery.addEventListener('change', function () {
+      var newHidden = getHiddenSection();
+      var newActive = getActiveSection();
+      if (newHidden) {
+        newHidden.querySelectorAll('.footer-location__map-img').forEach(deferMapImage);
+      }
+      if (mapLoaded) {
+        loadMapsForSection(newActive);
+      }
+      setPinPauseState(false);
+    });
+  })();
 
   /* AOS */
   if (typeof AOS !== 'undefined') {
@@ -14,7 +119,7 @@
     });
   }
 
-  /* Hero slider — horizontal slide */
+  /* Hero slider ? horizontal slide */
   var heroSlider = document.getElementById('heroSlider');
   if (heroSlider) {
     var viewport = heroSlider.parentElement;
@@ -75,7 +180,7 @@
     window.addEventListener('resize', refresh);
   }
 
-  /* Home stats mobile — one card per slide */
+  /* Home stats mobile ? one card per slide */
   var homeStatsMobile = document.getElementById('homeStatsMobile');
   if (homeStatsMobile) {
     var homeStatsTrack = document.getElementById('homeStatsMobileTrack');
@@ -138,7 +243,7 @@
     });
   }
 
-  /* Testimonial videos — lazy attach + in-view autoplay + mute toggle */
+  /* Testimonial videos ? lazy attach + in-view autoplay + mute toggle */
   var testimonialPreferSound = true;
 
   function syncMuteButton(btn, muted) {
@@ -232,7 +337,7 @@
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(function () {
           if (!isAllowed()) return;
-          /* Browsers block unmuted autoplay — fall back to muted */
+          /* Browsers block unmuted autoplay ? fall back to muted */
           if (!video.muted) {
             video.muted = true;
             testimonialPreferSound = false;
@@ -371,7 +476,7 @@
     }
   }
 
-  /* Moments tabs — dialer roll-up */
+  /* Moments tabs ? dialer roll-up */
   var momentsTabs = document.getElementById('momentsTabs');
   if (momentsTabs) {
     var tabButtons = momentsTabs.querySelectorAll('.moments-tabs__btn');
@@ -511,7 +616,7 @@
     });
   }
 
-  /* Home moments mobile — vertical reel + nav scroll (no page jump) */
+  /* Home moments mobile ? vertical reel + nav scroll (no page jump) */
   var homeMomentsMobile = document.getElementById('homeMomentsMobile');
   if (homeMomentsMobile) {
     var homeMomentsNav = homeMomentsMobile.querySelector('.home-moments-mobile__nav');
@@ -710,7 +815,7 @@
     goToAboutPage(0, false);
   }
 
-  /* Testimonials carousel — lazy load + in-view autoplay */
+  /* Testimonials carousel ? lazy load + in-view autoplay */
   var testimonialsCarousel = document.getElementById('testimonialsCarousel');
   if (testimonialsCarousel) {
     var testimonialsViewport = testimonialsCarousel.querySelector('.testimonials__viewport');
@@ -841,7 +946,7 @@
     }
   }
 
-  /* Footer map pins — tap to open popout on touch; hover uses CSS on desktop */
+  /* Footer map pins ? tap to open popout on touch; hover uses CSS on desktop */
   var mapPinRoots = document.querySelectorAll('#footerMapPins, #footerMapPinsMobile');
   mapPinRoots.forEach(function (root) {
     if (!root) return;
@@ -863,22 +968,7 @@
     });
   });
 
-  /* Pause pin spin when location CTAs are off-screen (perf) */
-  document.querySelectorAll('.footer-location, .footer-location-mobile').forEach(function (section) {
-    if (typeof IntersectionObserver === 'undefined') return;
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          section.classList.toggle('is-pins-paused', !entry.isIntersecting);
-        });
-      },
-      { rootMargin: '80px', threshold: 0 }
-    );
-    observer.observe(section);
-  });
-
-  /* Contact page — branch locator tabs */
+  /* Contact page ? branch locator tabs */
   var branchButtons = document.querySelectorAll('.contact-branches__item');
   var branchTitle = document.getElementById('branchDetailTitle');
   var branchAddress = document.getElementById('branchDetailAddress');
@@ -970,7 +1060,7 @@
     });
   });
 
-  /* Hearing Loss — early signs carousel */
+  /* Hearing Loss ? early signs carousel */
   var hlSignsTrack = document.getElementById('hlSignsTrack');
   var hlSignsPrev = document.getElementById('hlSignsPrev');
   var hlSignsNext = document.getElementById('hlSignsNext');
@@ -1083,7 +1173,7 @@
     goToHlPage(0, false);
   }
 
-  /* Hearing Loss — protecting your hearing carousel */
+  /* Hearing Loss ? protecting your hearing carousel */
   var hlJourneyTrack = document.getElementById('hlJourneyTrack');
   var hlJourneyPrev = document.getElementById('hlJourneyPrev');
   var hlJourneyNext = document.getElementById('hlJourneyNext');
@@ -1357,13 +1447,13 @@
 ========================================== */
 
 (function () {
-  /* Page-scoped: skip on non–hearing-aids pages */
+  /* Page-scoped: skip on non?hearing-aids pages */
   if (!document.body || !document.body.classList.contains('hearingAidsPage')) {
     return;
   }
 
   /* Compact = mobile + tablet (pagers / carousels / stacked chrome).
-     Desktop (≥992px) keeps pin-scroll benefits and multi-column layouts. */
+     Desktop (?992px) keeps pin-scroll benefits and multi-column layouts. */
   var compactQuery = window.matchMedia('(max-width: 991.98px)');
   var phoneQuery = window.matchMedia('(max-width: 767.98px)');
   var tabletQuery = window.matchMedia('(min-width: 768px) and (max-width: 991.98px)');
@@ -1400,7 +1490,7 @@
     var index = 0;
 
     function getPerView() {
-      /* Care tablet shows 2 cards → page count is 2 for 3 items */
+      /* Care tablet shows 2 cards ? page count is 2 for 3 items */
       if (pager.id === 'haCarePager' && isTablet()) return 2;
       return 1;
     }
@@ -1545,7 +1635,7 @@
     var phoneOnly = isPhone();
     var tabletOnly = isTablet();
     setHidden(document.getElementById('haBenefitsPager'), !compact);
-    /* Features pager is phone-only — tablet uses the 2-col grid layout */
+    /* Features pager is phone-only ? tablet uses the 2-col grid layout */
     setHidden(document.getElementById('haFeaturesPager'), !phoneOnly);
     setHidden(document.getElementById('haProductsPager'), !compact);
     setHidden(document.getElementById('haCarePager'), !compact);
@@ -1553,7 +1643,7 @@
     setHidden(document.getElementById('haTypesTabs'), !phoneOnly);
     setHidden(document.getElementById('haTypesPager'), !tabletOnly);
     setHidden(document.getElementById('haFaqMore'), !compact);
-    /* Steps phone stepper is phone-only — tablet uses vertical accordion markers */
+    /* Steps phone stepper is phone-only ? tablet uses vertical accordion markers */
     setHidden(document.getElementById('haStepsStepper'), !phoneOnly);
 
     var typePanels = document.querySelectorAll('#haTypesPanels [data-type-panel]');
@@ -1792,53 +1882,99 @@
 ========================================== */
 
 /* ==========================================================================
-     Header top + brand visibility
-     Show .header-top and .header-brand while the first page <h1> is still in
-     view (or not yet scrolled past). Once the user scrolls past that <h1>,
-     add .is-past-banner on .site-header so CSS can fade/slide both away.
-     Scrolling back above the <h1> restores them.
-     ========================================================================== */
-  (function initHeaderBrandOnScroll() {
-    var header = document.querySelector('.site-header');
-    var brand = document.querySelector('.header-brand');
-    var headerTop = document.querySelector('.header-top');
-    var heading = document.querySelector('h1');
+   Header top + brand visibility
+   Show .header-top and .header-brand while the first page <h1> is still in
+   view (or not yet scrolled past). Once the user scrolls past that <h1>,
+   add .is-past-banner on .site-header so CSS can fade/slide both away.
+   Scrolling back above the <h1> restores them.
+   ========================================================================== */
+(function initHeaderBrandOnScroll() {
+  var header = document.querySelector('.site-header');
+  var brand = document.querySelector('.header-brand');
+  var headerTop = document.querySelector('.header-top');
+  var navLogo = document.querySelector('.header-nav__logo');
+  var heading = document.querySelector('h1');
 
-    if (!header || !heading) return;
-    if (!brand && !headerTop) return;
+  if (!header || !heading) return;
+  if (!brand && !headerTop) return;
 
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var ticking = false;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ticking = false;
 
-    function updateHeaderChrome() {
-      ticking = false;
+  function updateHeaderChrome() {
+    ticking = false;
 
-      // Hide top/brand only after the first <h1> has fully left the top of the viewport.
-      // Using viewport top (not header height) avoids flicker when sections collapse.
-      var isPastHeading = heading.getBoundingClientRect().bottom <= 0;
+    // Hide top/brand only after the first <h1> has fully left the top of the viewport.
+    var isPastHeading = heading.getBoundingClientRect().bottom <= 0;
 
-      header.classList.toggle('is-past-banner', isPastHeading);
+    header.classList.toggle('is-past-banner', isPastHeading);
 
-      if (brand) {
-        brand.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
-      }
-      if (headerTop) {
-        headerTop.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
+    if (brand) {
+      brand.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
+    }
+    if (headerTop) {
+      headerTop.setAttribute('aria-hidden', isPastHeading ? 'true' : 'false');
+    }
+    if (navLogo) {
+      navLogo.setAttribute('aria-hidden', isPastHeading ? 'false' : 'true');
+      if (isPastHeading) {
+        navLogo.removeAttribute('tabindex');
+      } else {
+        navLogo.setAttribute('tabindex', '-1');
       }
     }
+  }
 
-    function onScrollOrResize() {
-      if (reduceMotion) {
-        updateHeaderChrome();
-        return;
-      }
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(updateHeaderChrome);
-      }
+  function onScrollOrResize() {
+    if (reduceMotion) {
+      updateHeaderChrome();
+      return;
+    }
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(updateHeaderChrome);
+    }
+  }
+
+  updateHeaderChrome();
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+})();
+
+/* Testimonials page - Load More */
+(function initTestimonialsLoadMore() {
+  var btn = document.getElementById('testimonialsLoadMore');
+  var grid = document.getElementById('testimonialsGrid');
+  var wrap = btn ? btn.closest('.testimonials-grid__more') : null;
+  if (!btn || !grid) return;
+
+  var perLoad = Math.max(1, parseInt(btn.getAttribute('data-per-load'), 10) || 3);
+
+  function getHiddenItems() {
+    return Array.prototype.slice.call(
+      grid.querySelectorAll('[data-testimonial-item]')
+    ).filter(function (el) {
+      return el.classList.contains('is-hidden') || el.hasAttribute('hidden');
+    });
+  }
+
+  function syncButton() {
+    if (getHiddenItems().length) return;
+    btn.setAttribute('hidden', '');
+    if (wrap) wrap.setAttribute('hidden', '');
+  }
+
+  btn.addEventListener('click', function () {
+    var hidden = getHiddenItems();
+    var limit = Math.min(perLoad, hidden.length);
+
+    for (var i = 0; i < limit; i++) {
+      hidden[i].classList.remove('is-hidden');
+      hidden[i].removeAttribute('hidden');
     }
 
-    updateHeaderChrome();
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize, { passive: true });
-  })();
+    syncButton();
+  });
+
+  syncButton();
+})();

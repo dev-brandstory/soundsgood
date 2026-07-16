@@ -21,6 +21,10 @@
   color: #666666;
 }
 
+.header-top__item span {
+  font-family: var(--font-family-base)!important;
+}
+
 .header-top__item a {
   font-size: var(--font-size-base);
   color: #666666;
@@ -67,10 +71,78 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }
 
+/* Collapse utility bar + brand after scrolling past first <h1> (JS toggles .is-past-banner) */
+.site-header .header-top,
+.site-header .header-brand {
+  overflow: hidden;
+  max-height: 160px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height 0.35s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    padding 0.35s ease;
+}
+
+.site-header.is-past-banner .header-top,
+.site-header.is-past-banner .header-brand {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+/* Compact logo in nav — only when header is minimized */
+.header-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 0;
+  max-width: 0;
+  margin-right: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    max-width 0.35s ease,
+    opacity 0.3s ease,
+    margin 0.35s ease;
+}
+
+.header-nav__logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-header.is-past-banner .header-nav__logo {
+  width: auto;
+  max-width: 120px;
+  margin-right: auto;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.site-header.is-past-banner .header-nav {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .header-top,
+  .site-header .header-brand,
+  .header-nav__logo {
+    transition: none;
+  }
+}
+
 .header-nav__link {
   display: inline-flex;
   padding: var(--space-1) var(--space-4);
-  font-size: var(--font-size-base);
+  font-size: 14px;
   font-weight: var(--font-weight-regular);
   color: #666666;
   border-radius: var(--radius-pill);
@@ -79,7 +151,7 @@
 
 .header-nav__link:hover,
 .header-nav__link.is-active {
-  color: var(--color-dark);
+  color: var(--color-accent);
 }
 
 .header-mobile {
@@ -468,7 +540,7 @@
   grid-template-rows: repeat(3, auto);
   grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: column;
-  gap: 8px 16px;
+  gap: 32px 16px;
   width: 100%;
   margin: auto 0 0;
   padding: 16px 20px;
@@ -514,6 +586,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-dark);
   line-height: 1.1;
+  font-family: var(--font-family-heading)!important;
 }
 
 .stat-card__label,
@@ -1708,6 +1781,28 @@ filter: grayscale(100%);
   flex-shrink: 0;
 }
 
+.home-visit-mobile__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  max-width: 356px;
+}
+
+.home-visit-mobile__cta--outline {
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.home-visit-mobile__cta--outline:hover {
+  color: #3b3cb4;
+  background: #ffffff;
+  border-color: #ffffff;
+  opacity: 1;
+}
+
 
 /* ----- Testimonials ----- */
 
@@ -2701,6 +2796,93 @@ filter: grayscale(100%);
   margin: 0;
 }
 
+/* ----- Floating WhatsApp ----- */
+
+.wa-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-float:hover {
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
+}
+
+.wa-float:focus-visible {
+  outline: 3px solid #128c7e;
+  outline-offset: 3px;
+}
+
+.wa-float__icon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  flex-shrink: 0;
+}
+
+.wa-float__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  animation: wa-float-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.wa-float__pulse--delay {
+  animation-delay: 1s;
+}
+
+@keyframes wa-float-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float__pulse {
+    animation: none;
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wa-float {
+    right: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .wa-float__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 
 /* ==========================================================================
    About Page
@@ -2724,6 +2906,7 @@ filter: grayscale(100%);
 .hl-challenges__diagram img {
   max-width: 100%;
   height: auto;
+  width: 100%;
 }
 
 .page-banner__bg {
@@ -3162,7 +3345,6 @@ filter: grayscale(100%);
   align-items: stretch;
   gap: 28px;
   width: 100%;
-  max-width: 1240px;
   margin-inline: auto;
   padding: 24px;
   background: #FFFFFF;
@@ -3195,7 +3377,7 @@ filter: grayscale(100%);
   overflow: hidden;
 }
 
-/* Purple hero — doctor.webp as background (right-aligned) */
+/* Purple hero — doctor.webp fills panel */
 .contact-booking__hero {
   position: relative;
   box-sizing: border-box;
@@ -3206,7 +3388,6 @@ filter: grayscale(100%);
   min-height: 381px;
   padding: 24px;
   color: #FFFFFF;
-  /* background-color: #3B3CB4; */
   overflow: hidden;
   isolation: isolate;
 }
@@ -3216,7 +3397,7 @@ filter: grayscale(100%);
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("../images/contact/doctor.webp") right bottom / auto 100% no-repeat;
+  background: url("../images/contact/doctor.webp") right bottom / cover no-repeat;
   mix-blend-mode: multiply;
   opacity: 0.95;
   pointer-events: none;
@@ -3846,6 +4027,39 @@ filter: grayscale(100%);
   background: var(--color-bg-pale);
   padding-top: var(--space-8);
   padding-bottom: var(--space-10);
+}
+
+.testimonials-grid__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-10);
+}
+
+.testimonials-grid__more[hidden] {
+  display: none !important;
+}
+
+.testimonials-grid__load-more {
+  min-width: 148px;
+  min-height: 48px;
+  padding: 12px 32px;
+  border: 0;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+.testimonials-grid__load-more:hover,
+.testimonials-grid__load-more:focus-visible {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.testimonials-grid [data-testimonial-item].is-hidden,
+.testimonials-grid [data-testimonial-item][hidden] {
+  display: none !important;
 }
 
 .testimonials-card {
@@ -4738,7 +4952,6 @@ filter: grayscale(100%);
 .hl-untreated h2 {
   position: relative;
   margin: 0 auto 42px;
-  max-width: 760px;
   padding-bottom: 20px;
   font-size: clamp(26px, 3.2vw, 40px);
   font-weight: 500;
@@ -5262,6 +5475,7 @@ filter: grayscale(100%);
   letter-spacing: -0.02em;
   text-transform: none;
   color: #ffffff;
+  font-family: var(--font-family-base);
 }
 
 /* ----- Connect specialists ----- */
@@ -5490,6 +5704,19 @@ filter: grayscale(100%);
   font-weight: 400;
   line-height: 1.5;
   color: #444444;
+}
+
+.hearingLossPage #hearingLossFaq .testimonials-faq__bullets {
+  margin: 12px 0 0;
+  padding-left: 1.25rem;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #444444;
+}
+
+.hearingLossPage #hearingLossFaq .testimonials-faq__bullets li + li {
+  margin-top: 6px;
 }
 
 /* ==========================================
@@ -5963,6 +6190,7 @@ filter: grayscale(100%);
   background: #2C2D88;
   border-color: #2C2D88;
   color: #fff;
+  margin-bottom: 2rem;
 }
 
 .ha-generation__divider {
@@ -6662,16 +6890,14 @@ filter: grayscale(100%);
   width: 52px;
   height: 52px;
   margin-bottom: 16px;
-  border: 1px solid #DDD;
   border-radius: 10px;
-  background: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .ha-care__icon-img {
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 55px;
+  height: 55px;
   object-fit: contain;
 }
 
@@ -6685,6 +6911,7 @@ filter: grayscale(100%);
   line-height: 30px;
   color: #fff;
   text-transform: none;
+  font-family: var(--font-family-base);
 }
 
 /* CTA */

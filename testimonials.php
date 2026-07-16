@@ -35,7 +35,40 @@ $testimonials = [
 		'name' => 'Meena K',
 		'place' => 'Nagercoil, Tamil Nadu',
 	],
+	[
+		'quote' => 'Clear advice, no pressure, and a device that fits my busy workday. I wish I had visited Sounds Good sooner.',
+		'name' => 'Ganesh P',
+		'place' => 'Salem, Tamil Nadu',
+	],
+	[
+		'quote' => 'The clinic environment is calm and welcoming. My mother now joins family conversations without asking us to repeat.',
+		'name' => 'Divya N',
+		'place' => 'Erode, Tamil Nadu',
+	],
+	[
+		'quote' => 'Fine-tuning after the fitting made a huge difference. Speech is clearer in noisy places and I feel more confident outdoors.',
+		'name' => 'Ravi Kumar',
+		'place' => 'Trichy, Tamil Nadu',
+	],
+	[
+		'quote' => 'They explained rechargeable options clearly and helped me choose what suits my routine. Support after purchase has been wonderful.',
+		'name' => 'Lakshmi Devi',
+		'place' => 'Vellore, Tamil Nadu',
+	],
+	[
+		'quote' => 'Honest guidance and careful testing. I can finally enjoy temple festivals and family gatherings without strain.',
+		'name' => 'Murugan S',
+		'place' => 'Thanjavur, Tamil Nadu',
+	],
+	[
+		'quote' => 'Every visit feels thoughtful. The audiologist listens first, then adjusts. Hearing my spouse clearly again means everything.',
+		'name' => 'Kamala V',
+		'place' => 'Dindigul, Tamil Nadu',
+	],
 ];
+
+$testimonials_initial = 6;
+$testimonials_per_load = 3;
 
 $faqs = [
 	[
@@ -76,9 +109,11 @@ $faqs = [
 <!-- ===== Testimonials Grid ===== -->
 <section class="testimonials-grid section" aria-label="Patient testimonials">
 	<div class="container">
-		<div class="row g-4">
-			<?php foreach ($testimonials as $i => $item) : ?>
-				<div class="col-lg-4 col-md-6" data-aos="fade-up"<?php echo $i ? ' data-aos-delay="' . min(($i % 3) * 80, 160) . '"' : ''; ?>>
+		<div class="row g-4" id="testimonialsGrid">
+			<?php foreach ($testimonials as $i => $item) :
+				$is_hidden = $i >= $testimonials_initial;
+			?>
+				<div class="col-lg-4 col-md-6<?php echo $is_hidden ? ' is-hidden' : ''; ?>" data-testimonial-item<?php echo $is_hidden ? ' hidden' : ''; ?> data-aos="fade-up"<?php echo $i ? ' data-aos-delay="' . min(($i % 3) * 80, 160) . '"' : ''; ?>>
 					<article class="testimonials-card h-full">
 						<div class="testimonials-card__top">
 							<span class="testimonials-card__avatar" aria-hidden="true">
@@ -106,11 +141,25 @@ $faqs = [
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+		<?php if (count($testimonials) > $testimonials_initial) : ?>
+			<div class="testimonials-grid__more">
+				<button
+					type="button"
+					class="btn btn-pill testimonials-grid__load-more"
+					id="testimonialsLoadMore"
+					data-per-load="<?php echo (int) $testimonials_per_load; ?>"
+					aria-controls="testimonialsGrid"
+				>
+					Load More
+				</button>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 
-<!-- ===== Success Story CTA ===== -->
-<section class="testimonials-cta section-none" aria-labelledby="testimonials-cta-heading">
+<!-- ===== Success Story CTA (desktop / tablet) ===== -->
+<section class="testimonials-cta section-none d-none d-md-block" aria-labelledby="testimonials-cta-heading">
 	<div class="container">
 		<div class="testimonials-cta__panel" data-aos="fade-up">
 			<div class="testimonials-cta__copy">
@@ -126,6 +175,8 @@ $faqs = [
 		</div>
 	</div>
 </section>
+
+<?php include 'includes/testimonials-cta-mobile.php'; ?>
 
 <!-- ===== FAQ — Hearing Loss ===== -->
 <section class="testimonials-faq section" aria-labelledby="testimonials-faq-heading">
