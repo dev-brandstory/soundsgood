@@ -1,6 +1,6 @@
 <?php $title = "Hearing Loss — Signs, Causes & Care | Sounds Good Hearing Care"; ?>
 <?php $description = "Learn to recognise early signs of hearing loss, understand causes and types, and discover why early intervention matters. Book a hearing check with Sounds Good."; ?>
-<?php $canonical = "http://localhost/soundsgood/hearing-loss.php"; ?>
+<?php $canonical = "http://localhost/soundsgood/hearing-loss"; ?>
 <?php $keywords = "hearing loss, early signs of hearing loss, causes of hearing loss, tinnitus, hearing test, Sounds Good"; ?>
 <?php $pageclass = "hearingLossPage"; ?>
 <?php
@@ -127,7 +127,7 @@ $faqs = [
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Recognising Changes in the Way You Hear</h1>
-						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Check Your Hearing Today</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill">Check Your Hearing Today</a>
 					</div>
 				</div>
 			</article>
@@ -224,7 +224,7 @@ $faqs = [
 
 			<article class="hl-check__card hl-check__card--cta">
 				<p>Early assessment protects your hearing and keeps life connected.</p>
-				<a href="<?php echo BASE_URL; ?>contact.php" class="hl-check__cta">Speak to an Audiologist</a>
+				<a href="<?php echo BASE_URL; ?>contact" class="hl-check__cta">Speak to an Audiologist</a>
 			</article>
 		</div>
 	</div>
@@ -394,7 +394,7 @@ $faqs = [
 		<div class="hl-connect__copy" data-aos="fade-up">
 			<h2 id="hl-connect-heading">Connect With Our Specialists</h2>
 			<p>Contact us today to schedule a hearing evaluation and take the first step towards clearer hearing.</p>
-			<a href="<?php echo BASE_URL; ?>contact.php" class="hl-connect__cta">Get Started</a>
+			<a href="<?php echo BASE_URL; ?>contact" class="hl-connect__cta">Get Started</a>
 		</div>
 	</div>
 </section>

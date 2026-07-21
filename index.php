@@ -22,7 +22,7 @@
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Get Your Life Back</h1>
-						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill">Begin Your Journey</a>
 					</div>
 				</div>
 			</article>
@@ -40,7 +40,7 @@
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Decades of Care. Moments Made Clear.</h1>
-						<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-primary btn-pill">Trust Our Experience</a>
+						<a href="<?php echo BASE_URL; ?>about" class="btn btn-primary btn-pill">Trust Our Experience</a>
 					</div>
 				</div>
 			</article>
@@ -58,7 +58,7 @@
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>Thoughtful Solutions, Just for You</h1>
-						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill">Begin Your Journey</a>
 					</div>
 				</div>
 			</article>
@@ -182,7 +182,7 @@
 										</div>
 										<p>Comprehensive hearing and balance tests by expert audiologists using advanced diagnostic equipment and modern facilities. Our testing services include Pure tone audiometry, Impedance Audiometry, BERA, ASSR, OAE, and VEMP.
 										</p>
-										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+										<a href="<?php echo BASE_URL; ?>contact" class="moments-tabs__cta">Know More</a>
 									</article>
 
 									<article class="moments-tabs__slide">
@@ -193,7 +193,7 @@
 											<h3>Servicing</h3>
 										</div>
 										<p>The hearing aid service lab is in-house and is completely state-of-the-art to guarantee quicker turnaround time, proper diagnosis, and good support whenever you require it.</p>
-										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+										<a href="<?php echo BASE_URL; ?>contact" class="moments-tabs__cta">Know More</a>
 									</article>
 
 									<article class="moments-tabs__slide">
@@ -205,7 +205,7 @@
 										</div>
 										<p>We offer compassionate speech therapy for children and adults, supporting speech clarity, confidence, and communication at every age.
 										</p>
-										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+										<a href="<?php echo BASE_URL; ?>contact" class="moments-tabs__cta">Know More</a>
 									</article>
 
 									<article class="moments-tabs__slide">
@@ -216,7 +216,7 @@
 											<h3>Maintenance and Follow-Up Care</h3>
 										</div>
 										<p>Regular check-ups, professional cleaning, and ongoing guidance are always available for you and your family, because long-term care matters.</p>
-										<a href="<?php echo BASE_URL; ?>contact.php" class="moments-tabs__cta">Know More</a>
+										<a href="<?php echo BASE_URL; ?>contact" class="moments-tabs__cta">Know More</a>
 									</article>
 								</div>
 							</div>
@@ -481,6 +481,8 @@
 			<h2 id="social-heading" class="social-section__title">Stories That Bring Us Together</h2>
 		</div>
 
+		<?php $ig_profile = 'https://www.instagram.com/soundsgoodhearingcare/'; ?>
+
 		<div class="social-section__profile" data-aos="fade-up">
 			<div class="social-section__profile-main">
 				<div class="social-section__avatar">
@@ -494,8 +496,8 @@
 					</div>
 				</div>
 			</div>
-			<a href="https://www.instagram.com/" class="social-section__ig-btn" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">
-				<span class="social-section__ig-btn-text">View in instagram</span>
+			<a href="<?php echo htmlspecialchars($ig_profile); ?>" class="social-section__ig-btn" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">
+				<span class="social-section__ig-btn-text">View in Instagram</span>
 				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 					<rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
 					<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
@@ -504,81 +506,16 @@
 			</a>
 		</div>
 
-		<div class="social-section__slider">
-			<div class="social-section__viewport" id="socialSliderViewport">
-				<div class="social-section__track" id="socialSliderTrack">
-					<?php
-					$social_posts = [
-						[
-							'img' => 'banner-img1.webp',
-							'alt' => 'Family enjoying outdoor time together',
-							'caption' => 'Hearing well means living fully — every conversation, every laugh.',
-							'date' => 'September 19',
-						],
-						[
-							'img' => 'banner-img2.webp',
-							'alt' => 'Senior couple sharing a joyful moment',
-							'caption' => 'Trusted hearing care across Tamil Nadu since 1996.',
-							'date' => 'September 12',
-						],
-						[
-							'img' => 'journey.jpg',
-							'alt' => 'Audiologist performing a hearing test',
-							'caption' => 'A clear hearing check-up is the first step to better sound.',
-							'date' => 'September 5',
-						],
-						[
-							'img' => 'banner-img3.webp',
-							'alt' => 'Personalized hearing care solutions',
-							'caption' => 'Modern hearing aids. Lifelong support. Closer to you.',
-							'date' => 'August 28',
-						],
-					];
-					foreach ($social_posts as $i => $post) :
-					?>
-					<article class="ig-post social-section__slide">
-						<header class="ig-post__head">
-							<div class="ig-post__user-wrap">
-								<span class="ig-post__avatar">
-									<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="" width="16" height="9" loading="lazy">
-								</span>
-								<div>
-									<p class="ig-post__user">
-										soundsgood
-										<svg width="8" height="8" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#3897F0"/><path d="M3.5 6l1.7 1.7L8.5 4.4" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-									</p>
-									<p class="ig-post__loc">Madurai, India</p>
-								</div>
-							</div>
-							<span class="ig-post__more" aria-hidden="true"></span>
-						</header>
-						<div class="ig-post__media">
-							<img src="<?php echo BASE_URL; ?>assets/images/home/<?php echo $post['img']; ?>" alt="<?php echo htmlspecialchars($post['alt']); ?>" width="271" height="271" loading="lazy">
-							<span class="ig-post__count">1/3</span>
-						</div>
-						<footer class="ig-post__foot">
-							<div class="ig-post__actions">
-								<div class="ig-post__actions-left">
-									<svg width="17" height="15" viewBox="0 0 17 15" fill="none" aria-hidden="true"><path d="M8.5 13.6S1.5 9.2 1.5 5.2A3.7 3.7 0 018.5 3a3.7 3.7 0 017 2.2c0 4-7 8.4-7 8.4z" stroke="#262626" stroke-width="1.2"/></svg>
-									<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 7.5a5.5 5.5 0 01-8.3 4.7L2 14l1.6-3.3A5.5 5.5 0 1114 7.5z" stroke="#262626" stroke-width="1.2"/></svg>
-									<svg width="16" height="14" viewBox="0 0 16 14" fill="none" aria-hidden="true"><path d="M14.5 1.5L1.5 6.8l5.2 1.7 1.6 4.5 6.2-11.5z" stroke="#262626" stroke-width="1.2" stroke-linejoin="round"/></svg>
-								</div>
-								<svg width="15" height="17" viewBox="0 0 15 17" fill="none" aria-hidden="true"><path d="M2 1.5h11v13.5l-5.5-3.2L2 15V1.5z" stroke="#262626" stroke-width="1.2"/></svg>
-							</div>
-							<p class="ig-post__likes">Liked by <strong>craig_love</strong> and <strong>others</strong></p>
-							<p class="ig-post__caption"><strong>soundsgood</strong> <?php echo htmlspecialchars($post['caption']); ?></p>
-							<time class="ig-post__date" datetime="2025-09-19"><?php echo htmlspecialchars($post['date']); ?></time>
-						</footer>
-					</article>
-					<?php endforeach; ?>
-				</div>
-			</div>
-			<div class="social-section__dots" role="tablist" aria-label="Social posts pagination" id="socialSliderDots">
-				<button type="button" class="social-section__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
-				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
-				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
-				<button type="button" class="social-section__dot" role="tab" aria-selected="false" aria-label="Slide 4" data-slide="3"></button>
-			</div>
+		<div class="social-section__embed" data-aos="fade-up">
+			<iframe
+				src="https://www.instagram.com/soundsgoodhearingcare/embed"
+				title="Sounds Good Hearing Care on Instagram"
+				width="100%"
+				height="780"
+				loading="lazy"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowtransparency="true"
+			></iframe>
 		</div>
 	</div>
 </section>
@@ -628,7 +565,7 @@
 		<div class="contact-section__inner" data-aos="fade-up">
 			<h2 id="contact-heading" class="contact-section__title">Contact us</h2>
 
-			<form class="contact-form" action="<?php echo BASE_URL; ?>contact.php" method="post">
+			<form class="contact-form" action="<?php echo BASE_URL; ?>contact" method="post">
 				<div class="contact-form__grid">
 					<div class="contact-form__field">
 						<label class="contact-form__label" for="contact_name">Name</label>

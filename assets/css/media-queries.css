@@ -297,6 +297,16 @@
     height: 22px;
   }
 
+  .social-section .social-section__embed {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .social-section .social-section__embed iframe {
+    width: 100% !important;
+    height: 720px;
+  }
+
   .brands-section__card {
     flex-direction: column;
     align-items: flex-start;
@@ -2523,23 +2533,15 @@
   }
 }
 
-/* Social profile card mobile extras (slides) */
+/* Social embed — phone */
 @media (max-width: 767.98px) {
-  .social-section__viewport {
-    container-type: inline-size;
-    padding-inline: 0;
+  .social-section__embed {
+    border-radius: 10px;
   }
 
-  .social-section__slide,
-  .ig-post {
-    flex: 0 0 min(271px, 100cqi);
-    width: min(271px, 100cqi);
-    max-width: min(271px, 100cqi);
-    min-width: min(271px, 100cqi);
-  }
-
-  .ig-post__media {
-    width: 100%;
+  .social-section__embed iframe {
+    width: 100% !important;
+    height: 760px;
   }
 }
 
@@ -2551,6 +2553,10 @@
   .social-section__label {
     font-size: 14px;
     padding: 8px 16px;
+  }
+
+  .social-section__embed iframe {
+    height: 680px;
   }
 
   .footer-location-mobile .footer-location__pin1 {

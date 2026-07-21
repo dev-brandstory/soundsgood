@@ -1,6 +1,6 @@
 <?php $title = "Patient Testimonials — Life Sounds Better | Sounds Good Hearing Care"; ?>
 <?php $description = "Read real stories from Sounds Good Hearing Care patients across Tamil Nadu. Discover how better hearing has made everyday moments clearer and more connected."; ?>
-<?php $canonical = "http://localhost/soundsgood/testimonials.php"; ?>
+<?php $canonical = "http://localhost/soundsgood/testimonials"; ?>
 <?php $keywords = "hearing care testimonials, patient reviews, Sounds Good reviews, hearing aid success stories Tamil Nadu"; ?>
 <?php $pageclass = "testimonialsPage"; ?>
 <?php
@@ -168,8 +168,8 @@ $faqs = [
 					<p class="testimonials-cta__text">Get expert care or tell us about your experience with our services.</p>
 				</div>
 				<div class="testimonials-cta__actions">
-					<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-pill testimonials-cta__btn testimonials-cta__btn--solid">Book Appointment</a>
-					<a href="<?php echo BASE_URL; ?>contact.php#contact_name" class="btn btn-pill testimonials-cta__btn testimonials-cta__btn--outline">Share Your Feedback</a>
+					<a href="<?php echo BASE_URL; ?>contact" class="btn btn-pill testimonials-cta__btn testimonials-cta__btn--solid">Book Appointment</a>
+					<a href="<?php echo BASE_URL; ?>contact#contact_name" class="btn btn-pill testimonials-cta__btn testimonials-cta__btn--outline">Share Your Feedback</a>
 				</div>
 			</div>
 		</div>

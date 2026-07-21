@@ -1,6 +1,6 @@
 <?php $title = "Hearing Aid — Sounds Good Hearing Care"; ?>
 <?php $description = "Explore modern hearing aids at Sounds Good Hearing Care. Discreet, rechargeable devices with professional fitting, lifestyle matching, and lifelong support since 1996."; ?>
-<?php $canonical = "http://localhost/soundsgood/hearing-aid.php"; ?>
+<?php $canonical = "http://localhost/soundsgood/hearing-aid"; ?>
 <?php $keywords = "hearing aids, RIC, BTE, CIC, Phonak, Oticon, Signia, Sounds Good, Madurai"; ?>
 <?php $pageclass = "hearingAidsPage"; ?>
 <?php include "includes/header.php"; ?>
@@ -18,7 +18,7 @@
 				<div class="container">
 					<div class="hero-banner__content" data-aos="fade-up">
 						<h1>Restore Clarity and Confidence in Everyday Life</h1>
-						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Take The First Step</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill">Take The First Step</a>
 					</div>
 				</div>
 			</article>
@@ -43,7 +43,7 @@
 				<div class="ha-intro__panel">
 					<p>Hearing changes often go unnoticed at first, but the right solution can make a clear difference from day one. Today’s hearing aids are designed to blend into your daily life: small, discreet, and comfortable to wear throughout the day. They enhance the sounds that matter, helping you stay connected in conversations, at work, and in social settings without drawing attention.</p>
 					<p>These devices go beyond amplification. They adapt to different environments, reduce background noise, and improve speech clarity, all tailored to your needs by our audiologists. Since 1996, Sounds Good has supported individuals with care that fits real life, from the first test to ongoing follow-ups.</p>
-					<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-secondary btn-pill">Schedule Your Call</a>
+					<a href="<?php echo BASE_URL; ?>contact" class="btn btn-secondary btn-pill">Schedule Your Call</a>
 				</div>
 			</div>
 		</div>
@@ -178,7 +178,7 @@
 					<h2 id="ha-generation-heading">A New Generation of Hearing Aids</h2>
 					<p class="ha-generation__lead ha-generation__lead--desktop">Hearing aids have changed completely.</p>
 					<p class="ha-generation__lead ha-generation__lead--mobile">Hearing aids have changed completely. Today’s devices are small, discreet, and built to fit seamlessly into your daily life. They adjust automatically to different environments, stream audio from your phone or TV, and offer clear, natural sound without discomfort. At Sounds Good, many people are surprised by how different modern devices feel. The shift from struggle to clarity is immediate, often leaving one question—why wait so long?</p>
-					<a href="<?php echo BASE_URL; ?>about.php" class="btn btn-secondary btn-pill ha-generation__readmore">Read More</a>
+					<a href="<?php echo BASE_URL; ?>about" class="btn btn-secondary btn-pill ha-generation__readmore">Read More</a>
 					<hr class="ha-generation__divider" aria-hidden="true">
 					<div class="ha-generation__advantages-label">Key Advantages</div>
 					<div class="ha-generation__grid">
@@ -402,7 +402,7 @@
 		</div>
 		<div class="ha-types__footer text-center" data-aos="fade-up">
 			<p>Professional fitting ensures comfort and optimal performance, allowing you to focus on life instead of the device.</p>
-			<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill ha-types__cta">
+			<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill ha-types__cta">
 				<span class="ha-types__cta-desktop">Find Your Device</span>
 				<span class="ha-types__cta-mobile">Book Your Hearing Consultation</span>
 			</a>
@@ -594,7 +594,7 @@
 						<h2 id="ha-cta-heading">Ready to Reconnect With Life’s Sounds?</h2>
 						<p>Take the first step toward clear hearing and confidence. Schedule your professional assessment today and explore the right solutions for your lifestyle.</p>
 					</div>
-					<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-pill ha-cta__btn">Get Started</a>
+					<a href="<?php echo BASE_URL; ?>contact" class="btn btn-pill ha-cta__btn">Get Started</a>
 				</div>
 			</div>
 			<div class="col-lg-5" data-aos="fade-up" data-aos-delay="60">

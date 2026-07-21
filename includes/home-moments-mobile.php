@@ -29,7 +29,7 @@
 									<h3>Testing</h3>
 								</div>
 								<p>Comprehensive hearing and balance tests by expert audiologists using advanced diagnostic equipment and modern facilities. Our testing services include Pure tone audiometry, Impedance Audiometry, BERA, ASSR, OAE, and VEMP.</p>
-								<a href="<?php echo BASE_URL; ?>contact.php" class="home-moments-mobile__cta">Know More</a>
+								<a href="<?php echo BASE_URL; ?>contact" class="home-moments-mobile__cta">Know More</a>
 							</div>
 						</article>
 
@@ -45,7 +45,7 @@
 									<h3>Servicing</h3>
 								</div>
 								<p>The hearing aid service lab is in-house and is completely state-of-the-art to guarantee quicker turnaround time, proper diagnosis, and good support whenever you require it.</p>
-								<a href="<?php echo BASE_URL; ?>contact.php" class="home-moments-mobile__cta">Know More</a>
+								<a href="<?php echo BASE_URL; ?>contact" class="home-moments-mobile__cta">Know More</a>
 							</div>
 						</article>
 
@@ -61,7 +61,7 @@
 									<h3>Speech Therapy</h3>
 								</div>
 								<p>We offer compassionate speech therapy for children and adults, supporting speech clarity, confidence, and communication at every age.</p>
-								<a href="<?php echo BASE_URL; ?>contact.php" class="home-moments-mobile__cta">Know More</a>
+								<a href="<?php echo BASE_URL; ?>contact" class="home-moments-mobile__cta">Know More</a>
 							</div>
 						</article>
 
@@ -77,7 +77,7 @@
 									<h3>Maintenance and Follow-Up Care</h3>
 								</div>
 								<p>Regular check-ups, professional cleaning, and ongoing guidance are always available for you and your family, because long-term care matters.</p>
-								<a href="<?php echo BASE_URL; ?>contact.php" class="home-moments-mobile__cta">Know More</a>
+								<a href="<?php echo BASE_URL; ?>contact" class="home-moments-mobile__cta">Know More</a>
 							</div>
 						</article>
 					</div>

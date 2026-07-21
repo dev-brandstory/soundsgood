@@ -1,6 +1,6 @@
 <?php $title = "About Sounds Good Hearing Care — Our Story & Philosophy"; ?>
 <?php $description = "Learn about Sounds Good Hearing Care — Tamil Nadu’s trusted hearing care network since 1996. Our story, philosophy, and commitment to bringing life back to every sound."; ?>
-<?php $canonical = "http://localhost/soundsgood/about.php"; ?>
+<?php $canonical = "http://localhost/soundsgood/about"; ?>
 <?php $keywords = "about Sounds Good, hearing care Tamil Nadu, audiologist, hearing aids Madurai, Sounds Good story"; ?>
 <?php $pageclass = "aboutPage"; ?>
 <?php include "includes/header.php"; ?>
@@ -27,7 +27,7 @@
 							<span>Trusted by 5k+ people</span>
 						</div>
 						<h1>About Sounds Good</h1>
-						<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-primary btn-pill">Begin Your Journey</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="btn btn-primary btn-pill">Begin Your Journey</a>
 					</div>
 				</div>
 			</article>
@@ -151,7 +151,7 @@
 		<div class="about-contact__inner" data-aos="fade-up">
 			<h2 id="about-contact-heading" class="about-contact__title">Contact us</h2>
 
-			<form class="about-contact__form" action="<?php echo BASE_URL; ?>contact.php" method="post">
+			<form class="about-contact__form" action="<?php echo BASE_URL; ?>contact" method="post">
 				<div class="row g-4">
 					<div class="col-md-6">
 						<label class="about-contact__label" for="about_name">Name</label>

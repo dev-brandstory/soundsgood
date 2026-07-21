@@ -8,18 +8,20 @@
 		<div class="container">
 			<div class="row g-4 align-items-start site-footer__grid">
 				<div class="col-lg-3 col-md-6">
-					<a href="<?php echo BASE_URL; ?>" class="site-footer__logo">
-						<img src="<?php echo BASE_URL; ?>assets/images/header/logo.svg" alt="Sounds Good Hearing Care" width="178" height="104" loading="lazy">
-					</a>
+					<div class='footer_logo_wrapper'> 
+						<a href="<?php echo BASE_URL; ?>" class="site-footer__logo">
+							<img src="<?php echo BASE_URL; ?>assets/images/header/logo.svg" alt="Sounds Good Hearing Care" width="178" height="104" loading="lazy"/>
+						</a>
+					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<ul class="site-footer__links">
 						<li><a href="<?php echo BASE_URL; ?>">Home</a></li>
-						<li><a href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
-						<li><a href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
-						<li><a href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
-						<li><a href="<?php echo BASE_URL; ?>contact.php">Free Video consulting</a></li>
-						<li><a href="<?php echo BASE_URL; ?>contact.php">Contact Us</a></li>
+						<li><a href="<?php echo BASE_URL; ?>hearing-loss">Hearing Loss</a></li>
+						<li><a href="<?php echo BASE_URL; ?>hearing-aid">Hearing Aid</a></li>
+						<li><a href="<?php echo BASE_URL; ?>about">About Sounds Good</a></li>
+						<li><a href="<?php echo BASE_URL; ?>contact">Free Video consulting</a></li>
+						<li><a href="<?php echo BASE_URL; ?>contact">Contact Us</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-6">

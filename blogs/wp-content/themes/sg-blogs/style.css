@@ -1,0 +1,19 @@
+/*
+Theme Name: SG Blogs
+Theme URI: https://soundsgood.in/
+Author: Sounds Good Hearing Care
+Author URI: https://soundsgood.in/
+Description: Sounds Good blog theme. Matches the Sounds Good Hearing Care design system — Inter / Inter Display, brand colors, header and footer from the main site.
+Version: 1.1.0
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sg-blogs
+Tags: blog, custom-menu, featured-images, threaded-comments, translation-ready
+
+Sounds Good Hearing Care — WordPress blog theme.
+*/
+
+/* Theme stylesheet is loaded via functions.php (assets/css/*). */

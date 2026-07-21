@@ -1,0 +1,29 @@
+
+# Remove .php extension from URLs
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /soundsgood/blogs/
+
+RewriteCond %{THE_REQUEST} \s/+soundsgood/blogs/(?!index\.php|wp-)([^/\s?]+)\.php[\s?] [NC]
+RewriteRule ^([^/]+)\.php$ $1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+</IfModule>
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /soundsgood/blogs/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /soundsgood/blogs/index.php [L]
+</IfModule>
+
+# END WordPress

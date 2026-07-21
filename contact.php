@@ -1,6 +1,6 @@
 <?php $title = "Contact Us — Book a Hearing Consultation | Sounds Good Hearing Care"; ?>
 <?php $description = "Book a clinic visit or doorstep consultation with Sounds Good Hearing Care. Find your nearest branch across Tamil Nadu and start your journey to better hearing."; ?>
-<?php $canonical = "http://localhost/soundsgood/contact.php"; ?>
+<?php $canonical = "http://localhost/soundsgood/contact"; ?>
 <?php $keywords = "contact Sounds Good, book hearing appointment, hearing clinic Madurai, doorstep consultation, hearing care Tamil Nadu"; ?>
 <?php $pageclass = "contactPage"; ?>
 <?php
@@ -183,7 +183,7 @@ $branch_chips = [
 
 			<!-- Frame 2147240483 — clinic visit form -->
 			<div class="contact-booking__form-wrap">
-				<form class="contact-booking__form" action="<?php echo BASE_URL; ?>contact.php" method="post" novalidate>
+				<form class="contact-booking__form" action="<?php echo BASE_URL; ?>contact" method="post" novalidate>
 					<div class="contact-booking__field">
 						<label class="contact-booking__label" for="contact_name">Name</label>
 						<input class="contact-booking__input" type="text" id="contact_name" name="name" placeholder="Enter your full name" required autocomplete="name">

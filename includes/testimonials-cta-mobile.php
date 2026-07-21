@@ -16,8 +16,8 @@
 					<h2 id="testimonials-cta-mobile-heading">Be the Next Success Story</h2>
 					<p>Get expert care or tell us about your experience with our services.</p>
 					<div class="home-visit-mobile__actions">
-						<a href="<?php echo BASE_URL; ?>contact.php" class="home-visit-mobile__cta">Book Appointment</a>
-						<a href="<?php echo BASE_URL; ?>contact.php#contact_name" class="home-visit-mobile__cta home-visit-mobile__cta--outline">Share Your Feedback</a>
+						<a href="<?php echo BASE_URL; ?>contact" class="home-visit-mobile__cta">Book Appointment</a>
+						<a href="<?php echo BASE_URL; ?>contact#contact_name" class="home-visit-mobile__cta home-visit-mobile__cta--outline">Share Your Feedback</a>
 					</div>
 				</div>
 			</div>

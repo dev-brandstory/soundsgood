@@ -25,7 +25,7 @@
 					foreach ($desktop_pins as $pin) :
 						$active = !empty($pin['active']) ? ' is-active' : '';
 					?>
-					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact.php?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
+					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="42" height="42">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="42" height="42">
@@ -65,7 +65,7 @@
 					foreach ($mobile_pins as $pin) :
 						$active = !empty($pin['active']) ? ' is-active' : '';
 					?>
-					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact.php?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
+					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="32" height="32">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="32" height="32">

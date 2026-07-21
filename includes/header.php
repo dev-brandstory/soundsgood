@@ -14,7 +14,7 @@
 if (!defined('BASE_URL')) {
   define('BASE_URL', 'http://localhost/soundsgood/');
 }
-$current_page = basename($_SERVER['PHP_SELF']);
+$current_page = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 
 <!DOCTYPE html>
@@ -76,14 +76,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
 					<img src="<?php echo BASE_URL; ?>assets/images/logo/sounds-good-logo.svg" alt="" width="120" height="70" loading="eager">
 				</a>
 				<ul class="header-nav__list flex items-center gap-2">
-					<li><a class="header-nav__link <?php echo ($current_page == 'index.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>">Home</a></li>
-					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-loss.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
-					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-aid.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
-					<li><a class="header-nav__link <?php echo ($current_page == 'testimonials.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>testimonials.php">Testimonials</a></li>
-					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
-					<li><a class="header-nav__link <?php echo ($current_page == 'about.php') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'index') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>">Home</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-loss') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-loss">Hearing Loss</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-aid') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-aid">Hearing Aid</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'testimonials') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>testimonials">Testimonials</a></li>
+					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blogs/">Blog</a></li>
+					<li><a class="header-nav__link <?php echo ($current_page == 'about') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about">About Sounds Good</a></li>
 				</ul>
-				<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-outline-accent btn-pill">Book appointment</a>
+				<a href="<?php echo BASE_URL; ?>contact" class="btn btn-outline-accent btn-pill">Book appointment</a>
 			</div>
 		</div>
 	</nav>
@@ -111,18 +111,18 @@ $current_page = basename($_SERVER['PHP_SELF']);
 		<div class="offcanvas-body">
 			<ul class="mobile-menu__list">
 				<li><a href="<?php echo BASE_URL; ?>">Home</a></li>
-				<li><a href="<?php echo BASE_URL; ?>hearing-loss.php">Hearing Loss</a></li>
-				<li><a href="<?php echo BASE_URL; ?>hearing-aid.php">Hearing Aid</a></li>
-				<li><a href="<?php echo BASE_URL; ?>testimonials.php">Testimonials</a></li>
-				<li><a href="<?php echo BASE_URL; ?>blog.php">Blog</a></li>
-				<li><a href="<?php echo BASE_URL; ?>about.php">About Sounds Good</a></li>
-				<li><a href="<?php echo BASE_URL; ?>contact.php">Contact Us</a></li>
+				<li><a href="<?php echo BASE_URL; ?>hearing-loss">Hearing Loss</a></li>
+				<li><a href="<?php echo BASE_URL; ?>hearing-aid">Hearing Aid</a></li>
+				<li><a href="<?php echo BASE_URL; ?>testimonials">Testimonials</a></li>
+				<li><a href="<?php echo BASE_URL; ?>blogs/">Blog</a></li>
+				<li><a href="<?php echo BASE_URL; ?>about">About Sounds Good</a></li>
+				<li><a href="<?php echo BASE_URL; ?>contact">Contact Us</a></li>
 			</ul>
 			<div class="mobile-menu__contact">
 				<p><a href="tel:18002701996">1800 270 1996</a></p>
 				<p class="text-sm">Mon - Sat (10 AM - 7 PM)</p>
 			</div>
-			<a href="<?php echo BASE_URL; ?>contact.php" class="btn btn-outline-accent btn-pill btn-block mt-4">Book appointment</a>
+			<a href="<?php echo BASE_URL; ?>contact" class="btn btn-outline-accent btn-pill btn-block mt-4">Book appointment</a>
 		</div>
 	</div>
 </header>
