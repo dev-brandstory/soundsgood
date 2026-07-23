@@ -35,15 +35,15 @@
 							<p class="stat-card__label">Cities</p>
 						</div>
 						<ol class="stat-card__cities">
-							<li>Madurai</li>
-							<li>Thirunelveli</li>
-							<li>Coimbatore</li>
-							<li>Theni</li>
-							<li>Nagercoil</li>
-							<li>Ramanathapuram</li>
-							<li>Thoothukudi</li>
-							<li>Tirupur</li>
-							<li>Palayamkottai</li>
+							<li><a href="https://www.google.com/maps?q=East+Veli+Street+Madurai" target="_blank" rel="noopener noreferrer">Madurai</a></li>
+							<li><a href="https://www.google.com/maps?q=Tirunelveli+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Thirunelveli</a></li>
+							<li><a href="https://www.google.com/maps?q=RS+Puram+Coimbatore" target="_blank" rel="noopener noreferrer">Coimbatore</a></li>
+							<li><a href="https://www.google.com/maps?q=Theni+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Theni</a></li>
+							<li><a href="https://www.google.com/maps?q=Nagercoil+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Nagercoil</a></li>
+							<li><a href="https://www.google.com/maps?q=Ramanathapuram+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Ramanathapuram</a></li>
+							<li><a href="https://www.google.com/maps?q=Thoothukudi+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Thoothukudi</a></li>
+							<li><a href="https://www.google.com/maps?q=Tirupur+Tamil+Nadu" target="_blank" rel="noopener noreferrer">Tirupur</a></li>
+							<li><a href="https://www.google.com/maps?q=Palayamkottai+Tirunelveli" target="_blank" rel="noopener noreferrer">Palayamkottai</a></li>
 						</ol>
 					</article>
 				</div>

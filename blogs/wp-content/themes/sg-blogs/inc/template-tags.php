@@ -121,7 +121,7 @@ function sg_blogs_fallback_menu( $args ) {
 		array( 'label' => __( 'Hearing Loss', 'sg-blogs' ), 'url' => $base . 'hearing-loss' ),
 		array( 'label' => __( 'Hearing Aid', 'sg-blogs' ), 'url' => $base . 'hearing-aid' ),
 		array( 'label' => __( 'Testimonials', 'sg-blogs' ), 'url' => $base . 'testimonials' ),
-		array( 'label' => __( 'Blog', 'sg-blogs' ), 'url' => home_url( '/' ) ),
+		array( 'label' => __( 'Blogs', 'sg-blogs' ), 'url' => home_url( '/' ) ),
 		array( 'label' => __( 'About Sounds Good', 'sg-blogs' ), 'url' => $base . 'about' ),
 	);
 
@@ -152,7 +152,7 @@ function sg_blogs_fallback_mobile_menu( $args ) {
 		array( 'label' => __( 'Hearing Loss', 'sg-blogs' ), 'url' => $base . 'hearing-loss' ),
 		array( 'label' => __( 'Hearing Aid', 'sg-blogs' ), 'url' => $base . 'hearing-aid' ),
 		array( 'label' => __( 'Testimonials', 'sg-blogs' ), 'url' => $base . 'testimonials' ),
-		array( 'label' => __( 'Blog', 'sg-blogs' ), 'url' => home_url( '/' ) ),
+		array( 'label' => __( 'Blogs', 'sg-blogs' ), 'url' => home_url( '/' ) ),
 		array( 'label' => __( 'About Sounds Good', 'sg-blogs' ), 'url' => $base . 'about' ),
 		array( 'label' => __( 'Contact Us', 'sg-blogs' ), 'url' => $base . 'contact' ),
 	);

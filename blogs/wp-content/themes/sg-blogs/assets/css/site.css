@@ -1481,6 +1481,12 @@ filter: grayscale(100%);
   transition: opacity 0.12s ease, visibility 0.12s ease;
 }
 
+/* Theni — tab opens left so it stays on map */
+.footer-location__pin3 .footer-location__tab {
+  left: auto;
+  right: calc(100% - 6px);
+}
+
 .footer-location__tab svg {
   color: #adadad;
   flex-shrink: 0;

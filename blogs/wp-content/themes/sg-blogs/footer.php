@@ -18,14 +18,14 @@ $sg_map       = SG_BLOGS_URI . '/assets/images/location-map.svg';
 $sg_pin       = SG_BLOGS_URI . '/assets/images/map-pin.svg';
 
 $pins = array(
-	array( 'class' => 'footer-location__pin1', 'branch' => 'coimbatore', 'city' => 'Coimbatore', 'x' => '20%', 'y' => '37%' ),
-	array( 'class' => 'footer-location__pin2', 'branch' => 'tirupur', 'city' => 'Tirupur', 'x' => '30%', 'y' => '28%' ),
-	array( 'class' => 'footer-location__pin3', 'branch' => 'theni', 'city' => 'Theni', 'x' => '30%', 'y' => '52%' ),
-	array( 'class' => 'footer-location__pin4', 'branch' => 'madurai', 'city' => 'Madurai', 'x' => '42%', 'y' => '52%' ),
-	array( 'class' => 'footer-location__pin5', 'branch' => 'ramanathapuram', 'city' => 'Ramanathapuram', 'x' => '60%', 'y' => '63%' ),
-	array( 'class' => 'footer-location__pin6', 'branch' => 'tuticorin', 'city' => 'Tuticorin', 'x' => '47%', 'y' => '70%' ),
-	array( 'class' => 'footer-location__pin7', 'branch' => 'tirunelveli', 'city' => 'Tirunelveli', 'x' => '33%', 'y' => '76%' ),
-	array( 'class' => 'footer-location__pin8', 'branch' => 'nagercoil', 'city' => 'Nagercoil', 'x' => '29%', 'y' => '88%' ),
+	array( 'class' => 'footer-location__pin1', 'city' => 'Coimbatore', 'map' => 'https://maps.app.goo.gl/Tx9LURxU2egCttj97', 'x' => '20%', 'y' => '37%' ),
+	array( 'class' => 'footer-location__pin2', 'city' => 'Tirupur', 'map' => 'https://maps.app.goo.gl/YGpkqWes1MUPLPza8', 'x' => '30%', 'y' => '28%' ),
+	array( 'class' => 'footer-location__pin3', 'city' => 'Theni', 'map' => 'https://maps.app.goo.gl/Rq8HYP7Cq5yaBnNf8', 'x' => '30%', 'y' => '52%' ),
+	array( 'class' => 'footer-location__pin4', 'city' => 'Madurai', 'map' => 'https://maps.app.goo.gl/zMKM74j5n2DFxtE6A', 'x' => '42%', 'y' => '52%' ),
+	array( 'class' => 'footer-location__pin5', 'city' => 'Ramanathapuram', 'map' => 'https://maps.app.goo.gl/VF12Fn7CPvzFtKvi7', 'x' => '60%', 'y' => '63%' ),
+	array( 'class' => 'footer-location__pin6', 'city' => 'Tuticorin', 'map' => 'https://maps.app.goo.gl/zfmuo4jYaiLadJak7', 'x' => '47%', 'y' => '70%' ),
+	array( 'class' => 'footer-location__pin7', 'city' => 'Tirunelveli', 'map' => 'https://maps.app.goo.gl/v9hdxmsXeap4KaLcA', 'x' => '33%', 'y' => '76%' ),
+	array( 'class' => 'footer-location__pin8', 'city' => 'Nagercoil', 'map' => 'https://maps.app.goo.gl/q2Qenc9u2HzmJ9Ed9', 'x' => '29%', 'y' => '88%' ),
 );
 ?>
 </main>
@@ -43,7 +43,7 @@ $pins = array(
 				<div class="footer-location__map-stage" id="footerMapPins">
 					<img class="footer-location__map-img" src="<?php echo esc_url( $sg_map ); ?>" alt="<?php esc_attr_e( 'Map of Sounds Good clinic locations across Tamil Nadu', 'sg-blogs' ); ?>" width="460" height="290" loading="lazy">
 					<?php foreach ( $pins as $pin ) : ?>
-					<a class="footer-location__pin <?php echo esc_attr( $pin['class'] ); ?>" href="<?php echo esc_url( $sg_main . 'contact?branch=' . $pin['branch'] ); ?>" style="--pin-x: <?php echo esc_attr( $pin['x'] ); ?>; --pin-y: <?php echo esc_attr( $pin['y'] ); ?>;" data-city="<?php echo esc_attr( $pin['city'] ); ?>">
+					<a class="footer-location__pin <?php echo esc_attr( $pin['class'] ); ?>" href="<?php echo esc_url( $pin['map'] ); ?>" target="_blank" rel="noopener noreferrer" style="--pin-x: <?php echo esc_attr( $pin['x'] ); ?>; --pin-y: <?php echo esc_attr( $pin['y'] ); ?>;" data-city="<?php echo esc_attr( $pin['city'] ); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo esc_url( $sg_pin ); ?>" alt="" width="42" height="42">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo esc_url( $sg_pin ); ?>" alt="" width="42" height="42">
@@ -69,7 +69,7 @@ $pins = array(
 				<div class="footer-location-mobile__map-stage" id="footerMapPinsMobile">
 					<img class="footer-location__map-img" src="<?php echo esc_url( $sg_map ); ?>" alt="<?php esc_attr_e( 'Map of Sounds Good clinic locations across Tamil Nadu', 'sg-blogs' ); ?>" width="340" height="280" loading="lazy">
 					<?php foreach ( $pins as $pin ) : ?>
-					<a class="footer-location__pin <?php echo esc_attr( $pin['class'] ); ?>" href="<?php echo esc_url( $sg_main . 'contact?branch=' . $pin['branch'] ); ?>" style="--pin-x: <?php echo esc_attr( $pin['x'] ); ?>; --pin-y: <?php echo esc_attr( $pin['y'] ); ?>;" data-city="<?php echo esc_attr( $pin['city'] ); ?>">
+					<a class="footer-location__pin <?php echo esc_attr( $pin['class'] ); ?>" href="<?php echo esc_url( $pin['map'] ); ?>" target="_blank" rel="noopener noreferrer" style="--pin-x: <?php echo esc_attr( $pin['x'] ); ?>; --pin-y: <?php echo esc_attr( $pin['y'] ); ?>;" data-city="<?php echo esc_attr( $pin['city'] ); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo esc_url( $sg_pin ); ?>" alt="" width="32" height="32">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo esc_url( $sg_pin ); ?>" alt="" width="32" height="32">

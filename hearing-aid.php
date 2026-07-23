@@ -69,7 +69,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img01.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-01.svg" alt="" width="42" height="42" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/clear-conversation-icon.svg" alt="" width="42" height="42" loading="lazy">
 									</span>
 									<div>
 										<h3>Clearer Conversations</h3>
@@ -81,7 +81,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img02.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-02.svg" alt="" width="42" height="42" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/improved-confidence-icon.svg" alt="" width="42" height="42" loading="lazy">
 									</span>
 									<div>
 										<h3>Improved Confidence</h3>
@@ -93,7 +93,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img03.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-03.svg" alt="" width="20" height="20" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/better-calls-icon.svg" alt="" width="20" height="20" loading="lazy">
 									</span>
 									<div>
 										<h3>Better Calls and TV Experience</h3>
@@ -105,7 +105,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img04.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-04.svg" alt="" width="20" height="20" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/less-noise-icon.svg" alt="" width="20" height="20" loading="lazy">
 									</span>
 									<div>
 										<h3>Less Noise, More Focus</h3>
@@ -117,7 +117,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img05.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-05.svg" alt="" width="20" height="20" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/reduced-listening-icon.svg" alt="" width="20" height="20" loading="lazy">
 									</span>
 									<div>
 										<h3>Reduced Listening Fatigue</h3>
@@ -129,7 +129,7 @@
 								<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-ways-img06.png" alt="" width="650" height="266" loading="lazy">
 								<div class="ha-benefits__card-body">
 									<span class="ha-benefits__icon" aria-hidden="true">
-										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/six-icon-06.svg" alt="" width="20" height="20" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/icons/independence-well-being-icon.svg" alt="" width="20" height="20" loading="lazy">
 									</span>
 									<div>
 										<h3>Independence and Well-being</h3>
@@ -202,7 +202,7 @@
 			<h2 id="ha-features-heading">Advanced Features That Make a Difference</h2>
 		</div>
 		<div class="ha-features__shell">
-			<p class="ha-features__lead" data-aos="fade-up">Better hearing is not just about sound. It changes how you connect, communicate, and experience daily life. Here’s what many people notice.</p>
+			<p class="ha-features__lead" data-aos="fade-up">Modern hearing devices go beyond simple amplification. They are built to adapt to your lifestyle and improve everyday listening experiences.</p>
 			<div class="ha-features__card" data-aos="fade-up">
 				<div class="ha-features__list" id="haFeaturesList">
 					<article class="ha-features__item">
@@ -288,7 +288,7 @@
 				<div class="col-md-6 col-xl-3">
 					<article class="ha-product-card">
 						<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/latest-img01.png" alt="Phonak Audéo miniRITE" width="190" height="190" loading="lazy">
-						<h3>Phonak Audéo™ miniRITE</h3>
+						<h3>Phonak Audéo™ <span>miniRITE</span></h3>
 						<p>Type: RIC | Battery type: Rechargeable | Hear-loss type: Mild to Profound hearing loss</p>
 						<hr aria-hidden="true">
 						<div class="ha-product-card__price">
@@ -303,7 +303,7 @@
 				<div class="col-md-6 col-xl-3">
 					<article class="ha-product-card">
 						<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/latest-img02.png" alt="Oticon Xceed BTE Ultra Power" width="190" height="190" loading="lazy">
-						<h3>Oticon Xceed BTE Ultra Power</h3>
+						<h3>Oticon Xceed <span>BTE Ultra Power</span></h3>
 						<p>Type: BTE | Battery type: Rechargeable | Hear-loss type: Severe Hearing Loss</p>
 						<hr aria-hidden="true">
 						<div class="ha-product-card__price ha-product-card__price--single">Price : ₹1,75,000</div>
@@ -312,7 +312,7 @@
 				<div class="col-md-6 col-xl-3">
 					<article class="ha-product-card">
 						<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/latest-img03.png" alt="Oticon Own SI Completely-in-the-Canal" width="190" height="190" loading="lazy">
-						<h3>Oticon Own SI™ Completely-in-the-Canal (CIC)</h3>
+						<h3>Oticon Own SI™ <span>Completely-in-the-Canal (CIC)</span></h3>
 						<p>Type: CIC | Battery type: Rechargeable | Hear-loss type: Sensorineural, Conductive, or Mixed</p>
 						<hr aria-hidden="true">
 						<div class="ha-product-card__price ha-product-card__price--single">Price : ₹1,75,000</div>
@@ -321,7 +321,7 @@
 				<div class="col-md-6 col-xl-3">
 					<article class="ha-product-card">
 						<img src="<?php echo BASE_URL; ?>assets/images/hearing-aids/latest-img04.png" alt="Signia Motion Charge and Go SP X" width="190" height="190" loading="lazy">
-						<h3>Signia Motion Charge&amp;Go SP X</h3>
+						<h3>Signia <span>Motion Charge & Go SP X</span></h3>
 						<p>Type: BTE | Battery type: Rechargeable | Hear-loss type: Sensorineural, Conductive, or Mixed</p>
 						<hr aria-hidden="true">
 						<div class="ha-product-card__price">

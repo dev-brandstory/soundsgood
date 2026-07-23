@@ -1012,6 +1012,134 @@
     });
   }
 
+  /* Contact booking — clinic / home roll switch */
+  (function initContactBookingRoll() {
+    var card = document.getElementById('contactBookingCard');
+    if (!card) return;
+
+    var switches = card.querySelectorAll('[data-booking-mode]');
+    var clinicForm = card.querySelector('.contact-booking__form--clinic');
+    var homeForm = card.querySelector('.contact-booking__form--home');
+    var locateBtn = document.getElementById('homeUseLocation');
+
+    function setFormEnabled(form, enabled) {
+      if (!form) return;
+      var controls = form.querySelectorAll('input, select, textarea, button[type="submit"]');
+      controls.forEach(function (el) {
+        if (el.type === 'hidden') return;
+        el.disabled = !enabled;
+      });
+      if (enabled) {
+        form.removeAttribute('inert');
+      } else {
+        form.setAttribute('inert', '');
+      }
+    }
+
+    function setMode(mode) {
+      var next = mode === 'home' ? 'home' : 'clinic';
+      if (card.getAttribute('data-mode') === next) return;
+
+      card.setAttribute('data-mode', next);
+      card.classList.toggle('is-home', next === 'home');
+
+      setFormEnabled(clinicForm, next === 'clinic');
+      setFormEnabled(homeForm, next === 'home');
+
+      switches.forEach(function (btn) {
+        var isTarget = btn.getAttribute('data-booking-mode') === next;
+        btn.setAttribute('aria-pressed', isTarget ? 'true' : 'false');
+      });
+
+      if (next === 'home' && homeForm) {
+        window.setTimeout(function () {
+          var focusEl = homeForm.querySelector('input:not([disabled]), textarea:not([disabled])');
+          if (focusEl) focusEl.focus({ preventScroll: true });
+        }, 400);
+      } else if (clinicForm) {
+        window.setTimeout(function () {
+          var focusEl = clinicForm.querySelector('input:not([disabled]), select:not([disabled])');
+          if (focusEl) focusEl.focus({ preventScroll: true });
+        }, 400);
+      }
+    }
+
+    switches.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setMode(btn.getAttribute('data-booking-mode'));
+      });
+    });
+
+    setFormEnabled(clinicForm, true);
+    setFormEnabled(homeForm, false);
+
+    if (locateBtn) {
+      locateBtn.addEventListener('click', function () {
+        if (!navigator.geolocation) {
+          locateBtn.textContent = 'Location not supported';
+          return;
+        }
+
+        var original = locateBtn.textContent;
+        locateBtn.textContent = 'Locating…';
+        locateBtn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+          function (pos) {
+            var lat = pos.coords.latitude;
+            var lng = pos.coords.longitude;
+            var url =
+              'https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=' +
+              encodeURIComponent(lat) +
+              '&lon=' +
+              encodeURIComponent(lng);
+
+            fetch(url, { headers: { Accept: 'application/json' } })
+              .then(function (res) {
+                return res.ok ? res.json() : Promise.reject();
+              })
+              .then(function (data) {
+                var addr = (data && data.address) || {};
+                var street = document.getElementById('home_street');
+                var pincode = document.getElementById('home_pincode');
+                var flat = document.getElementById('home_flat');
+                var landmark = document.getElementById('home_landmark');
+
+                if (street) {
+                  street.value = [addr.road, addr.suburb || addr.neighbourhood, addr.city || addr.town || addr.village]
+                    .filter(Boolean)
+                    .join(', ');
+                }
+                if (pincode && addr.postcode) pincode.value = addr.postcode;
+                if (flat && addr.house_number) flat.value = addr.house_number;
+                if (landmark && (addr.amenity || addr.building)) {
+                  landmark.value = addr.amenity || addr.building;
+                }
+
+                locateBtn.textContent = original;
+                locateBtn.disabled = false;
+              })
+              .catch(function () {
+                locateBtn.textContent = 'Could not fetch address';
+                window.setTimeout(function () {
+                  locateBtn.textContent = original;
+                  locateBtn.disabled = false;
+                }, 1800);
+              });
+          },
+          function () {
+            locateBtn.textContent = 'Location denied';
+            window.setTimeout(function () {
+              locateBtn.textContent = original;
+              locateBtn.disabled = false;
+            }, 1800);
+          },
+          { enableHighAccuracy: true, timeout: 10000 }
+        );
+      });
+    }
+  })();
+
   /* FAQ accordion (testimonials + hearing loss) */
   document.querySelectorAll('#testimonialsFaq, #hearingLossFaq').forEach(function (faqRoot) {
     var faqItems = Array.prototype.slice.call(faqRoot.querySelectorAll('.testimonials-faq__item'));

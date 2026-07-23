@@ -897,7 +897,7 @@ p {
   width: fit-content;
   padding: var(--space-3) var(--space-4);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-md);
+  font-size: 15px;
   font-weight: var(--font-weight-regular);
   line-height: 1;
   text-decoration: none;
@@ -917,12 +917,26 @@ p {
 }
 
 .btn-primary {
+  --bs-btn-color: var(--color-white);
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-white);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-active-color: var(--color-primary);
+  --bs-btn-active-bg: var(--color-white);
+  --bs-btn-active-border-color: var(--color-primary);
+  --bs-btn-disabled-color: var(--color-white);
+  --bs-btn-disabled-bg: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
   background-color: var(--color-primary);
   color: var(--color-white);
   border-color: var(--color-primary);
 }
 
-.btn-primary:hover {
+.btn.btn-primary:hover,
+.btn.btn-primary:focus-visible,
+.btn.btn-primary:active {
   background-color: var(--color-white);
   color: var(--color-primary);
   border-color: var(--color-primary);
@@ -973,7 +987,7 @@ p {
 
 .btn-pill {
   border-radius: var(--radius-pill);
-  padding: var(--space-3) var(--space-6);
+  padding: 16px 24px;
 }
 
 .btn-sm {

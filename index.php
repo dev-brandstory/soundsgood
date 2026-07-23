@@ -81,7 +81,7 @@
 		</div>
 		<div class="about-intro__media" data-aos="fade-up" data-aos-delay="100">
 			<div class="about-intro__video rounded-xl overflow-hidden">
-				<img src="<?php echo BASE_URL; ?>assets/images/home/home-intro-img.webp" alt="Audiologist consulting with a patient at Sounds Good Hearing Care" width="100%" height="100%" loading="lazy">
+				<img src="<?php echo BASE_URL; ?>assets/images/home/home-intro-img.png" alt="Audiologist consulting with a patient at Sounds Good Hearing Care" width="100%" height="100%" loading="lazy">
 			</div>
 		</div>
 	</div>
@@ -132,15 +132,15 @@
 					<p class="stat-card__label">Cities</p>
 				</div>
 				<ol class="stat-card__cities">
-					<li>Madurai</li>
-					<li>Thirunelveli</li>
-					<li>Coimbatore</li>
-					<li>Theni</li>
-					<li>Nagercoil</li>
-					<li>Ramanathapuram</li>
-					<li>Thoothukudi</li>
-					<li>Tirupur</li>
-					<li>Palayamkottai</li>
+					<li><a href="https://maps.app.goo.gl/zMKM74j5n2DFxtE6A" target="_blank" rel="noopener noreferrer">Madurai</a></li>
+					<li><a href="https://maps.app.goo.gl/v9hdxmsXeap4KaLcA" target="_blank" rel="noopener noreferrer">Thirunelveli</a></li>
+					<li><a href="https://maps.app.goo.gl/Tx9LURxU2egCttj97" target="_blank" rel="noopener noreferrer">Coimbatore</a></li>
+					<li><a href="https://maps.app.goo.gl/Rq8HYP7Cq5yaBnNf8" target="_blank" rel="noopener noreferrer">Theni</a></li>
+					<li><a href="https://maps.app.goo.gl/q2Qenc9u2HzmJ9Ed9" target="_blank" rel="noopener noreferrer">Nagercoil</a></li>
+					<li><a href="https://maps.app.goo.gl/VF12Fn7CPvzFtKvi7" target="_blank" rel="noopener noreferrer">Ramanathapuram</a></li>
+					<li><a href="https://maps.app.goo.gl/zfmuo4jYaiLadJak7" target="_blank" rel="noopener noreferrer">Thoothukudi</a></li>
+					<li><a href="https://maps.app.goo.gl/YGpkqWes1MUPLPza8" target="_blank" rel="noopener noreferrer">Tirupur</a></li>
+					<li><a href="https://maps.app.goo.gl/fA8Sa11tcQ41YeGE9" target="_blank" rel="noopener noreferrer">Palayamkottai</a></li>
 				</ol>
 			</article>
 		</div>
@@ -224,7 +224,7 @@
 							<div class="moments-tabs__media-window">
 								<div class="moments-tabs__media-reel" id="momentsMediaReel">
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-testing.png" alt="Audiologist performing a hearing test" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-maintenance.png" alt="Audiologist performing a hearing test" width="580" height="376" loading="lazy">
 									</figure>
 									<figure class="moments-tabs__media-slide">
 										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-servicing.png" alt="Hearing aid servicing in our lab" width="580" height="376" loading="lazy">
@@ -233,10 +233,11 @@
 										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-speechup.png" alt="Speech therapy session" width="580" height="376" loading="lazy">
 									</figure>
 									<figure class="moments-tabs__media-slide">
-										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-maintenance.png" alt="Follow-up hearing care appointment" width="580" height="376" loading="lazy">
+										<img src="<?php echo BASE_URL; ?>assets/images/home/tab-testing.png" alt="Follow-up hearing care appointment" width="580" height="376" loading="lazy">
 									</figure>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -312,8 +313,8 @@
 							</div>
 							<p>“The audiologists took time to understand my lifestyle before suggesting a hearing aid. That personal touch mattered.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Suriya Narayanan</strong>
+								
 							</footer>
 						</article>
 
@@ -346,8 +347,8 @@
 							</div>
 							<p>“My father’s hearing improved so much after coming here. The follow-up support made all the difference. Thanks to the team.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Balaji Thiruvasagam</strong>
+								
 							</footer>
 						</article>
 					</div>
@@ -364,8 +365,8 @@
 							</div>
 							<p>“I can finally hear my grandchildren clearly again. The team was patient, kind, and explained everything so well.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Raghuvaran Ganesan</strong>
+								
 							</footer>
 						</article>
 
@@ -398,8 +399,8 @@
 							</div>
 							<p>“Professional, patient, and thorough. The audiologist explained every step and the follow-up care has been excellent.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Praveena Gunasekaran</strong>
+								
 							</footer>
 						</article>
 					</div>
@@ -416,8 +417,8 @@
 							</div>
 							<p>“The home visit service was a blessing for my mother. Highly recommend Sounds Good Hearing Care.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Kani Appan</strong>
+								
 							</footer>
 						</article>
 
@@ -450,8 +451,8 @@
 							</div>
 							<p>“After years of struggling to follow conversations, Sounds Good helped me find the right hearing aid.”</p>
 							<footer>
-								<strong>Name</strong>
-								<span>Root Canal</span>
+								<strong>Vishnu Priya</strong>
+								
 							</footer>
 						</article>
 					</div>
@@ -490,10 +491,10 @@
 				</div>
 				<div class="social-section__profile-copy">
 					<p class="social-section__profile-name">Sounds Good Hearing Care</p>
-					<div class="social-section__profile-meta">
+					<!-- <div class="social-section__profile-meta">
 						<span>3,881 followers</span>
 						<span>639 posts</span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<a href="<?php echo htmlspecialchars($ig_profile); ?>" class="social-section__ig-btn" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram">
@@ -563,7 +564,7 @@
 <section class="contact-section section" id="contact" aria-labelledby="contact-heading">
 	<div class="container">
 		<div class="contact-section__inner" data-aos="fade-up">
-			<h2 id="contact-heading" class="contact-section__title">Contact us</h2>
+			<h2 id="contact-heading" class="contact-section__title">Contact Us</h2>
 
 			<form class="contact-form" action="<?php echo BASE_URL; ?>contact" method="post">
 				<div class="contact-form__grid">

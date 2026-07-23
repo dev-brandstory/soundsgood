@@ -99,7 +99,8 @@
 					<h2 id="story-heading" class="about-story__title">Our Story</h2>
 				</div>
 				<div class="col-lg-9">
-					<p class="about-story__text">What began as a humble vision has grown into one of Tamil Nadu’s most trusted hearing care networks. From Madurai, Tirunelveli, Tirupur, Coimbatore, Theni, Nagercoil, Tuticorin to Ramanathapuram, we have expanded our reach while maintaining the warmth and familiarity of Indian hospitality. Our goal has always been more than providing hearing aids – it’s about bringing life back to every sound. By integrating cutting-edge hearing technology with personalised care, we ensure no one feels unseen, unheard, or undervalued.</p>
+					<p class="about-story__text" style='margin-bottom: 24px;'>What began as a humble vision has grown into one of Tamil Nadu’s most trusted hearing care networks. From Madurai, Tirunelveli, Tirupur, Coimbatore, Theni, Nagercoil, Tuticorin to Ramanathapuram, we have expanded our reach while maintaining the warmth and familiarity of Indian hospitality.</p>
+					<p class="about-story__text">Our goal has always been more than providing hearing aids – it’s about bringing life back to every sound. By integrating cutting-edge hearing technology with personalised care, we ensure no one feels unseen, unheard, or undervalued.</p>
 				</div>
 			</div>
 		</div>
@@ -193,7 +194,7 @@
 						<textarea class="about-contact__input about-contact__textarea" id="about_message" name="message" rows="4" placeholder="Type..."></textarea>
 					</div>
 					<div class="col-12 text-center">
-						<button type="submit" class="btn btn-primary btn-pill about-contact__submit">Book Your Hearing Consultation</button>
+						<button type="submit" class="btn btn-primary btn-pill about-contact__submit">Submit</button>
 					</div>
 				</div>
 			</form>

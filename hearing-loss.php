@@ -6,39 +6,39 @@
 <?php
 $early_signs = [
 	[
-		'title' => 'Difficulty following conversations',
+		'title' => '1. Difficulty following conversations',
 		'text' => 'You may find it hard to keep up with group conversations, especially when there is background noise.',
-		'img' => 'hearing-loss/early-signs-1.webp',
+		'img' => 'hearing-loss/early-signs-1.png',
 		'alt' => 'People conversing in a social setting',
 	],
 	[
-		'title' => 'Phone conversations are unclear',
+		'title' => '2. Phone conversations are unclear',
 		'text' => 'Understanding speech over the phone becomes difficult, even in quiet environments.',
-		'img' => 'hearing-loss/early-signs-2.webp',
+		'img' => 'hearing-loss/early-signs-2.png',
 		'alt' => 'Person listening carefully during conversation',
 	],
 	[
-		'title' => 'People seem to be mumbling',
+		'title' => '3. People seem to be mumbling',
 		'text' => 'You may often feel that others are not speaking clearly or ask them to repeat themselves.',
-		'img' => 'hearing-loss/early-signs-3.webp',
+		'img' => 'hearing-loss/early-signs-3.png',
 		'alt' => 'Person watching television at home',
 	],
 	[
-		'title' => 'Difficulty locating sounds',
+		'title' => '4. Difficulty locating sounds',
 		'text' => 'It becomes harder to tell where sounds are coming from.',
-		'img' => 'hearing-loss/early-signs-4.webp',
+		'img' => 'hearing-loss/early-signs-4.png',
 		'alt' => 'Quiet conversation moment',
 	],
 	[
-		'title' => 'Signs of tinnitus',
+		'title' => '5. Signs of tinnitus',
 		'text' => 'You may notice ringing, buzzing, or other sounds in your ears.',
-		'img' => 'hearing-loss/early-signs-5.webp',
+		'img' => 'hearing-loss/early-signs-5.png',
 		'alt' => 'Person resting after a long day',
 	],
 	[
-		'title' => 'Turning up the TV too loud',
+		'title' => '6. Turning up the TV too loud',
 		'text' => 'Others may point out that the volume is louder than usual.',
-		'img' => 'hearing-loss/early-signs-6.webp',
+		'img' => 'hearing-loss/early-signs-6.png',
 		'alt' => 'Social gathering environment',
 	],
 ];
@@ -239,8 +239,8 @@ $faqs = [
 				<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/early-intervention.webp" alt="Patient consultation with an audiologist" width="520" height="420" loading="lazy">
 			</figure>
 			<div class="hl-intervention__copy">
-				<p>Addressing hearing changes early helps preserve speech understanding, reduces listening fatigue, and supports stronger social connection. The sooner you act, the more options you typically have — from simple strategies to modern hearing technology tailored to your lifestyle.</p>
-				<p>Our audiologists guide you through assessment, counselling, and personalised recommendations so you can make confident decisions about your hearing health.</p>
+				<p>Even mild changes can impact relationships, work, and confidence. Without timely intervention, individuals may feel isolated or fatigued, and research links untreated auditory loss to cognitive decline and higher dementia risk.</p>
+				<p>Modern hearing aids and assistive devices, combined with professional assessment, restore clarity and reintroduce everyday sounds with comfort and precision.</p>
 			</div>
 		</div>
 	</div>
@@ -295,7 +295,7 @@ $faqs = [
 					<article class="hl-challenges__card">
 						<div class="hl-challenges__card-top">
 							<span class="hl-challenges__icon" aria-hidden="true">
-								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/conductive-hearing-loss.svg" alt="" width="28" height="28">
+								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/conductive-hearing-loss-icon.svg" alt="" width="28" height="28">
 							</span>
 							<h3>Conductive Hearing Loss</h3>
 						</div>
@@ -305,7 +305,7 @@ $faqs = [
 					<article class="hl-challenges__card">
 						<div class="hl-challenges__card-top">
 							<span class="hl-challenges__icon" aria-hidden="true">
-								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/sensorineural-hearing-loss.svg" alt="" width="28" height="28">
+								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/sensory-icon.svg" alt="" width="28" height="28">
 							</span>
 							<h3>Sensorineural Hearing Loss</h3>
 						</div>
@@ -315,7 +315,7 @@ $faqs = [
 					<article class="hl-challenges__card">
 						<div class="hl-challenges__card-top">
 							<span class="hl-challenges__icon" aria-hidden="true">
-								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/mixed-hearing-loss.svg" alt="" width="28" height="28">
+								<img src="<?php echo BASE_URL; ?>assets/images/hearing-loss/mixed-hearing-loss-iocn.svg" alt="" width="28" height="28">
 							</span>
 							<h3>Mixed Hearing Loss</h3>
 						</div>

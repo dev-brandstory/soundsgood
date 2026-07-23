@@ -1,8 +1,10 @@
 <?php
 /**
- * Front page — use blog index layout.
+ * Front page — blog listing layout.
  *
  * @package SG_Blogs
  */
 
-require get_template_directory() . '/index.php';
+get_header();
+get_template_part( 'templates/blog-listing' );
+get_footer();

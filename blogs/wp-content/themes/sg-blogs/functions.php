@@ -63,6 +63,22 @@ function sg_blogs_setup() {
 add_action( 'after_setup_theme', 'sg_blogs_setup' );
 
 /**
+ * Show "Blogs" in nav when menu item title is "Blog".
+ *
+ * @param array $items Menu items.
+ * @return array
+ */
+function sg_blogs_nav_label_blogs( $items ) {
+	foreach ( $items as $item ) {
+		if ( isset( $item->title ) && 'Blog' === trim( wp_strip_all_tags( (string) $item->title ) ) ) {
+			$item->title = __( 'Blogs', 'sg-blogs' );
+		}
+	}
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'sg_blogs_nav_label_blogs' );
+
+/**
  * Content width.
  */
 function sg_blogs_content_width() {

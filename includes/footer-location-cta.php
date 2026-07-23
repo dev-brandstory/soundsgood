@@ -13,19 +13,19 @@
 
 					<?php
 					$desktop_pins = [
-						['class' => 'footer-location__pin1', 'branch' => 'coimbatore', 'city' => 'Coimbatore', 'x' => '20%', 'y' => '37%', 'active' => false],
-						['class' => 'footer-location__pin2', 'branch' => 'tirupur', 'city' => 'Tirupur', 'x' => '30%', 'y' => '28%', 'active' => false],
-						['class' => 'footer-location__pin3', 'branch' => 'theni', 'city' => 'Theni', 'x' => '30%', 'y' => '52%', 'active' => false],
-						['class' => 'footer-location__pin4', 'branch' => 'madurai', 'city' => 'Madurai', 'x' => '42%', 'y' => '52%', 'active' => false],
-						['class' => 'footer-location__pin5', 'branch' => 'ramanathapuram', 'city' => 'Ramanathapuram', 'x' => '60%', 'y' => '63%', 'active' => false],
-						['class' => 'footer-location__pin6', 'branch' => 'tuticorin', 'city' => 'Tuticorin', 'x' => '47%', 'y' => '70%', 'active' => false],
-						['class' => 'footer-location__pin7', 'branch' => 'tirunelveli', 'city' => 'Tirunelveli', 'x' => '33%', 'y' => '76%', 'active' => false],
-						['class' => 'footer-location__pin8', 'branch' => 'nagercoil', 'city' => 'Nagercoil', 'x' => '29%', 'y' => '88%', 'active' => false],
+						['class' => 'footer-location__pin1', 'city' => 'Coimbatore', 'map' => 'https://maps.app.goo.gl/Tx9LURxU2egCttj97', 'x' => '20%', 'y' => '37%', 'active' => false],
+						['class' => 'footer-location__pin2', 'city' => 'Tirupur', 'map' => 'https://maps.app.goo.gl/YGpkqWes1MUPLPza8', 'x' => '30%', 'y' => '28%', 'active' => false],
+						['class' => 'footer-location__pin3', 'city' => 'Theni', 'map' => 'https://maps.app.goo.gl/Rq8HYP7Cq5yaBnNf8', 'x' => '30%', 'y' => '52%', 'active' => false],
+						['class' => 'footer-location__pin4', 'city' => 'Madurai', 'map' => 'https://maps.app.goo.gl/zMKM74j5n2DFxtE6A', 'x' => '42%', 'y' => '52%', 'active' => false],
+						['class' => 'footer-location__pin5', 'city' => 'Ramanathapuram', 'map' => 'https://maps.app.goo.gl/VF12Fn7CPvzFtKvi7', 'x' => '60%', 'y' => '63%', 'active' => false],
+						['class' => 'footer-location__pin6', 'city' => 'Tuticorin', 'map' => 'https://maps.app.goo.gl/zfmuo4jYaiLadJak7', 'x' => '47%', 'y' => '70%', 'active' => false],
+						['class' => 'footer-location__pin7', 'city' => 'Tirunelveli', 'map' => 'https://maps.app.goo.gl/v9hdxmsXeap4KaLcA', 'x' => '33%', 'y' => '76%', 'active' => false],
+						['class' => 'footer-location__pin8', 'city' => 'Nagercoil', 'map' => 'https://maps.app.goo.gl/q2Qenc9u2HzmJ9Ed9', 'x' => '29%', 'y' => '88%', 'active' => false],
 					];
 					foreach ($desktop_pins as $pin) :
 						$active = !empty($pin['active']) ? ' is-active' : '';
 					?>
-					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
+					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo htmlspecialchars($pin['map']); ?>" target="_blank" rel="noopener noreferrer" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="42" height="42">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="42" height="42">
@@ -53,19 +53,19 @@
 
 					<?php
 					$mobile_pins = [
-						['class' => 'footer-location__pin1', 'branch' => 'coimbatore', 'city' => 'Coimbatore', 'x' => '22%', 'y' => '28%', 'active' => false],
-						['class' => 'footer-location__pin2', 'branch' => 'tirupur', 'city' => 'Tirupur', 'x' => '32%', 'y' => '22%', 'active' => false],
-						['class' => 'footer-location__pin3', 'branch' => 'theni', 'city' => 'Theni', 'x' => '30%', 'y' => '42%', 'active' => false],
-						['class' => 'footer-location__pin4', 'branch' => 'madurai', 'city' => 'Madurai', 'x' => '48%', 'y' => '46%', 'active' => false],
-						['class' => 'footer-location__pin5', 'branch' => 'ramanathapuram', 'city' => 'Ramanathapuram', 'x' => '68%', 'y' => '52%', 'active' => false],
-						['class' => 'footer-location__pin6', 'branch' => 'tuticorin', 'city' => 'Tuticorin', 'x' => '52%', 'y' => '68%', 'active' => false],
-						['class' => 'footer-location__pin7', 'branch' => 'tirunelveli', 'city' => 'Tirunelveli', 'x' => '42%', 'y' => '76%', 'active' => false],
-						['class' => 'footer-location__pin8', 'branch' => 'nagercoil', 'city' => 'Nagercoil', 'x' => '38%', 'y' => '88%', 'active' => false],
+						['class' => 'footer-location__pin1', 'city' => 'Coimbatore', 'map' => 'https://maps.app.goo.gl/Tx9LURxU2egCttj97', 'x' => '22%', 'y' => '28%', 'active' => false],
+						['class' => 'footer-location__pin2', 'city' => 'Tirupur', 'map' => 'https://maps.app.goo.gl/YGpkqWes1MUPLPza8', 'x' => '32%', 'y' => '22%', 'active' => false],
+						['class' => 'footer-location__pin3', 'city' => 'Theni', 'map' => 'https://maps.app.goo.gl/Rq8HYP7Cq5yaBnNf8', 'x' => '30%', 'y' => '42%', 'active' => false],
+						['class' => 'footer-location__pin4', 'city' => 'Madurai', 'map' => 'https://maps.app.goo.gl/zMKM74j5n2DFxtE6A', 'x' => '48%', 'y' => '46%', 'active' => false],
+						['class' => 'footer-location__pin5', 'city' => 'Ramanathapuram', 'map' => 'https://maps.app.goo.gl/VF12Fn7CPvzFtKvi7', 'x' => '68%', 'y' => '52%', 'active' => false],
+						['class' => 'footer-location__pin6', 'city' => 'Tuticorin', 'map' => 'https://maps.app.goo.gl/zfmuo4jYaiLadJak7', 'x' => '52%', 'y' => '68%', 'active' => false],
+						['class' => 'footer-location__pin7', 'city' => 'Tirunelveli', 'map' => 'https://maps.app.goo.gl/v9hdxmsXeap4KaLcA', 'x' => '42%', 'y' => '76%', 'active' => false],
+						['class' => 'footer-location__pin8', 'city' => 'Nagercoil', 'map' => 'https://maps.app.goo.gl/q2Qenc9u2HzmJ9Ed9', 'x' => '38%', 'y' => '88%', 'active' => false],
 					];
 					foreach ($mobile_pins as $pin) :
 						$active = !empty($pin['active']) ? ' is-active' : '';
 					?>
-					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo BASE_URL; ?>contact?branch=<?php echo $pin['branch']; ?>" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
+					<a class="footer-location__pin <?php echo $pin['class'] . $active; ?>" href="<?php echo htmlspecialchars($pin['map']); ?>" target="_blank" rel="noopener noreferrer" style="--pin-x: <?php echo $pin['x']; ?>; --pin-y: <?php echo $pin['y']; ?>;" data-city="<?php echo htmlspecialchars($pin['city']); ?>">
 						<span class="footer-location__pin-spin" aria-hidden="true">
 							<img class="footer-location__pin-icon footer-location__pin-icon--front" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="32" height="32">
 							<img class="footer-location__pin-icon footer-location__pin-icon--back" src="<?php echo BASE_URL; ?>assets/images/footer/map-pin.svg" alt="" width="32" height="32">

@@ -40,7 +40,7 @@
 						</div>
 						<p>“The audiologists took time to understand my lifestyle before suggesting a hearing aid. That personal touch mattered.”</p>
 						<footer>
-							<strong>Name</strong>
+							<strong>Suriya Narayanan</strong>
 							<span>Root Canal</span>
 						</footer>
 					</article>
@@ -76,7 +76,7 @@
 						</div>
 						<p>“The entire experience felt calm and caring. The team was professional, warm, and never rushed. For the first time, I truly felt heard both literally and emotionally.”</p>
 						<footer>
-							<strong>Name</strong>
+							<strong>Balaji Thiruvasagam</strong>
 							<span>Root Canal</span>
 						</footer>
 					</article>
@@ -112,7 +112,7 @@
 						</div>
 						<p>“Clear guidance, excellent service, and genuine concern. I’ve recommended them to my entire family because the care truly stands out.”</p>
 						<footer>
-							<strong>Name</strong>
+							<strong>Raghuvaran Ganesan</strong>
 							<span>Root Canal</span>
 						</footer>
 					</article>

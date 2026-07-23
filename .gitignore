@@ -2,4 +2,4 @@
 .env
 
 # Cursor settings
-.cursor/
+.cursor

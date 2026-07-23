@@ -19,7 +19,7 @@
 					<div class="home-moments-mobile__track" id="homeMomentsMobileTrack">
 						<article class="home-moments-mobile__panel">
 							<figure class="home-moments-mobile__media">
-								<img src="<?php echo BASE_URL; ?>assets/images/home/tab-testing.png" alt="Audiologist performing a hearing test" width="338" height="219" loading="lazy">
+								<img src="<?php echo BASE_URL; ?>assets/images/home/tab-maintenance.png" alt="Audiologist performing a hearing test" width="338" height="219" loading="lazy">
 							</figure>
 							<div class="home-moments-mobile__body">
 								<div class="home-moments-mobile__heading">
@@ -67,7 +67,7 @@
 
 						<article class="home-moments-mobile__panel">
 							<figure class="home-moments-mobile__media">
-								<img src="<?php echo BASE_URL; ?>assets/images/home/tab-maintenance.png" alt="Follow-up hearing care appointment" width="338" height="219" loading="lazy">
+								<img src="<?php echo BASE_URL; ?>assets/images/home/tab-testing.png" alt="Follow-up hearing care appointment" width="338" height="219" loading="lazy">
 							</figure>
 							<div class="home-moments-mobile__body">
 								<div class="home-moments-mobile__heading">

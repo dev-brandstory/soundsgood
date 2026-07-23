@@ -80,7 +80,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
 					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-loss') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-loss">Hearing Loss</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'hearing-aid') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>hearing-aid">Hearing Aid</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'testimonials') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>testimonials">Testimonials</a></li>
-					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blogs/">Blog</a></li>
+					<li><a class="header-nav__link" href="<?php echo BASE_URL; ?>blogs/">Blogs</a></li>
 					<li><a class="header-nav__link <?php echo ($current_page == 'about') ? 'is-active' : ''; ?>" href="<?php echo BASE_URL; ?>about">About Sounds Good</a></li>
 				</ul>
 				<a href="<?php echo BASE_URL; ?>contact" class="btn btn-outline-accent btn-pill">Book appointment</a>
@@ -114,7 +114,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
 				<li><a href="<?php echo BASE_URL; ?>hearing-loss">Hearing Loss</a></li>
 				<li><a href="<?php echo BASE_URL; ?>hearing-aid">Hearing Aid</a></li>
 				<li><a href="<?php echo BASE_URL; ?>testimonials">Testimonials</a></li>
-				<li><a href="<?php echo BASE_URL; ?>blogs/">Blog</a></li>
+				<li><a href="<?php echo BASE_URL; ?>blogs/">Blogs</a></li>
 				<li><a href="<?php echo BASE_URL; ?>about">About Sounds Good</a></li>
 				<li><a href="<?php echo BASE_URL; ?>contact">Contact Us</a></li>
 			</ul>

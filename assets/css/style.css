@@ -269,6 +269,7 @@
   padding: var(--space-2) var(--space-4);
   margin-bottom: var(--space-3);
   font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-dark);
   background: var(--color-white);
   border: 1px solid var(--color-border-light);
@@ -287,7 +288,7 @@
 
 .section-desc {
   max-width: 853px;
-  font-size: var(--font-size-md);
+  font-size:var(--font-size-lg);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
 }
@@ -558,10 +559,27 @@
   color: var(--color-text-secondary);
 }
 
+.stat-card__cities li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: var(--font-weight-medium);
+  font-size: 15px;
+}
+
+.stat-card__cities li a:hover,
+.stat-card__cities li a:focus-visible {
+  color: var(--color-primary, #2c2d88);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .stat-card__cities li::before {
   content: counter(city) ". ";
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
+  display: inline-block;
+  min-width: 1rem;
 }
 
 .stat-card--experience .stat-card__number,
@@ -782,7 +800,7 @@
   padding: 10px 20px;
   margin-bottom: var(--space-3);
   font-size: 16px;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold)!important;
   line-height: 1.4;
   color: #333333;
   background: #f4f4f4;
@@ -1281,6 +1299,7 @@ filter: grayscale(100%);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-4);
   line-height: var(--line-height-relaxed);
+  font-size:var(--font-size-lg);
 }
 
 
@@ -1479,6 +1498,12 @@ filter: grayscale(100%);
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.12s ease, visibility 0.12s ease;
+}
+
+/* Theni — tab opens left so it stays on map */
+.footer-location__pin3 .footer-location__tab {
+  left: auto;
+  right: calc(100% - 6px);
 }
 
 .footer-location__tab svg {
@@ -1819,7 +1844,7 @@ filter: grayscale(100%);
   padding: 10px 20px;
   margin-bottom: var(--space-3);
   font-size: 16px;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   line-height: 1.4;
   color: #333333;
   background: #f4f4f4;
@@ -2215,7 +2240,7 @@ filter: grayscale(100%);
   justify-content: center;
   padding: 10px 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--font-weight-semibold);
   line-height: 1.4;
   color: #333;
   text-transform: uppercase;
@@ -2574,6 +2599,7 @@ filter: grayscale(100%);
 
 .site-footer__logo img{
   height:100px;
+  width: 100%;
 }
 
 .site-footer__links li,
@@ -3019,6 +3045,7 @@ filter: grayscale(100%);
   max-width: 661px;
   margin-inline: auto;
   font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
   color: #444444;
   line-height: 1.5;
 }
@@ -3113,12 +3140,10 @@ filter: grayscale(100%);
 
 .about-contact__submit {
   margin-top: var(--space-4);
-  min-width: 334px;
   padding: var(--space-3) var(--space-8);
   font-size: 15px;
   font-weight: var(--font-weight-medium);
 }
-
 
 /* ==========================================================================
    Contact Page
@@ -3192,6 +3217,24 @@ filter: grayscale(100%);
   box-shadow: 0 0 24px rgba(44, 45, 136, 0.1);
   border-radius: 20px;
   overflow: hidden;
+}
+
+.contact-booking__clinic-hero {
+  max-height: 520px;
+  overflow: hidden;
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    max-height 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.55s ease;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__clinic-hero {
+  max-height: 0;
+  transform: translateY(-28%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Purple hero — doctor.webp fills panel */
@@ -3319,6 +3362,14 @@ filter: grayscale(100%);
   gap: 12px;
   padding: 20px 24px 24px;
   background: #FFFFFF;
+  transition: align-items 0.35s ease;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__clinic-copy {
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  background: #F9F9FF;
 }
 
 .contact-booking__clinic-copy strong {
@@ -3336,22 +3387,68 @@ filter: grayscale(100%);
   color: #666666;
 }
 
+.contact-booking__card[data-mode="home"] .contact-booking__clinic {
+  border: 0;
+  box-shadow: none;
+  background: #F9F9FF;
+}
+
 /* Frame 2147240489 — doorstep panel */
 .contact-booking__home {
   position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
   gap: 20px;
   flex: 1 1 auto;
   width: 100%;
   min-height: 180px;
-  padding: 24px;
+  padding: 0;
   background: #F9F9FF;
   border: 1px solid #E1E2FF;
+  box-shadow: 0 0 24px rgba(44, 45, 136, 0.1);
   border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__home {
+  border-color: #E1E2FF;
+  box-shadow: 0 0 24px rgba(44, 45, 136, 0.1);
+}
+
+.contact-booking__home-media {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    max-height 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.55s ease,
+    transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__home-media {
+  max-height: 420px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-booking__home-media img {
+  display: block;
+  width: 100%;
+  height: 371px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contact-booking__badge--home {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  z-index: 2;
 }
 
 .contact-booking__home-copy {
@@ -3360,7 +3457,15 @@ filter: grayscale(100%);
   align-items: center;
   gap: 10px;
   width: 100%;
+  padding: 24px 24px 0;
   text-align: center;
+  transition: align-items 0.35s ease, text-align 0.35s ease, padding 0.45s ease;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__home-copy {
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 24px;
 }
 
 .contact-booking__home-copy strong {
@@ -3378,58 +3483,172 @@ filter: grayscale(100%);
   color: #666666;
 }
 
-.contact-booking__home-btn {
+.contact-booking__switch-btn {
   box-sizing: border-box;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 48px);
   max-width: 534px;
   height: 48px;
+  margin: 0 24px 24px;
   padding: 16px 30px;
   font-family: var(--font-family-base);
   font-size: 20px;
   font-weight: var(--font-weight-medium);
   line-height: 1.5;
-  color: #3B3CB4;
   text-decoration: none;
-  background: transparent;
-  border: 1px solid #3B3CB4;
   border-radius: 12px;
+  cursor: pointer;
   transition:
-    background-color var(--transition-base),
-    color var(--transition-base);
+    background-color 0.25s ease,
+    color 0.25s ease,
+    opacity 0.35s ease,
+    transform 0.45s ease,
+    max-height 0.55s ease,
+    margin 0.45s ease,
+    padding 0.45s ease,
+    border-color 0.25s ease;
 }
 
-.contact-booking__home-btn:hover {
+.contact-booking__switch-btn--home {
+  color: #3B3CB4;
+  background: transparent;
+  border: 1px solid #3B3CB4;
+}
+
+.contact-booking__switch-btn--home:hover {
   background: #3B3CB4;
   color: #FFFFFF;
 }
 
-/* Frame 2147240483 — form card */
-.contact-booking__form-wrap {
+.contact-booking__switch-btn--clinic {
+  display: none;
+  width: 100%;
+  max-width: 534px;
+  margin: 8px 0 0;
+  color: #3B3CB4;
+  background: transparent;
+  border: 1px solid #3B3CB4;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__switch-btn--clinic {
+  display: inline-flex;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__switch-btn--home {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+  border-width: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
+.contact-booking__card[data-mode="clinic"] .contact-booking__switch-btn--clinic {
+  display: none;
+}
+
+/* Forms viewport — roll between clinic / home */
+.contact-booking__forms {
+  position: relative;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   flex: 1 1 0;
   min-width: 0;
-  max-width: none;
   width: 100%;
-  padding: 24px;
-  background: #FFFFFF;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
   border-radius: 20px;
-  filter: drop-shadow(0 0 24px rgba(44, 45, 136, 0.1));
+}
+
+.contact-booking__forms-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  height: 100%;
 }
 
 .contact-booking__form {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E1E2FF;
+  box-shadow: 0 0 24px rgba(44, 45, 136, 0.1);
+  border-radius: 20px;
+  transition:
+    transform 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.55s ease;
+}
+
+.contact-booking__form--clinic {
+  position: relative;
+  z-index: 2;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.contact-booking__form--home {
+  z-index: 1;
+  transform: translateY(48px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__form--clinic {
+  transform: translateY(-48px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-booking__card[data-mode="home"] .contact-booking__form--home {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.contact-booking__address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.contact-booking__address-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.contact-booking__locate {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  color: #3897F0;
+  cursor: pointer;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.contact-booking__locate:hover,
+.contact-booking__locate:focus-visible {
+  text-decoration: underline;
 }
 
 .contact-booking__field {
@@ -3561,6 +3780,15 @@ filter: grayscale(100%);
 .contact-booking__submit:hover {
   background: var(--color-primary-hover);
   color: #FFFFFF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-booking__clinic-hero,
+  .contact-booking__home-media,
+  .contact-booking__switch-btn,
+  .contact-booking__form {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 
@@ -3860,7 +4088,7 @@ filter: grayscale(100%);
   min-width: 148px;
   min-height: 48px;
   padding: 12px 32px;
-  border: 0;
+  border: 1px solid var(--color-primary);
   background: var(--color-primary);
   color: #fff;
   font-size: 15px;
@@ -3870,8 +4098,9 @@ filter: grayscale(100%);
 
 .testimonials-grid__load-more:hover,
 .testimonials-grid__load-more:focus-visible {
-  background: var(--color-secondary);
-  color: #fff;
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .testimonials-grid [data-testimonial-item].is-hidden,
@@ -4398,9 +4627,9 @@ filter: grayscale(100%);
 
 .hl-understanding__media {
   flex: 0 0 400px;
-  width: 400px;
+  width: 100%;
   max-width: 100%;
-  height: 272px;
+  height: 325px;
   margin: 0;
   overflow: hidden;
   border-radius: 13.5px;
@@ -4427,7 +4656,7 @@ filter: grayscale(100%);
 
 .hl-understanding__copy p {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--font-size-lg);
   font-weight: 400;
   line-height: 30px;
   color: #444444;
@@ -4498,7 +4727,7 @@ filter: grayscale(100%);
 
 .hl-signs__card-body p {
   margin: 0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md);
   line-height: 1.55;
   color: var(--color-text-secondary);
 }
@@ -4506,7 +4735,6 @@ filter: grayscale(100%);
 .hl-signs__card-media {
   margin: 0;
   flex: 0 0 auto;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
@@ -4720,11 +4948,12 @@ filter: grayscale(100%);
   margin: 0;
   overflow: hidden;
   border-radius: var(--radius-lg);
+  height: 100%;
 }
 
 .hl-intervention__media img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -4735,7 +4964,7 @@ filter: grayscale(100%);
 
 .hl-intervention__copy p {
   color: var(--color-text-secondary);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   line-height: 1.6;
   margin: 0 0 var(--space-4);
 }
@@ -4798,7 +5027,7 @@ filter: grayscale(100%);
 
 .hl-untreated__copy p {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -4845,7 +5074,7 @@ filter: grayscale(100%);
 .hl-causes__list li {
   position: relative;
   padding-left: 28px;
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   line-height: 1.5;
   color: #555555;
 }
@@ -4977,16 +5206,11 @@ filter: grayscale(100%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  background: #e5f5ec;
-  border-radius: 10px;
 }
 
 .hl-challenges__icon img {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   display: block;
 }
 
@@ -5041,7 +5265,7 @@ filter: grayscale(100%);
 .hl-ear__lead {
   grid-area: lead;
   margin: 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   line-height: 1.6;
   color: var(--color-text-secondary);
 }
@@ -5049,7 +5273,7 @@ filter: grayscale(100%);
 .hl-ear__outro {
   grid-area: outro;
   margin: 0;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   line-height: 1.6;
   color: var(--color-text-secondary);
 }
@@ -5363,13 +5587,18 @@ filter: grayscale(100%);
   color: #ffffff;
   text-decoration: none;
   background: #3b3cb4;
+  border: 1px solid #3b3cb4;
   border-radius: 30px;
-  transition: background-color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base);
 }
 
 .hl-connect__cta:hover {
-  color: #ffffff;
-  background: #3233a0;
+  color: var(--color-primary);
+  background: var(--color-white);
+  border-color: var(--color-primary);
 }
 
 .hl-connect__cta:focus-visible {
@@ -6010,6 +6239,15 @@ filter: grayscale(100%);
   margin-bottom: 2rem;
 }
 
+.ha-generation__content .btn:hover,
+.ha-generation__content .btn:focus-visible,
+.ha-generation__content .btn:active {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: none;
+}
+
 .ha-generation__divider {
   margin: 0 0 32px;
   border: 0;
@@ -6217,7 +6455,7 @@ filter: grayscale(100%);
 .ha-product-card h3 {
   min-height: 48px;
   margin: 0 0 12px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.5;
   color: #444;
@@ -6248,7 +6486,7 @@ filter: grayscale(100%);
 }
 
 .ha-product-card__price--single {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -6303,7 +6541,7 @@ filter: grayscale(100%);
 
 .ha-type-card h3 {
   margin-bottom: 16px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.97px;
@@ -6778,7 +7016,7 @@ filter: grayscale(100%);
   min-width: 256px;
   min-height: 55px;
   padding: 16px 30px;
-  border: 0;
+  border: 1px solid #2C2D88;
   border-radius: 30px;
   background: #2C2D88;
   color: #fff;
@@ -6786,14 +7024,15 @@ filter: grayscale(100%);
   font-weight: 500;
   line-height: 1.5;
   text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .ha-cta__btn:hover,
 .ha-cta__btn:focus-visible {
-  background: #24256f;
-  color: #fff;
-  transform: translateY(-1px);
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: none;
 }
 
 .ha-cta__media {
@@ -7150,7 +7389,7 @@ filter: grayscale(100%);
 
   /* Benefits — mobile card carousel (Figma Six Ways) */
   .ha-benefits {
-    padding: 40px 0 52px;
+    padding: 24px 0 52px;
     background: #fff;
   }
 
@@ -7181,36 +7420,46 @@ filter: grayscale(100%);
   .ha-benefits__intro {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
-    text-align: center;
+    text-align: left;
   }
 
   .ha-benefits__intro .section-title {
-    max-width: 320px;
+    max-width: none;
     margin: 0;
     font-family: "Inter Display", Inter, sans-serif;
     font-size: 28px;
     font-weight: 500;
-    line-height: 1.35;
+    line-height: 1.4;
     letter-spacing: -1px;
-    text-align: center;
+    text-align: left;
     color: #2C2D88;
   }
 
   .ha-benefits__intro p {
-    max-width: 340px;
+    position: relative;
+    max-width: none;
     margin: 0;
-    padding-left: 0;
-    font-size: 16px;
+    padding-left: 16px;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
-    text-align: center;
-    color: #333333;
+    text-align: left;
+    color: #444444;
   }
 
   .ha-benefits__intro p::before {
-    display: none;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 4px;
+    height: calc(100% - 8px);
+    min-height: 96px;
+    background: #009C43;
   }
 
   .ha-benefits__scroller {
@@ -7237,7 +7486,7 @@ filter: grayscale(100%);
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
     margin: 0;
-    padding: 0 4px 0 0;
+    padding: 0;
     width: 100%;
   }
 
@@ -7248,45 +7497,42 @@ filter: grayscale(100%);
   .ha-benefits__card,
   .ha-benefits__card.is-active {
     position: relative;
-    display: block;
-    flex: 0 0 calc(100% - 28px);
-    width: calc(100% - 28px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 0 0 100%;
+    width: 100%;
     max-width: none;
-    height: 220px;
+    height: auto;
     min-height: 0 !important;
     margin: 0;
     padding: 0;
-    gap: 0;
+    gap: 20px;
     opacity: 1;
     transform: none;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     filter: none;
-    overflow: hidden;
-    background: #DEDEDE !important;
+    overflow: visible;
+    background: transparent !important;
     border: 0 !important;
-    border-radius: 16px !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
     transition: none !important;
   }
 
   .ha-benefits__card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(182.5deg, rgba(0, 0, 0, 0) 50.83%, rgba(0, 0, 0, 0.7) 77.87%);
-    pointer-events: none;
+    display: none;
   }
 
   /* Photo only — do not target icon <img> inside .ha-benefits__icon */
   .ha-benefits__card > img,
   .ha-benefits__card.is-active > img {
-    position: absolute !important;
-    inset: 0 !important;
+    position: relative !important;
+    inset: auto !important;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 255px;
     margin: 0;
     opacity: 1 !important;
     transform: none !important;
@@ -7295,26 +7541,27 @@ filter: grayscale(100%);
     border-radius: 16px;
     pointer-events: none;
     transition: none !important;
+    flex-shrink: 0;
   }
 
   .ha-benefits__card-body,
   .ha-benefits__card.is-active .ha-benefits__card-body {
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
     top: auto !important;
-    z-index: 2;
+    z-index: 1;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 11px;
+    gap: 12px;
     width: 100%;
     min-height: 0;
     margin: 0;
-    padding: 20px 18px;
-    background: transparent !important;
-    border-radius: 0;
+    padding: 20px;
+    background: #EDEDED !important;
+    border-radius: 20px;
     transition: none !important;
   }
 
@@ -7322,15 +7569,20 @@ filter: grayscale(100%);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2px;
+    gap: 0;
+    width: 100%;
     min-width: 0;
-    flex: 1;
+    flex: none;
   }
 
   .ha-benefits__icon {
-    width: 42px;
-    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
     margin: 0;
+    /* Circle + shadow already in SVG assets */
     background: transparent !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -7344,8 +7596,8 @@ filter: grayscale(100%);
     position: relative !important;
     inset: auto !important;
     display: block;
-    width: 42px !important;
-    height: 42px !important;
+    width: 52px !important;
+    height: 52px !important;
     max-width: none;
     opacity: 1 !important;
     transform: none !important;
@@ -7360,9 +7612,9 @@ filter: grayscale(100%);
     margin: 0;
     font-family: Inter, sans-serif;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 1.5;
-    color: #fff !important;
+    color: #353535 !important;
     transition: none !important;
   }
 
@@ -7374,10 +7626,10 @@ filter: grayscale(100%);
     opacity: 1 !important;
     transform: none !important;
     font-family: Inter, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #fff !important;
+    color: #666666 !important;
     transition: none !important;
   }
 
@@ -7386,27 +7638,20 @@ filter: grayscale(100%);
     height: 40px;
     margin-top: 24px;
     padding: 5px;
-    background: #F3F3F3;
+    background: #F2F2F2;
   }
 
-  .ha-benefits .ha-pager__btn--prev {
-    background: #fff;
-    color: #666;
-  }
-
-  .ha-benefits .ha-pager__btn--prev:not(:disabled) {
-    background: #2C2D88;
-    color: #fff;
-  }
-
+  .ha-benefits .ha-pager__btn--prev,
   .ha-benefits .ha-pager__btn--next {
     background: #2C2D88;
     color: #fff;
   }
 
+  .ha-benefits .ha-pager__btn--prev:disabled,
   .ha-benefits .ha-pager__btn--next:disabled {
-    background: #fff;
-    color: #666;
+    background: #2C2D88;
+    color: #fff;
+    opacity: 0.45;
   }
 
   /* Generation — phone Figma (white stacked: title, image, copy, advantages) */

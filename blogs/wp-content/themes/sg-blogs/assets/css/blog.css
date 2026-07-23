@@ -672,7 +672,7 @@
 .single-article__thumb {
   margin: 0;
   width: 100%;
-  height: 350px;
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
   background: #E2E2E2;
@@ -1088,7 +1088,7 @@
 
 @media (max-width: 991.98px) {
   .single-post {
-    padding: 64px 0 40px;
+    padding:0 0 40px!important;
   }
 
   .single-post__inner {
@@ -1172,6 +1172,11 @@
   .single-latest__grid {
     grid-template-columns: 1fr;
   }
+
+  .single-post__inner {
+    padding-top: 30px!important;
+  }
+  
 }
 
 .sg-blog {
@@ -1242,7 +1247,7 @@
 .sg-card__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 

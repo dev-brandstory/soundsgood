@@ -304,7 +304,7 @@
 
   .social-section .social-section__embed iframe {
     width: 100% !important;
-    height: 720px;
+    height: 375px;
   }
 
   .brands-section__card {
@@ -436,7 +436,7 @@
   }
 
   .contact-booking__left,
-  .contact-booking__form-wrap {
+  .contact-booking__forms {
     flex: 1 1 auto;
     max-width: none;
     width: 100%;
@@ -461,8 +461,12 @@
     white-space: normal;
   }
 
-  .contact-booking__form-wrap {
+  .contact-booking__forms {
     filter: none;
+    box-shadow: none;
+  }
+
+  .contact-booking__form {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
   }
 
@@ -471,7 +475,7 @@
     min-height: 0;
   }
 
-  .contact-booking__home-btn,
+  .contact-booking__switch-btn,
   .contact-booking__submit {
     font-size: 18px;
   }
@@ -1115,8 +1119,9 @@
   }
 
   .hl-connect__cta:hover {
-    color: #ffffff;
-    background: #3233a0;
+    color: var(--color-primary);
+    background: var(--color-white);
+    border-color: var(--color-primary);
   }
 
   .hearingLossPage .hl-faq {
@@ -1597,7 +1602,7 @@
 
   .contact-booking__clinic,
   .contact-booking__home,
-  .contact-booking__form-wrap {
+  .contact-booking__form {
     width: 100%;
     border-radius: 16px;
   }
@@ -1674,12 +1679,53 @@
     flex: 0 0 auto;
     min-height: 0;
     gap: 16px;
-    padding: 18px 16px;
+    padding: 0;
     justify-content: flex-start;
   }
 
   .contact-booking__home-copy {
     gap: 8px;
+    padding: 18px 16px 0;
+  }
+
+  .contact-booking__card[data-mode="home"] .contact-booking__home-copy {
+    padding: 0 16px;
+  }
+
+  .contact-booking__switch-btn {
+    width: calc(100% - 32px);
+    margin: 0 16px 16px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+
+  .contact-booking__card[data-mode="home"] .contact-booking__switch-btn--clinic {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
+  .contact-booking__home-media img {
+    height: 240px;
+  }
+
+  .contact-booking__card[data-mode="home"] .contact-booking__home-media {
+    max-height: 280px;
+  }
+
+  .contact-booking__form {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .contact-booking__address-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .contact-booking__locate {
+    font-size: 14px;
+    white-space: normal;
+    text-align: left;
   }
 
   .contact-booking__clinic-copy strong,
@@ -1694,19 +1740,12 @@
     line-height: 1.5;
   }
 
-  .contact-booking__home-btn,
+  .contact-booking__switch-btn,
   .contact-booking__submit {
-    width: 100%;
     max-width: none;
     height: 48px;
     padding: 12px 16px;
     font-size: 16px;
-  }
-
-  .contact-booking__form-wrap {
-    padding: 18px 16px;
-    filter: none;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
   }
 
   .contact-booking__form {
@@ -2459,8 +2498,9 @@
   }
 
   .hl-connect__cta:hover {
-    color: #2c2d88;
-    background: #f2f2f7;
+    color: var(--color-primary);
+    background: var(--color-white);
+    border-color: var(--color-primary);
   }
 
   /* Footer location — mobile (Figma stacked curve card) */
@@ -2530,6 +2570,10 @@
 
   #journey-heading{
     text-align: center!important;
+  }
+
+  .stat-card__cities li a{
+    font-size: 12px;
   }
 }
 
@@ -2658,8 +2702,8 @@
   }
 
   .contact-booking__clinic-copy,
-  .contact-booking__home,
-  .contact-booking__form-wrap {
+  .contact-booking__home-copy,
+  .contact-booking__form {
     padding: 14px;
   }
 
@@ -2673,7 +2717,7 @@
     font-size: 13px;
   }
 
-  .contact-booking__home-btn,
+  .contact-booking__switch-btn,
   .contact-booking__submit {
     font-size: 15px;
   }
@@ -2960,5 +3004,15 @@
     color: #ffffff;
     background: #3b3cb4;
     border-radius: 30px;
+  }
+}
+
+@media(min-width:768px){
+  .ha-generation__content{
+    padding-left: 40px!important;
+  }
+
+  .ha-product-card span{
+    display: block;
   }
 }
